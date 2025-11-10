@@ -19,7 +19,7 @@
           class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
         >
           <a
-            href="/"
+            href="../../index.html"
             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
           >
             <img
@@ -35,7 +35,7 @@
               >
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Serviços</a>
+              <a href="../../index.html#Servicos" class="nav-link">Serviços</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
             <li class="nav-item">
@@ -48,7 +48,61 @@
 
     <section id="Contato">
       <div class="container">
-        <h1>Contato:</h1>
+        <form>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="inputFirstName" class="form-label">Name *</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputFirstName"
+                aria-describedby="First Name"
+                required
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="inputLastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="inputLastName" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label for="inputEmail" class="form-label">Email *</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                aria-describedby="Email"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label for="inputPhone" class="form-label">Phone</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="inputPhone"
+                aria-describedby="Phone"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label for="inputMessage" class="form-label">Message *</label>
+              <textarea
+                class="form-control"
+                name="message"
+                id="inputMessage"
+                rows="5"
+                placeholder="Digite sua mensagem aqui..."
+                required
+              ></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </section>
     <script
