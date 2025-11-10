@@ -4,7 +4,7 @@
 }
 
 .carousel-item {
-    height: 32rem;
+    height: 20rem;
 }
 
 .carousel-caption {
@@ -19,3 +19,59 @@
         line-height: 1.4;
     }
 }
+
+/* Animação do gradiente do carrossel */
+@keyframes gradientShift {
+  0% {
+    background: linear-gradient(45deg, #4d98e2, #052af2);
+  }
+  50% {
+    background: linear-gradient(45deg, #052af2, #4d98e2, #6a5acd);
+  }
+  100% {
+    background: linear-gradient(45deg, #4d98e2, #052af2);
+  }
+}
+
+.carousel-item svg rect {
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+/* Gradiente com movimento */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-45deg, #4d98e2, #052af2, #6a5acd, #4d98e2);
+  background-size: 400% 400%;
+  animation: gradientMove 6s ease infinite;
+  z-index: 1;
+}
+
+.carousel-item .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Fim do gradiente com movimento */
+
+
