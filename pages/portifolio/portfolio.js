@@ -104,24 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 40);
   }
 
-  // Testimonials carousel-like behavior on mobile
-  if (window.innerWidth <= 768) {
-    const testimonials = document.querySelectorAll("#Testimonials .card");
-    let currentTestimonial = 0;
-
-    function showNextTestimonial() {
-      testimonials.forEach((testimonial, index) => {
-        testimonial.style.transform = `translateX(${
-          (index - currentTestimonial) * 100
-        }%)`;
-      });
-
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    }
-
-    // Auto-advance testimonials on mobile
-    setInterval(showNextTestimonial, 5000);
-  }
+  // Testimonials carousel removed - using normal responsive layout instead
 
   // Add loading state to external links
   const externalLinks = document.querySelectorAll('a[href^="http"]');
