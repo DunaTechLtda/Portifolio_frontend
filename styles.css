@@ -1,7 +1,5 @@
 
-.carousel {
-    margin-bottom: 4rem;
-}
+
 
 .carousel-item {
     height: 20rem;
@@ -73,3 +71,206 @@
 }
 
 /* Fim do gradiente com movimento */
+
+/* Estilos profissionais adicionais */
+.feature-icon {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.counter {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+
+/* Melhorias na responsividade */
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 16rem;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+  
+  .display-5 {
+    font-size: 2rem;
+  }
+  
+  .feature-icon {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+
+/* Animações suaves */
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Melhorias no navbar */
+.nav-pills .nav-link {
+  transition: all 0.3s ease;
+  border-radius: 25px;
+  padding: 8px 20px;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: var(--bs-primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--bs-primary);
+}
+
+/* Melhorias na seção de tecnologias */
+#Technologies {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.02), rgba(108, 117, 125, 0.01));
+}
+
+#Technologies .border {
+  border: 2px solid rgba(108, 117, 125, 0.2) !important;
+  transition: all 0.3s ease;
+  background-color: rgba(13, 110, 253, 0.01);
+}
+
+#Technologies .border:hover {
+  border-color: var(--bs-primary) !important;
+  background-color: rgba(13, 110, 253, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.1);
+}
+
+/* Melhorias nos badges */
+.badge {
+  font-weight: 500;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+/* Backgrounds animados sutis para seções */
+.stats-section {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(108, 117, 125, 0.03));
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(13, 110, 253, 0.03), transparent);
+  animation: shimmer 8s infinite;
+  z-index: 0;
+}
+
+.stats-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.about-section {
+  background: linear-gradient(135deg, rgba(108, 117, 125, 0.03), rgba(13, 110, 253, 0.05));
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(-45deg, transparent, rgba(108, 117, 125, 0.02), transparent);
+  animation: shimmer 10s infinite reverse;
+  z-index: 0;
+}
+
+.about-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Manter texto visível no tema dark */
+.stats-section .text-muted,
+.about-section .text-muted {
+  color: var(--bs-gray-400) !important;
+}
+
+.stats-section h3,
+.about-section h2,
+.about-section h3 {
+  color: var(--bs-body-color) !important;
+}
+
+.stats-section .text-primary,
+.about-section .text-primary {
+  color: var(--bs-primary) !important;
+}
+
+/* Seção de testimonials com background sutil */
+#Testimonials {
+  background: linear-gradient(135deg, rgba(108, 117, 125, 0.01), rgba(13, 110, 253, 0.02));
+}
+
+#Testimonials .card {
+  background-color: var(--bs-dark);
+  border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+#Testimonials .card:hover {
+  border-color: rgba(13, 110, 253, 0.3);
+  box-shadow: 0 15px 35px rgba(13, 110, 253, 0.1);
+}
