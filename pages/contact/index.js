@@ -1,7 +1,7 @@
 // Initialize EmailJS
 (function () {
-  // Substitua 'YOUR_PUBLIC_KEY' pela sua chave pública do EmailJS
-  emailjs.init("YOUR_PUBLIC_KEY");
+  // SUBSTITUA pela sua chave pública do EmailJS
+  emailjs.init("s11Bnx4qEbtNFvdXG");
 })();
 
 // Handle form submission
@@ -14,12 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
 
       // Get form data
+      const now = new Date();
       const formData = {
         from_name: document.getElementById("inputFirstName").value,
         from_lastname: document.getElementById("inputLastName").value,
         from_email: document.getElementById("inputEmail").value,
         from_phone: document.getElementById("inputPhone").value,
         message: document.getElementById("inputMessage").value,
+        current_date:
+          now.toLocaleDateString("pt-BR") +
+          " às " +
+          now.toLocaleTimeString("pt-BR"),
       };
 
       // Validate required fields
@@ -37,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Send email using EmailJS
       emailjs
-        .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+        .send("service_hqtg8gp", "template_81rl7np", formData)
         .then(
           function (response) {
             console.log("SUCCESS!", response.status, response.text);
