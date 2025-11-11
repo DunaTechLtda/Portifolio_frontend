@@ -112,11 +112,25 @@
   }
   
   .carousel-caption h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
   }
   
   .carousel-caption p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Botões menores no mobile */
+  .carousel-caption .btn-lg {
     font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .carousel-caption .btn-lg i {
+    font-size: 0.8rem;
   }
   
   .display-5 {
@@ -126,6 +140,35 @@
   .feature-icon {
     width: 60px !important;
     height: 60px !important;
+  }
+}
+
+/* Para telas muito pequenas (menos de 480px) */
+@media (max-width: 480px) {
+  .carousel-item {
+    height: 14rem;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  
+  .carousel-caption p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .carousel-caption .btn-lg {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .carousel-caption .btn-lg i {
+    font-size: 0.7rem;
+    margin-right: 0.25rem !important;
   }
 }
 
