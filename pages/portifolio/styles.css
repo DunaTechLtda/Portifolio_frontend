@@ -1,0 +1,129 @@
+/* Portfolio Custom Styles */
+
+/* Portfolio hover effects */
+.portfolio-item .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-item .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item .card-img-top:hover {
+  transform: scale(1.05);
+}
+
+/* Portfolio overlay */
+.portfolio-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 42, 242, 0.8);
+  z-index: -1;
+}
+
+/* Filter buttons */
+.filter-btn.active {
+  background-color: var(--bs-primary);
+  color: white;
+  border-color: var(--bs-primary);
+}
+
+.filter-btn {
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Portfolio items animation */
+.portfolio-item {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.portfolio-item.fade-out {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Badge styles */
+.badge {
+  font-size: 0.75em;
+}
+
+/* Stats section */
+#Stats h2 {
+  font-size: 3rem;
+}
+
+/* Testimonials */
+.testimonials .card {
+  transition: transform 0.3s ease;
+}
+
+.testimonials .card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .portfolio-overlay {
+    opacity: 1;
+    position: static !important;
+    transform: none !important;
+    background: transparent;
+    margin-top: 10px;
+  }
+  
+  .portfolio-overlay::before {
+    display: none;
+  }
+  
+  #Stats h2 {
+    font-size: 2rem;
+  }
+  
+  .filter-btn {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-item {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+.portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+.portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+.portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+.portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+.portfolio-item:nth-child(6) { animation-delay: 0.6s; }
