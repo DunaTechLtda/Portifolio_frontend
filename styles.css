@@ -161,6 +161,30 @@
   #About p {
     font-size: 0.9rem;
   }
+
+  /* Correção específica para navegação no mobile */
+  .nav-pills .nav-link[href="#Servicos"]:hover {
+    background-color: var(--bs-primary) !important;
+    color: white !important;
+  }
+  
+  .nav-pills .nav-link[href="#Servicos"].active,
+  .nav-pills .nav-link[href="#Servicos"]:active,
+  .nav-pills .nav-link[href="#Servicos"]:focus {
+    background-color: transparent !important;
+    color: var(--bs-nav-link-color) !important;
+  }
+  
+  /* Forçar que apenas "Início" possa estar visualmente ativo no mobile */
+  .nav-pills .nav-link:not([href="#"]).active {
+    background-color: transparent !important;
+    color: var(--bs-nav-link-color) !important;
+  }
+  
+  .nav-pills .nav-link[href="#"].active {
+    background-color: var(--bs-primary) !important;
+    color: white !important;
+  }
 }
 
 /* Animações suaves */
@@ -194,6 +218,28 @@
 
 .nav-pills .nav-link.active {
   background-color: var(--bs-primary);
+}
+
+/* Melhorar controle de navegação ativa */
+.nav-pills .nav-link.active {
+  background-color: var(--bs-primary);
+}
+
+/* Garantir que apenas o link "Início" tenha o estilo ativo */
+.nav-pills .nav-link:not([href="#"]).active {
+  background-color: transparent !important;
+  color: var(--bs-nav-link-color) !important;
+}
+
+.nav-pills .nav-link[href="#"].active {
+  background-color: var(--bs-primary) !important;
+  color: white !important;
+}
+
+/* Manter cor normal para "Serviços" quando não ativo */
+.nav-pills .nav-link[href="#Servicos"]:not(.active) {
+  background-color: transparent;
+  color: var(--bs-nav-link-color);
 }
 
 /* Melhorias na seção de tecnologias */

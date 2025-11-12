@@ -46,10 +46,69 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(statsSection);
   }
 
+  // Controle robusto de navegação ativa
+  const navLinks = document.querySelectorAll(".nav-pills .nav-link");
+  const inicioLink = document.querySelector('.nav-pills .nav-link[href="#"]');
+  const servicosLink = document.querySelector(
+    '.nav-pills .nav-link[href="#Servicos"]'
+  );
+
+  // Função para garantir que apenas "Início" esteja ativo
+  function forceInicioActive() {
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      link.removeAttribute("aria-current");
+    });
+    if (inicioLink) {
+      inicioLink.classList.add("active");
+      inicioLink.setAttribute("aria-current", "page");
+    }
+  }
+
+  // Observer para monitorar mudanças nas classes dos links
+  const navObserver = new MutationObserver(() => {
+    let activeCount = 0;
+    navLinks.forEach((link) => {
+      if (link.classList.contains("active")) activeCount++;
+    });
+
+    // Se mais de um link estiver ativo, ou se "Serviços" estiver ativo
+    if (
+      activeCount > 1 ||
+      (servicosLink && servicosLink.classList.contains("active"))
+    ) {
+      forceInicioActive();
+    }
+  });
+
+  // Observar mudanças em todos os nav-links
+  navLinks.forEach((link) => {
+    navObserver.observe(link, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  });
+
+  // Função para detectar se é mobile
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
   // Smooth scroll para links internos
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
+
+      // No mobile, prevenir completamente o comportamento do Bootstrap
+      if (isMobile() && this.classList.contains("nav-link")) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+
+        // Remover imediatamente qualquer classe active que possa ter sido adicionada
+        this.classList.remove("active");
+        this.removeAttribute("aria-current");
+      }
+
       const target = document.querySelector(this.getAttribute("href"));
       if (target) {
         target.scrollIntoView({
@@ -57,7 +116,37 @@ document.addEventListener("DOMContentLoaded", () => {
           block: "start",
         });
       }
+
+      // Para links âncora internos, forçar apenas "Início" ativo
+      if (
+        this.getAttribute("href") !== "#" &&
+        this.getAttribute("href").startsWith("#")
+      ) {
+        setTimeout(() => forceInicioActive(), 50);
+      }
     });
+  });
+
+  // Garantir estado correto ao carregar a página e em intervalos
+  window.addEventListener("load", () => {
+    forceInicioActive();
+  });
+
+  // Verificar periodicamente se o estado está correto
+  setInterval(() => {
+    let activeCount = 0;
+    navLinks.forEach((link) => {
+      if (link.classList.contains("active")) activeCount++;
+    });
+
+    if (activeCount !== 1 || !inicioLink.classList.contains("active")) {
+      forceInicioActive();
+    }
+  }, 1000);
+
+  // Listener para mudanças de tamanho de tela
+  window.addEventListener("resize", () => {
+    forceInicioActive();
   });
 
   // Adicionar efeito hover nas tecnologias
