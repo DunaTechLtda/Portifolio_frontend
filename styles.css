@@ -162,29 +162,7 @@
     font-size: 0.9rem;
   }
 
-  /* Correção específica para navegação no mobile */
-  .nav-pills .nav-link[href="#Servicos"]:hover {
-    background-color: var(--bs-primary) !important;
-    color: white !important;
-  }
-  
-  .nav-pills .nav-link[href="#Servicos"].active,
-  .nav-pills .nav-link[href="#Servicos"]:active,
-  .nav-pills .nav-link[href="#Servicos"]:focus {
-    background-color: transparent !important;
-    color: var(--bs-nav-link-color) !important;
-  }
-  
-  /* Forçar que apenas "Início" possa estar visualmente ativo no mobile */
-  .nav-pills .nav-link:not([href="#"]).active {
-    background-color: transparent !important;
-    color: var(--bs-nav-link-color) !important;
-  }
-  
-  .nav-pills .nav-link[href="#"].active {
-    background-color: var(--bs-primary) !important;
-    color: white !important;
-  }
+
 }
 
 /* Animações suaves */
@@ -203,44 +181,7 @@
   }
 }
 
-/* Melhorias no navbar */
-.nav-pills .nav-link {
-  transition: all 0.3s ease;
-  border-radius: 25px;
-  padding: 8px 20px;
-}
-
-.nav-pills .nav-link:hover {
-  background-color: var(--bs-primary);
-  color: white;
-  transform: translateY(-1px);
-}
-
-.nav-pills .nav-link.active {
-  background-color: var(--bs-primary);
-}
-
-/* Melhorar controle de navegação ativa */
-.nav-pills .nav-link.active {
-  background-color: var(--bs-primary);
-}
-
-/* Garantir que apenas o link "Início" tenha o estilo ativo */
-.nav-pills .nav-link:not([href="#"]).active {
-  background-color: transparent !important;
-  color: var(--bs-nav-link-color) !important;
-}
-
-.nav-pills .nav-link[href="#"].active {
-  background-color: var(--bs-primary) !important;
-  color: white !important;
-}
-
-/* Manter cor normal para "Serviços" quando não ativo */
-.nav-pills .nav-link[href="#Servicos"]:not(.active) {
-  background-color: transparent;
-  color: var(--bs-nav-link-color);
-}
+/* Navbar com comportamento padrão do Bootstrap */
 
 /* Melhorias na seção de tecnologias */
 #Technologies {
