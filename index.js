@@ -41,6 +41,13 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observar a seção de estatísticas
 document.addEventListener("DOMContentLoaded", () => {
+  // Preencher ano atual dinamicamente
+  const currentYear = new Date().getFullYear();
+  const yearElement = document.getElementById("current-year");
+  if (yearElement) {
+    yearElement.textContent = currentYear;
+  }
+
   const statsSection = document.querySelector("#Stats");
   if (statsSection) {
     observer.observe(statsSection);

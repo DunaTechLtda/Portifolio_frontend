@@ -1,5 +1,12 @@
 // Portfolio Filter Functionality
 document.addEventListener("DOMContentLoaded", function () {
+  // Preencher ano atual dinamicamente
+  const currentYear = new Date().getFullYear();
+  const yearElements = document.querySelectorAll(".current-year");
+  yearElements.forEach((el) => {
+    el.textContent = currentYear;
+  });
+
   const filterButtons = document.querySelectorAll(".filter-btn");
   const portfolioItems = document.querySelectorAll(".portfolio-item");
 

@@ -6,6 +6,13 @@
 
 // Handle form submission
 document.addEventListener("DOMContentLoaded", function () {
+  // Preencher ano atual dinamicamente
+  const currentYear = new Date().getFullYear();
+  const yearElements = document.querySelectorAll(".current-year");
+  yearElements.forEach((el) => {
+    el.textContent = currentYear;
+  });
+
   const contactForm = document.querySelector("form");
   const submitBtn = document.querySelector('button[type="submit"]');
 
@@ -30,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Validate required fields
       if (!formData.from_name || !formData.from_email || !formData.message) {
         alert(
-          "Por favor, preencha todos os campos obrigatórios (Nome, Email e Mensagem)."
+          "Por favor, preencha todos os campos obrigatórios (Nome, Email e Mensagem).",
         );
         return;
       }
@@ -47,16 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
           function (response) {
             console.log("SUCCESS!", response.status, response.text);
             alert(
-              "Mensagem enviada com sucesso! Entraremos em contato em breve."
+              "Mensagem enviada com sucesso! Entraremos em contato em breve.",
             );
             contactForm.reset();
           },
           function (error) {
             console.log("FAILED...", error);
             alert(
-              "Erro ao enviar mensagem. Tente novamente ou entre em contato por telefone."
+              "Erro ao enviar mensagem. Tente novamente ou entre em contato por telefone.",
             );
-          }
+          },
         )
         .finally(function () {
           // Restore button
@@ -70,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Form validation feedback
 document.addEventListener("DOMContentLoaded", function () {
   const inputs = document.querySelectorAll(
-    "input[required], textarea[required]"
+    "input[required], textarea[required]",
   );
 
   inputs.forEach((input) => {
