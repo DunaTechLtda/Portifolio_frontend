@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/sections/Footer';
+import { motion } from 'framer-motion';
 
 const faqData = [
   {
@@ -35,60 +36,97 @@ export default function FAQ() {
     <main className="bg-dark text-white min-vh-100">
       <Navbar />
 
-      <section className="py-5 glow-effect">
-        <div className="container">
-          <div className="row text-center mb-5">
-            <div className="col-lg-12">
-              <h1 className="display-4 fw-bold text-white mb-3">Perguntas Frequentes</h1>
-              <p className="lead text-muted">
-                Encontre respostas para as principais dúvidas sobre nossos serviços
+      <section className="faq-fluid-section position-relative py-5">
+        <div className="container py-5 position-relative z-1">
+          <motion.div
+            className="row align-items-end justify-content-between g-4 mb-4 mb-lg-5"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="col-lg-7">
+              <span className="section-eyebrow">FAQs</span>
+              <h1 className="section-title mt-3 mb-3">Respostas organizadas com leitura limpa e visual premium.</h1>
+              <p className="section-copy mb-0">
+                A experiência aqui foi desenhada para parecer uma central de conhecimento viva, com cards, vidro fosco e foco em clareza.
               </p>
             </div>
-          </div>
+            <div className="col-lg-4">
+              <div className="glass-card faq-note p-4">
+                <div className="faq-note-label">Ajuda rápida</div>
+                <div className="faq-note-value">Se a dúvida for mais específica, a conversa continua no contato.</div>
+              </div>
+            </div>
+          </motion.div>
 
-          <div className="row justify-content-center">
+          <div className="row g-4 align-items-start">
             <div className="col-lg-8">
-              <div className="accordion accordion-flush bg-dark" id="faqAccordion">
+              <div className="faq-accordion-stack" id="faqAccordion">
                 {faqData.map((faq, index) => (
-                  <div className="accordion-item bg-dark border-secondary mb-3 rounded shadow-sm" key={faq.id}>
-                    <h2 className="accordion-header">
-                      <button 
-                        className={`accordion-button bg-dark text-white fw-bold ${index !== 0 ? 'collapsed' : ''}`} 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target={`#collapse${faq.id}`} 
-                        aria-expanded={index === 0 ? "true" : "false"}
-                      >
-                        {faq.question}
-                      </button>
-                    </h2>
-                    <div 
-                      id={`collapse${faq.id}`} 
-                      className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} 
-                      data-bs-parent="#faqAccordion"
-                    >
-                      <div className="accordion-body text-muted">
-                        {faq.answer}
+                  <motion.div
+                    className="glass-card faq-item-card"
+                    key={faq.id}
+                    initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
+                    whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    viewport={{ once: true, amount: 0.22 }}
+                    transition={{ duration: 0.55, delay: index * 0.06 }}
+                  >
+                    <div className="accordion accordion-flush" id={`faqGroup-${faq.id}`}>
+                      <div className="accordion-item faq-accordion-item">
+                        <h2 className="accordion-header">
+                          <button
+                            className={`accordion-button faq-accordion-button ${index !== 0 ? 'collapsed' : ''}`}
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target={`#collapse${faq.id}`}
+                            aria-expanded={index === 0 ? 'true' : 'false'}
+                          >
+                            <span className="faq-question-index">0{index + 1}</span>
+                            {faq.question}
+                          </button>
+                        </h2>
+                        <div
+                          id={`collapse${faq.id}`}
+                          className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`}
+                          data-bs-parent="#faqAccordion"
+                        >
+                          <div className="accordion-body faq-accordion-body">
+                            {faq.answer}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Seção CTA Reutilizável */}
-      <section className="py-5 bg-primary bg-gradient">
-        <div className="container text-center">
-          <h2 className="fw-bold text-white mb-3">Não encontrou sua pergunta?</h2>
-          <p className="lead text-white opacity-75 mb-4">
-            Nossa equipe está pronta para esclarecer todas as suas dúvidas.
-          </p>
-          <a href="/contato" className="btn btn-light btn-lg px-5 shadow-lg">
-            Entre em Contato
-          </a>
+            <div className="col-lg-4">
+              <motion.aside
+                className="glass-card faq-side-panel p-4 p-lg-5"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                whileHover={{ y: -6 }}
+              >
+                <span className="faq-side-eyebrow">Ainda em dúvida?</span>
+                <h2 className="faq-side-title mt-3 mb-3">Vamos destravar seu briefing com rapidez.</h2>
+                <p className="faq-side-copy">
+                  Se sua pergunta não estiver na lista, podemos mapear a necessidade no contato e desenhar a melhor solução.
+                </p>
+                <div className="faq-side-points">
+                  <span>Diagnóstico rápido</span>
+                  <span>Escopo claro</span>
+                  <span>Resposta objetiva</span>
+                </div>
+                <a href="/contato" className="btn btn-primary btn-lg tech-cta-primary w-100 mt-4">
+                  Entrar em contato
+                </a>
+              </motion.aside>
+            </div>
+          </div>
         </div>
       </section>
 
