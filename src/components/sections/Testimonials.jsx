@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const testimonialsData = [
   {
@@ -26,43 +27,50 @@ const testimonialsData = [
 
 export default function Testimonials() {
   return (
-    <section id="Testimonials" className="py-5">
-      <div className="container">
-        <div className="row text-center mb-5">
-          <div className="col-lg-8 mx-auto">
-            <h2 className="fw-bold text-white">O que Nossos Clientes Dizem</h2>
-            <p className="lead text-muted">
-              Depoimentos reais de empresários que confiaram em nossas soluções
-            </p>
+    <section id="Testimonials" className="testimonials-fluid-section position-relative py-5">
+      <div className="container py-5 position-relative z-1">
+        <motion.div
+          className="row justify-content-between align-items-end g-4 mb-4 mb-lg-5"
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55 }}
+        >
+          <div className="col-lg-7">
+            <span className="section-eyebrow">Depoimentos</span>
+            <h2 className="section-title mt-3 mb-3">Prova social com acabamento mais premium e estrutura editorial.</h2>
+            <p className="section-copy mb-0">Os relatos entram como cards com peso visual, reforçando confiança sem cair em uma grade genérica de colunas iguais.</p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="row g-4">
-          {testimonialsData.map((item) => (
-            <div className="col-md-6 col-lg-4" key={item.id}>
-              {/* Note que adicionei a classe shadow-lg e border-secondary para dar o visual premium do print */}
-              <div className="card border-secondary bg-dark text-white shadow-lg h-100 transition-card">
-                <div className="card-body text-center p-4">
-                  <div className="text-warning mb-3">
-                    {[...Array(item.stars)].map((_, i) => (
-                      <i key={i} className="bi bi-star-fill me-1"></i>
-                    ))}
-                  </div>
-                  <p className="card-text mb-4 opacity-75">
-                    {item.text}
-                  </p>
-                  <div className="d-flex align-items-center justify-content-center">
-                    <div className="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center me-3" style={{ width: '40px', height: '40px' }}>
-                      <i className="bi bi-person-fill text-white"></i>
-                    </div>
-                    <div className="text-start">
-                      <strong className="text-white">{item.name}</strong><br />
-                      <small className="text-muted">{item.company}</small>
-                    </div>
-                  </div>
+        <div className="testimonials-grid">
+          {testimonialsData.map((item, index) => (
+            <motion.article
+              className="glass-card testimonial-card"
+              key={item.id}
+              initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true, amount: 0.22 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              whileHover={{ y: -8 }}
+            >
+              <div className="testimonial-quote-mark">“</div>
+              <div className="text-warning mb-3">
+                {[...Array(item.stars)].map((_, starIndex) => (
+                  <i key={starIndex} className="bi bi-star-fill me-1"></i>
+                ))}
+              </div>
+              <p className="testimonial-text">{item.text}</p>
+              <div className="testimonial-footer">
+                <div className="testimonial-avatar">
+                  <i className="bi bi-person-fill" />
+                </div>
+                <div>
+                  <strong>{item.name}</strong>
+                  <small>{item.company}</small>
                 </div>
               </div>
-            </div>
+            </motion.article>
           ))}
         </div>
       </div>
