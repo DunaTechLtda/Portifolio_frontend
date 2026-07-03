@@ -1,0 +1,354 @@
+/* NOVO SITE */
+
+:root {
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 40px;
+  --space-4xl: 48px;
+  --radius-lg: 26px;
+  --radius-xl: 28px;
+  --radius-2xl: 30px;
+  --radius-pill: 999px;
+  --color-text-primary: #ffffff;
+  --color-text-strong: rgba(255, 255, 255, 0.86);
+  --color-text-muted: rgba(255, 255, 255, 0.72);
+  --color-text-soft: rgba(255, 255, 255, 0.52);
+  --color-surface-soft: rgba(255, 255, 255, 0.05);
+  --color-border-soft: rgba(255, 255, 255, 0.06);
+  --color-accent-blue: #4d98e2;
+  --color-accent-indigo: #052af2;
+  --color-accent-blue-soft: rgba(77, 152, 226, 0.08);
+  --color-accent-indigo-soft: rgba(5, 42, 242, 0.08);
+  --gradient-accent-soft: linear-gradient(135deg, rgba(77, 152, 226, 0.18), rgba(5, 42, 242, 0.18));
+}
+
+/* Fundo super escuro para destacar o azul da Dunatech */
+body {
+  background-color: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Efeito de luz difusa no fundo (o 'Glow' que tem no vídeo) */
+.ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(5, 42, 242, 0.15) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Cartões modernos com efeito de vidro e borda sutil */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(77, 152, 226, 0.3);
+  box-shadow: 0 20px 40px rgba(5, 42, 242, 0.2);
+}
+
+/* Animação do gradiente de texto */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.text-gradient {
+  background: linear-gradient(270deg, #4d98e2, #052af2, #9d4de2);
+  background-size: 200% 200%;
+  animation: gradientFlow 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(77, 152, 226, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(5, 42, 242, 0.16), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(77, 152, 226, 0.08), transparent 40%),
+    #050505;
+  color: #f4f7fb;
+  overflow-x: hidden;
+}
+
+body[data-theme='light'] {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(77, 152, 226, 0.14), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(5, 42, 242, 0.1), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(77, 152, 226, 0.08), transparent 40%),
+    #f5f7fb;
+  color: #111827;
+}
+
+.site-shell {
+  min-height: 100vh;
+  background: transparent;
+}
+
+body[data-theme='light'] .glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme='light'] .text-white,
+body[data-theme='light'] .hero-title-word,
+body[data-theme='light'] .section-title,
+body[data-theme='light'] .bento-title,
+body[data-theme='light'] .portfolio-bento-title,
+body[data-theme='light'] .faq-side-title,
+body[data-theme='light'] .contact-side-title,
+body[data-theme='light'] .contact-side-copy,
+body[data-theme='light'] .testimonial-text,
+body[data-theme='light'] .footer-copy {
+  color: #0f172a !important;
+}
+
+body[data-theme='light'] .hero-title-word,
+body[data-theme='light'] .text-gradient {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+body[data-theme='light'] .hero-dashboard-card,
+body[data-theme='light'] .stats-card,
+body[data-theme='light'] .bento-card,
+body[data-theme='light'] .portfolio-bento-card,
+body[data-theme='light'] .faq-item-card,
+body[data-theme='light'] .contact-form-shell,
+body[data-theme='light'] .contact-side-card,
+body[data-theme='light'] .footer-glass-shell,
+body[data-theme='light'] .services-stats-card,
+body[data-theme='light'] .tech-matrix-card,
+body[data-theme='light'] .testimonial-card {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+body[data-theme='light'] .hero-dashboard-bars span,
+body[data-theme='light'] .hero-dashboard-mini-track span,
+body[data-theme='light'] .stats-card-icon,
+body[data-theme='light'] .bento-icon-wrap,
+body[data-theme='light'] .portfolio-chip,
+body[data-theme='light'] .about-highlight-icon,
+body[data-theme='light'] .testimonial-avatar,
+body[data-theme='light'] .contact-mini-card,
+body[data-theme='light'] .contact-side-hero::after {
+  color: #0f172a;
+}
+
+body[data-theme='light'] .hero-dashboard-bars span {
+  background: linear-gradient(180deg, #4d98e2, #052af2) !important;
+}
+
+body[data-theme='light'] .hero-dashboard-mini-track {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme='light'] .hero-dashboard-card-header,
+body[data-theme='light'] .hero-dashboard-mini-label,
+body[data-theme='light'] .bento-index,
+body[data-theme='light'] .portfolio-bento-index,
+body[data-theme='light'] .faq-question-index,
+body[data-theme='light'] .stats-card-label,
+body[data-theme='light'] .contact-label,
+body[data-theme='light'] .footer-links a,
+body[data-theme='light'] .hero-chip,
+body[data-theme='light'] .hero-marquee-pill,
+body[data-theme='light'] .section-eyebrow,
+body[data-theme='light'] .services-stats-label,
+body[data-theme='light'] .stats-note-label,
+body[data-theme='light'] .faq-note-label,
+body[data-theme='light'] .faq-side-eyebrow,
+body[data-theme='light'] .contact-note-label,
+body[data-theme='light'] .contact-side-eyebrow,
+body[data-theme='light'] .contact-mini-label,
+body[data-theme='light'] .tech-navbar-tag,
+body[data-theme='light'] .tech-theme-toggle-label {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+
+body[data-theme='light'] .section-copy,
+body[data-theme='light'] .hero-copy,
+body[data-theme='light'] .bento-description,
+body[data-theme='light'] .portfolio-bento-desc,
+body[data-theme='light'] .faq-accordion-body,
+body[data-theme='light'] .contact-note-value,
+body[data-theme='light'] .contact-side-copy,
+body[data-theme='light'] .footer-brand span,
+body[data-theme='light'] .footer-links a,
+body[data-theme='light'] .hero-meta-label,
+body[data-theme='light'] .stats-card-label,
+body[data-theme='light'] .stats-note-value {
+  color: rgba(15, 23, 42, 0.72) !important;
+}
+
+body[data-theme='light'] .tech-nav-link,
+body[data-theme='light'] .tech-navbar-tag,
+body[data-theme='light'] .tech-theme-toggle-label,
+body[data-theme='light'] .hero-kicker,
+body[data-theme='light'] .hero-chip,
+body[data-theme='light'] .hero-marquee-pill,
+body[data-theme='light'] .contact-label,
+body[data-theme='light'] .faq-question-index,
+body[data-theme='light'] .portfolio-bento-client,
+body[data-theme='light'] .portfolio-bento-index,
+body[data-theme='light'] .contact-note-label,
+body[data-theme='light'] .contact-side-eyebrow,
+body[data-theme='light'] .contact-mini-label,
+body[data-theme='light'] .section-eyebrow,
+body[data-theme='light'] .services-stats-label,
+body[data-theme='light'] .stats-note-label,
+body[data-theme='light'] .faq-note-label,
+body[data-theme='light'] .faq-side-eyebrow {
+  color: rgba(15, 23, 42, 0.65) !important;
+}
+
+body[data-theme='light'] .bg-dark {
+  background-color: rgba(255, 255, 255, 0.86) !important;
+  background-image: none !important;
+}
+
+body[data-theme='light'] .bg-dark.bg-gradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(240, 244, 255, 0.92)) !important;
+}
+
+body[data-theme='light'] .hero-grid-mask {
+  background: linear-gradient(to bottom, rgba(245, 247, 251, 0.06), rgba(245, 247, 251, 0.94));
+}
+
+body[data-theme='light'] .hero-grid-perspective {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+}
+
+body[data-theme='light'] .tech-navbar {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.12);
+}
+
+body[data-theme='light'] .tech-nav-link:hover {
+  background: rgba(15, 23, 42, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+body[data-theme='light'] .tech-nav-link {
+  color: rgba(15, 23, 42, 0.82);
+}
+
+body[data-theme='light'] .tech-nav-cta,
+body[data-theme='light'] .tech-cta-primary,
+body[data-theme='light'] .contact-submit {
+  color: #ffffff !important;
+}
+
+body[data-theme='light'] .tech-cta-secondary {
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+body[data-theme='light'] .hero-marquee-edge-left {
+  background: linear-gradient(90deg, #f5f7fb 12%, rgba(245, 247, 251, 0));
+}
+
+body[data-theme='light'] .hero-marquee-edge-right {
+  background: linear-gradient(270deg, #f5f7fb 12%, rgba(245, 247, 251, 0));
+}
+
+body[data-theme='light'] .contact-input {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+body[data-theme='light'] .contact-input::placeholder {
+  color: rgba(15, 23, 42, 0.34);
+}
+
+body[data-theme='light'] .contact-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(77, 152, 226, 0.16) !important;
+}
+
+body[data-theme='light'] .tech-theme-toggle {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme='light'] .tech-theme-toggle-track {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme='light'] .tech-theme-toggle-thumb.is-light {
+  background: linear-gradient(135deg, #052af2, #4d98e2);
+  transform: translateX(100%);
+}
+
+body[data-theme='light'] .tech-theme-toggle-thumb.is-dark {
+  background: linear-gradient(135deg, #111827, #475569);
+}
+
+body[data-theme='light'] .hero-kicker,
+body[data-theme='light'] .hero-chip,
+body[data-theme='light'] .hero-marquee-pill,
+body[data-theme='light'] .contact-mini-card,
+body[data-theme='light'] .portfolio-chip,
+body[data-theme='light'] .tech-chip,
+body[data-theme='light'] .faq-side-points span,
+body[data-theme='light'] .footer-links a {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme='light'] .section-title,
+body[data-theme='light'] .hero-title-word,
+body[data-theme='light'] .bento-title,
+body[data-theme='light'] .portfolio-bento-title,
+body[data-theme='light'] .faq-side-title,
+body[data-theme='light'] .contact-side-title {
+  text-shadow: none;
+}
+
+#Inicio,
+#Servicos {
+  scroll-margin-top: 120px;
+}
+
+.glass-card {
+  background: rgba(10, 12, 18, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.28);
+}
+
+.glass-card:hover {
+  border-color: rgba(77, 152, 226, 0.18);
+}
+

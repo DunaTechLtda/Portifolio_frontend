@@ -1,0 +1,212 @@
+/* Shared portfolio + FAQ surface */
+.portfolio-fluid-section,
+.faq-fluid-section {
+  position: relative;
+}
+
+.portfolio-fluid-section::before,
+.faq-fluid-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 10%, var(--color-accent-blue-soft), transparent 28%),
+    radial-gradient(circle at 80% 20%, var(--color-accent-indigo-soft), transparent 30%);
+}
+
+/* Shared note cards */
+.portfolio-note,
+.faq-note {
+  border-radius: var(--radius-xl);
+}
+
+.portfolio-note-label,
+.faq-note-label,
+.faq-side-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  color: var(--color-text-soft);
+}
+
+.portfolio-note-value,
+.faq-note-value {
+  margin-top: var(--space-sm);
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+
+/* Portfolio section */
+.portfolio-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.portfolio-bento-card {
+  grid-column: span 4;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.portfolio-bento-featured {
+  grid-column: span 8;
+}
+
+.portfolio-bento-media {
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+}
+
+.portfolio-bento-featured .portfolio-bento-media {
+  height: 340px;
+}
+
+.portfolio-bento-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+.portfolio-bento-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.04), rgba(5, 5, 5, 0.84));
+}
+
+.portfolio-bento-body {
+  padding: var(--space-lg);
+}
+
+.portfolio-bento-client,
+.portfolio-bento-index {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-text-soft);
+}
+
+.portfolio-bento-title {
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.portfolio-bento-desc {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.portfolio-bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.portfolio-chip {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-pill);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.portfolio-bento-link {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.portfolio-bento-link i {
+  color: var(--color-accent-blue);
+}
+
+/* FAQ section */
+.faq-accordion-stack {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.faq-item-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.faq-accordion-item {
+  border: 0;
+  background: transparent;
+}
+
+.faq-accordion-button {
+  background: transparent !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: none !important;
+  border: 0;
+  border-radius: var(--radius-lg) !important;
+  padding: var(--space-lg);
+  gap: var(--space-sm);
+  font-weight: 600;
+}
+
+.faq-accordion-button:not(.collapsed) {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.faq-accordion-button::after {
+  filter: invert(1);
+  opacity: 0.7;
+}
+
+.faq-question-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  background: var(--gradient-accent-soft);
+  color: var(--color-text-primary);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+.faq-accordion-body {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+}
+
+.faq-side-panel {
+  border-radius: var(--radius-2xl);
+  position: sticky;
+  top: 7rem;
+}
+
+.faq-side-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+}
+
+.faq-side-copy {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.faq-side-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.faq-side-points span {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-soft);
+  color: var(--color-text-strong);
+}
+
