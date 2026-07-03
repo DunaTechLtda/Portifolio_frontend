@@ -1,13 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function Navbar() {
+export default function Navbar({ theme = 'dark', toggleTheme }) {
   const navItems = [
     { label: 'Início', href: '#Inicio' },
     { label: 'Serviços', href: '#Servicos' },
     { label: 'Portfólio', href: '/portfolio' },
     { label: 'FAQs', href: '/faqs' },
   ];
+
+  const isLightTheme = theme === 'light';
 
   return (
     <motion.section
@@ -18,17 +20,17 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className="container">
-        <header className="tech-navbar glass-card d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3 gap-lg-4 px-3 px-md-4 py-3">
+        <header className="tech-navbar glass-card d-flex flex-column flex-xl-row align-items-center justify-content-between gap-4 gap-xl-5 px-4 px-md-5 py-4 py-xl-4">
           <motion.a
             href="/"
-            className="navbar-brand d-inline-flex align-items-center gap-3 text-decoration-none"
+            className="navbar-brand tech-navbar-brand d-inline-flex align-items-center gap-3 text-decoration-none"
             whileHover={{ scale: 1.02 }}
           >
-            <img src="/images/assets/Logo_Dunatech.png" width="160" alt="Logo da Dunatech" className="img-fluid" />
+            <img src="/images/assets/Logo_Dunatech.png" width="206" alt="Logo da Dunatech" className="img-fluid tech-navbar-logo" />
             <span className="d-none d-xl-inline tech-navbar-tag text-uppercase">Tech Fluidity</span>
           </motion.a>
 
-          <nav aria-label="Navegação principal" className="d-flex flex-wrap align-items-center justify-content-center gap-2 gap-md-3">
+          <nav aria-label="Navegação principal" className="tech-navbar-nav d-flex flex-wrap align-items-center justify-content-center gap-3 gap-md-4">
             {navItems.map((item) => (
               <motion.a
                 key={item.label}
@@ -40,6 +42,19 @@ export default function Navbar() {
                 {item.label}
               </motion.a>
             ))}
+            <button
+              type="button"
+              className="tech-theme-toggle"
+              onClick={toggleTheme}
+              aria-label={isLightTheme ? 'Ativar tema escuro' : 'Ativar tema claro'}
+            >
+              <span className="tech-theme-toggle-track">
+                <span className={`tech-theme-toggle-thumb ${isLightTheme ? 'is-light' : 'is-dark'}`} />
+              </span>
+              <span className="tech-theme-toggle-label">
+                {isLightTheme ? 'Claro' : 'Escuro'}
+              </span>
+            </button>
             <motion.a
               href="/contato"
               className="btn btn-primary tech-nav-cta"

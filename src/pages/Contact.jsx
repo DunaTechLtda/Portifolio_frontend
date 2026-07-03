@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/sections/Footer';
 
-export default function Contact() {
+export default function Contact({ theme, toggleTheme }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     inputFirstName: '',
@@ -49,8 +49,8 @@ export default function Contact() {
   };
 
   return (
-    <main className="bg-dark text-white min-vh-100">
-      <Navbar />
+    <main className="site-shell min-vh-100">
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <section className="contact-fluid-section position-relative py-5">
         <div className="container py-5 position-relative z-1">

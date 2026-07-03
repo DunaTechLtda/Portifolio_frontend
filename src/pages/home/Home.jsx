@@ -8,10 +8,10 @@ import About from '../../components/sections/About';
 import Testimonials from '../../components/sections/Testimonials';
 import Footer from './../../components/sections/Footer';
 
-export default function Home() {
+export default function Home({ theme, toggleTheme }) {
   return (
-    <main className="bg-dark text-white min-vh-100">
-      <Navbar />
+    <main className="site-shell min-vh-100">
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero />
       <Stats />
       <Services />

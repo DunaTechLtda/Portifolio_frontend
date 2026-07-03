@@ -31,10 +31,10 @@ const faqData = [
   }
 ];
 
-export default function FAQ() {
+export default function FAQ({ theme, toggleTheme }) {
   return (
-    <main className="bg-dark text-white min-vh-100">
-      <Navbar />
+    <main className="site-shell min-vh-100">
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <section className="faq-fluid-section position-relative py-5">
         <div className="container py-5 position-relative z-1">
