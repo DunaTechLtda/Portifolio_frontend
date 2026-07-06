@@ -1,209 +1,128 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const titleLines = [
-  ['Construímos'],
-  ['experiências digitais'],
-  ['com movimento constante.'],
+// As cores vivas injetadas no layout brutalista
+const dynamicWords = [
+  { text: "ROBUSTAS", color: "#4d98e2" }, // Azul Claro Dunatech
+  { text: "OTIMIZADAS", color: "#00E676" },    // Verde Neon
+  { text: "CRIATIVAS", color: "#FFEA00" },// Amarelo Vibrante
+  { text: "ESCALÁVEIS", color: "#B388FF" },// Roxo Brilhante
+  { text: "INOVADORAS", color: "#ff8888" }// Vermelho Neon
 ];
 
-const marqueeItems = [
-  'React',
-  'Framer Motion',
-  'Vite',
-  'Bootstrap 5',
-  'Node.js',
-  'Python',
-  'TypeScript',
-  'UI Systems',
-];
-
-const heroVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.18,
-      delayChildren: 0.15,
-    },
-  },
-};
-
-const lineVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.05,
-    },
-  },
-};
-
-const wordVariants = {
-  hidden: { opacity: 0, y: 24, filter: 'blur(10px)' },
-  show: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.55, ease: 'easeOut' },
-  },
-};
-
-const floatVariant = (distance, duration, delay = 0) => ({
-  y: [0, -distance, 0],
-  x: [0, distance / 3, 0],
-  transition: {
-    duration,
-    repeat: Infinity,
-    ease: 'easeInOut',
-    delay,
-  },
-});
+const marqueeItems = ['REACT', 'NODE.JS', 'PYTHON', 'UI/UX', 'MOBILE', 'CLOUD', 'IA', 'DATA'];
 
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % dynamicWords.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="Inicio" className="hero-fluid-section position-relative overflow-hidden">
-      <motion.div
-        className="hero-glow hero-glow-blue"
-        animate={{ scale: [1, 1.12, 1], opacity: [0.48, 0.8, 0.48] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="hero-glow hero-glow-violet"
-        animate={{ scale: [1, 1.18, 1], opacity: [0.32, 0.62, 0.32] }}
-        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-      />
+    <section id="Inicio" className="hero-fluid-section overflow-hidden d-flex flex-column justify-content-center" style={{ minHeight: '100vh', paddingTop: '140px' }}>
+      
+      {/* Mantém as luzes e o grid do seu tech-site/nav-hero.css */}
+      <div className="hero-glow hero-glow-blue"></div>
+      <div className="hero-glow hero-glow-violet"></div>
+      <div className="hero-grid-mask"></div>
+      <div className="hero-grid-perspective"></div>
 
-      <div className="hero-grid-mask" />
-      <div className="hero-grid-perspective" />
+      <div className="container position-relative z-1 flex-grow-1 d-flex flex-column align-items-center justify-content-center text-center">
+        
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          
+          <div className="hero-kicker glass-card d-inline-flex align-items-center gap-3 px-4 py-2 mb-4 fw-bold" style={{ letterSpacing: '2px', border: `1px solid ${dynamicWords[index].color}`, transition: 'border-color 0.3s' }}>
+            <span>DUNATECH</span>
+            <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: dynamicWords[index].color, transition: 'background 0.3s' }}></span>
+            <span>SOFTWARE_HOUSE</span>
+          </div>
 
-      <div className="container position-relative hero-content-shell">
-        <div className="row align-items-center g-5">
-          <div className="col-lg-6 position-relative z-1">
-            <motion.div
-              variants={heroVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.45 }}
-            >
-              <motion.div className="hero-kicker glass-card d-inline-flex align-items-center gap-2 px-3 py-2 mb-4" variants={wordVariants}>
-                <span className="hero-kicker-dot" />
-                Tech Fluidity • Interfaces vivas para SaaS e institucionais
-              </motion.div>
-
-              <motion.h1 className="hero-title mb-4" variants={wordVariants}>
-                {titleLines.map((line, lineIndex) => (
-                  <motion.span key={lineIndex} className="hero-title-line d-block" variants={lineVariants}>
-                    {line.map((word, wordIndex) => (
-                      <motion.span key={`${lineIndex}-${wordIndex}`} className="hero-title-word d-inline-block me-2" variants={wordVariants}>
-                        {word}
-                      </motion.span>
-                    ))}
+          <h1 className="text-titan mb-4">
+            <span>SOLUÇÕES</span>
+            <span>DIGITAIS</span>
+            
+            {/* Adicionamos position-relative e mx-auto aqui */}
+            <span className="position-relative d-inline-flex align-items-center justify-content-center mx-auto">
+              
+              {/* A palavra que centraliza de verdade */}
+              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease' }}>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={dynamicWords[index].text}
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -50, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="d-inline-block pb-2"
+                  >
+                    {dynamicWords[index].text}
                   </motion.span>
-                ))}
-              </motion.h1>
+                </AnimatePresence>
+              </span>
 
-              <motion.p className="hero-copy mb-4" variants={wordVariants}>
-                Transformamos sites estáticos em experiências dinâmicas com profundidade, assimetria e animações contínuas que deixam a interface com sensação de produto vivo.
-              </motion.p>
+              {/* O cursor flutuando do lado de fora sem ocupar espaço na centralização */}
+              <span 
+                className="blinking-cursor position-absolute" 
+                style={{ 
+                  left: '100%', /* Prende o cursor exatamente no final da palavra */
+                  color: dynamicWords[index].color, 
+                  transition: 'color 0.3s' 
+                }}
+              >
+                _
+              </span>
 
-              <motion.div className="d-flex flex-wrap align-items-center gap-3 mb-5" variants={wordVariants}>
-                <motion.a
-                  href="/contato"
-                  className="btn btn-primary btn-lg tech-cta-primary"
-                  whileHover={{ scale: 1.04, boxShadow: '0 0 36px rgba(77, 152, 226, 0.45)' }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Iniciar projeto
-                </motion.a>
-                <motion.a
-                  href="#Servicos"
-                  className="btn btn-outline-light btn-lg tech-cta-secondary"
-                  whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Ver soluções
-                </motion.a>
-              </motion.div>
+            </span>
+          </h1>
 
-              <motion.div className="hero-meta-grid" variants={wordVariants}>
-                <div className="glass-card hero-meta-item">
-                  <span className="hero-meta-value">3x</span>
-                  <span className="hero-meta-label">mais presença visual</span>
-                </div>
-                <div className="glass-card hero-meta-item">
-                  <span className="hero-meta-value">24/7</span>
-                  <span className="hero-meta-label">movimento de interface</span>
-                </div>
-                <div className="glass-card hero-meta-item">
-                  <span className="hero-meta-value">UI+</span>
-                  <span className="hero-meta-label">glass, glow e depth</span>
-                </div>
-              </motion.div>
-            </motion.div>
+          <p className="hero-copy mx-auto mb-5 fw-medium" style={{ maxWidth: '800px', fontSize: '1.25rem' }}>
+            Transformamos problemas complexos em softwares, aplicativos e automações. Uma infraestrutura de ponta para empresas que exigem excelência tecnológica.
+          </p>
+
+          <div className="d-flex flex-wrap justify-content-center gap-3">
+            <motion.a
+              href="/contato"
+              className="btn brutalist-btn btn-lg fw-bold px-5 py-3 border-0 text-dark"
+              style={{ background: dynamicWords[index].color, transition: 'background 0.3s ease' }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              AGENDAR_DIAGNÓSTICO
+            </motion.a>
+            <motion.a
+              href="#Servicos"
+              className="btn brutalist-btn btn-outline-light btn-lg fw-bold px-5 py-3"
+              style={{ borderWidth: '2px' }}
+              whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.1)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              CONHECER_SOLUÇÕES
+            </motion.a>
           </div>
 
-          <div className="col-lg-6 position-relative z-1">
-            <div className="hero-dashboard-stage">
-              <motion.div
-                className="hero-dashboard-card hero-dashboard-card-lg glass-card"
-                animate={floatVariant(18, 7.5, 0)}
-              >
-                <div className="hero-dashboard-card-header">
-                  <span className="hero-chip hero-chip-accent">Analytics Live</span>
-                  <span className="hero-chip">Realtime</span>
-                </div>
-                <div className="hero-dashboard-bars">
-                  <span style={{ height: '42%' }} />
-                  <span style={{ height: '68%' }} />
-                  <span style={{ height: '56%' }} />
-                  <span style={{ height: '78%' }} />
-                  <span style={{ height: '64%' }} />
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="hero-dashboard-card hero-dashboard-card-sm glass-card"
-                animate={floatVariant(12, 5.8, 0.4)}
-              >
-                <div className="hero-dashboard-mini-label">Conversion</div>
-                <div className="hero-dashboard-mini-value">+38.4%</div>
-                <div className="hero-dashboard-mini-track">
-                  <span />
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="hero-dashboard-card hero-dashboard-card-md glass-card"
-                animate={floatVariant(16, 6.8, 0.7)}
-              >
-                <div className="hero-dashboard-mini-label">Workflows</div>
-                <div className="hero-dashboard-list">
-                  <span><i className="bi bi-check2-circle" /> Architecture</span>
-                  <span><i className="bi bi-check2-circle" /> Motion system</span>
-                  <span><i className="bi bi-check2-circle" /> Design tokens</span>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="hero-marquee-shell position-relative">
-        <div className="hero-marquee-edge hero-marquee-edge-left" />
-        <div className="hero-marquee-edge hero-marquee-edge-right" />
+      {/* Marquee acompanhando a cor da palavra atual */}
+      <div className="hero-marquee-shell position-relative z-1 mt-5 border-top border-bottom" style={{ borderColor: `${dynamicWords[index].color} !important`, transition: 'border-color 0.3s ease' }}>
         <motion.div
-          className="hero-marquee-track d-flex align-items-center"
+          className="hero-marquee-track d-flex align-items-center gap-5 py-3"
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
         >
-          {[...marqueeItems, ...marqueeItems].map((item, index) => (
-            <div key={`${item}-${index}`} className="hero-marquee-pill glass-card">
-              {item}
-            </div>
+          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
+            <React.Fragment key={i}>
+              <span className="fs-4 fw-bold" style={{ letterSpacing: '2px' }}>{item}</span>
+              <span style={{ color: dynamicWords[index].color, fontWeight: '900', transition: 'color 0.3s ease' }}>///</span>
+            </React.Fragment>
           ))}
         </motion.div>
       </div>
+
     </section>
   );
 }

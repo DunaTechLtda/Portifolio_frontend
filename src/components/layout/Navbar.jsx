@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function Navbar({ theme = 'dark', toggleTheme }) {
+export default function Navbar() {
   const navItems = [
     { label: 'Início', href: '#Inicio' },
     { label: 'Serviços', href: '#Servicos' },
@@ -9,61 +9,57 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
     { label: 'FAQs', href: '/faqs' },
   ];
 
-  const isLightTheme = theme === 'light';
-
   return (
     <motion.section
       id="Navbar"
-      className="tech-navbar-shell fixed-top"
-      initial={{ opacity: 0, y: -24 }}
+      className="fixed-top mt-3 px-3"
+      initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="container">
-        <header className="tech-navbar glass-card d-flex flex-column flex-xl-row align-items-center justify-content-between gap-4 gap-xl-5 px-4 px-md-5 py-4 py-xl-4">
-          <motion.a
-            href="/"
-            className="navbar-brand tech-navbar-brand d-inline-flex align-items-center gap-3 text-decoration-none"
-            whileHover={{ scale: 1.02 }}
-          >
-            <img src="/images/assets/Logo_Dunatech.png" width="206" alt="Logo da Dunatech" className="img-fluid tech-navbar-logo" />
-            <span className="d-none d-xl-inline tech-navbar-tag text-uppercase">Tech Fluidity</span>
-          </motion.a>
+        <header 
+          className="d-flex align-items-center justify-content-between px-4 py-3 mx-auto"
+          style={{
+            background: 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(0, 0, 0, 0.05)',
+            borderRadius: '999px',
+            boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)',
+            maxWidth: '1100px'
+          }}
+        >
+          <a href="/" className="d-flex align-items-center text-decoration-none">
+            {/* Adicionado um filter para inverter a cor da logo branca para preta/azul escura no tema claro */}
+            <img src="/images/assets/Logo_Dunatech.png" width="160" alt="Logo Dunatech" style={{ filter: 'brightness(0) invert(0)' }} /> 
+          </a>
 
-          <nav aria-label="Navegação principal" className="tech-navbar-nav d-flex flex-wrap align-items-center justify-content-center gap-3 gap-md-4">
+          <nav className="d-none d-md-flex gap-4">
             {navItems.map((item) => (
-              <motion.a
+              <a
                 key={item.label}
                 href={item.href}
-                className="tech-nav-link"
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="text-decoration-none fw-medium"
+                style={{ color: '#475569', transition: 'color 0.2s ease' }}
+                onMouseOver={(e) => e.currentTarget.style.color = '#052af2'}
+                onMouseOut={(e) => e.currentTarget.style.color = '#475569'}
               >
                 {item.label}
-              </motion.a>
+              </a>
             ))}
-            <button
-              type="button"
-              className="tech-theme-toggle"
-              onClick={toggleTheme}
-              aria-label={isLightTheme ? 'Ativar tema escuro' : 'Ativar tema claro'}
-            >
-              <span className="tech-theme-toggle-track">
-                <span className={`tech-theme-toggle-thumb ${isLightTheme ? 'is-light' : 'is-dark'}`} />
-              </span>
-              <span className="tech-theme-toggle-label">
-                {isLightTheme ? 'Claro' : 'Escuro'}
-              </span>
-            </button>
+          </nav>
+
+          <div>
             <motion.a
               href="/contato"
-              className="btn btn-primary tech-nav-cta"
-              whileHover={{ scale: 1.04, boxShadow: '0 0 30px rgba(77, 152, 226, 0.35)' }}
-              whileTap={{ scale: 0.98 }}
+              className="btn btn-primary px-4 py-2 fw-semibold border-0"
+              style={{ borderRadius: '999px', background: 'linear-gradient(90deg, #052af2, #4d98e2)' }}
+              whileTap={{ scale: 0.96 }}
             >
               Contato
             </motion.a>
-          </nav>
+          </div>
         </header>
       </div>
     </motion.section>
