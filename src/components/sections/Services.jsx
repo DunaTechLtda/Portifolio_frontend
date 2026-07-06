@@ -3,133 +3,105 @@ import { motion } from 'framer-motion';
 
 const services = [
   {
-    title: 'Sistemas sob medida',
-    description: 'Arquitetura e implementação de plataformas customizadas para fluxos operacionais, atendimento e gestão interna.',
-    icon: 'bi-code-slash',
-    span: 'bento-card-xl',
-    accent: 'bento-accent-blue',
+    title: 'Desenvolvimento de Softwares Sob Medida',
+    description: 'Desenvolvemos sistemas completos — frontend, backend e banco de dados — criados do zero para atender as necessidades específicas de cada cliente.',
+    icon: 'bi-code-square',
+    color: '#00E676', // Verde Neon
+    cta: 'Saiba Mais',
     href: '/contato',
-    cta: 'Falar sobre o projeto',
   },
   {
-    title: 'Sites institucionais vivos',
-    description: 'Interfaces institucionais com narrativa visual, performance e identidade forte para destacar a marca.',
-    icon: 'bi-browser-chrome',
-    span: 'bento-card-md',
-    accent: 'bento-accent-cyan',
+    title: 'Criação de Sites Institucionais',
+    description: 'Desenvolvemos páginas elegantes e funcionais para empresas, profissionais e empreendedores que desejam presença digital com estilo e eficiência.',
+    icon: 'bi-globe',
+    color: '#4d98e2', // Azul Dunatech
+    cta: 'Ver Portfólio',
     href: '/portfolio',
-    cta: 'Ver referências',
   },
   {
-    title: 'Dashboards e data layers',
-    description: 'Painéis executivos e monitoramento visual com leitura rápida, profundidade e hierarquia clara.',
-    icon: 'bi-pie-chart-fill',
-    span: 'bento-card-md bento-card-tall',
-    accent: 'bento-accent-violet',
+    title: 'Suporte e Manutenção de Sites',
+    description: 'Prestamos suporte técnico para sites criados em diversas plataformas, como WordPress, Wix e outras, garantindo desempenho e estabilidade contínua.',
+    icon: 'bi-tools',
+    color: '#FFEA00', // Amarelo Vibrante
+    cta: 'Solicitar Suporte',
     href: '/contato',
-    cta: 'Estruturar dashboard',
-  },
-  {
-    title: 'Integrações e automações',
-    description: 'Conectamos APIs, formulários, CRM e rotinas para reduzir fricção entre sistemas.',
-    icon: 'bi-diagram-3-fill',
-    span: 'bento-card-sm',
-    accent: 'bento-accent-slate',
-    href: '/contato',
-    cta: 'Conectar fluxos',
-  },
-  {
-    title: 'Suporte e evolução contínua',
-    description: 'Manutenção, ajustes de conversão, performance e evolução visual sem perder consistência.',
-    icon: 'bi-shield-check',
-    span: 'bento-card-sm',
-    accent: 'bento-accent-blue',
-    href: '/contato',
-    cta: 'Solicitar suporte',
   },
 ];
 
-const cardMotion = {
-  hidden: { opacity: 0, y: 36, filter: 'blur(8px)' },
+const containerMotion = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.65, ease: 'easeOut' },
-  },
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const cardMotion = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
 export default function Services() {
   return (
-    <section id="Servicos" className="services-bento-section position-relative py-5">
-      <div className="container py-5 position-relative z-1">
-        <div className="row justify-content-between align-items-end g-4 mb-4 mb-lg-5">
-          <div className="col-lg-7">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-            >
-              <span className="section-eyebrow">Serviços</span>
-              <h2 className="section-title mt-3 mb-3">
-                Bento layout para entregar <span>impacto visual</span> e clareza de oferta.
-              </h2>
-              <p className="section-copy mb-0">
-                Saímos da lógica de colunas iguais e criamos uma composição assimétrica, com cartões que respiram, se sobrepõem em intenção e guiam o olhar com mais energia.
-              </p>
-            </motion.div>
+    <section id="Servicos" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+      <div className="container py-5">
+        
+        <div className="mb-5 text-center">
+          <div className="eyebrow-box mb-4 text-white">
+            <span>[01]</span>
+            <div className="eyebrow-divider"></div>
+            <span>EXPERTISE_TÉCNICA</span>
           </div>
-
-          <div className="col-lg-4 text-lg-end">
-            <motion.div
-              className="glass-card services-stats-card p-4"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            >
-              <div className="services-stats-label">Estrutura</div>
-              <div className="services-stats-value">Bento / Glass / Motion</div>
-            </motion.div>
-          </div>
+          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}>
+            NOSSOS SERVIÇOS
+          </h2>
         </div>
 
-        <div className="services-bento-grid">
+        <motion.div 
+          className="row g-4 justify-content-center"
+          variants={containerMotion}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {services.map((service, index) => (
-            <motion.article
-              key={service.title}
-              className={`bento-card glass-card ${service.span}`}
-              variants={cardMotion}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.22 }}
-              transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -8, rotate: index % 2 === 0 ? -0.6 : 0.6 }}
-            >
-              <div className={`bento-card-glow ${service.accent}`} />
-              <div className="bento-card-top d-flex align-items-center justify-content-between gap-3 mb-4">
-                <div className="bento-icon-wrap">
-                  <i className={`bi ${service.icon}`} />
-                </div>
-                <span className="bento-index">0{index + 1}</span>
-              </div>
-
-              <h3 className="bento-title mb-3">{service.title}</h3>
-              <p className="bento-description mb-4">{service.description}</p>
-
-              <motion.a
-                href={service.href}
-                className="bento-link d-inline-flex align-items-center gap-2"
-                whileHover={{ x: 4 }}
-                whileTap={{ scale: 0.98 }}
+            <motion.div key={index} className="col-lg-4 col-md-6" variants={cardMotion}>
+              <motion.article
+                className="h-100 p-4 d-flex flex-column"
+                style={{ 
+                  backgroundColor: '#050505', 
+                  border: `2px solid ${service.color}`, 
+                  color: '#ffffff',
+                  transition: 'color 0.2s ease'
+                }}
+                whileHover={{ 
+                  backgroundColor: service.color, 
+                  color: '#000000',
+                  scale: 1.02,
+                  boxShadow: `10px 10px 0px rgba(255,255,255,0.1)` 
+                }}
               >
-                {service.cta}
-                <i className="bi bi-arrow-right" />
-              </motion.a>
-            </motion.article>
+                <div className="d-flex justify-content-between align-items-start mb-4">
+                  <i className={`bi ${service.icon}`} style={{ fontSize: '2.5rem' }} />
+                  <span className="fw-bold fs-5">0{index + 1}</span>
+                </div>
+
+                <h3 className="fw-black text-uppercase mb-3" style={{ fontSize: '1.5rem', letterSpacing: '-1px' }}>
+                  {service.title}
+                </h3>
+                
+                <p className="fw-medium mb-4 flex-grow-1" style={{ opacity: 0.9 }}>
+                  {service.description}
+                </p>
+
+                <a href={service.href} className="fw-bold text-uppercase text-decoration-none d-flex align-items-center gap-2 mt-auto" style={{ color: 'inherit', letterSpacing: '1px' }}>
+                  {service.cta} <i className="bi bi-arrow-right" />
+                </a>
+              </motion.article>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -5,71 +5,88 @@ const groups = [
   {
     title: 'Frontend',
     icon: 'bi-code-slash',
-    items: ['React', 'Vite', 'HTML5', 'CSS3', 'Bootstrap 5'],
+    color: '#00E676',
+    items: ['React', 'Vue.js', 'HTML5', 'CSS3', 'Bootstrap'],
   },
   {
     title: 'Backend',
     icon: 'bi-server',
-    items: ['Node.js', 'Python', 'Express', '.NET', 'APIs'],
+    color: '#4d98e2',
+    items: ['Node.js', 'Python', 'PHP', 'Express', '.NET'],
   },
   {
-    title: 'Dados',
+    title: 'Banco de Dados',
     icon: 'bi-database',
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLite'],
+    color: '#FFEA00',
+    items: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
   },
   {
-    title: 'Cloud & Workflow',
+    title: 'Cloud & Ferramentas',
     icon: 'bi-cloud',
-    items: ['AWS', 'Docker', 'Git', 'Figma', 'Deploy'],
+    color: '#B388FF', // Roxo Brilhante
+    items: ['AWS', 'Docker', 'Git', 'Figma'],
   },
 ];
 
 export default function Technologies() {
   return (
-    <section id="Technologies" className="tech-stack-section position-relative py-5">
-      <div className="container py-5 position-relative z-1">
+    <section id="Technologies" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+      <div className="container py-5">
+        
         <motion.div
-          className="row justify-content-between align-items-end g-4 mb-4 mb-lg-5"
+          className="mb-5 d-flex flex-column align-items-center text-center"
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
         >
-          <div className="col-lg-7">
-            <span className="section-eyebrow">Stack</span>
-            <h2 className="section-title mt-3 mb-3">Tecnologias organizadas como uma matriz visual de produto.</h2>
-            <p className="section-copy mb-0">
-              A apresentação deixa de ser lista de badges e passa a funcionar como uma vitrine de capacidades técnicas, com blocos mais densos e atmosfera de dashboard.
-            </p>
+          <div className="eyebrow-box mb-4 text-white">
+            <span>[02]</span>
+            <div className="eyebrow-divider"></div>
+            <span>TECH_STACK</span>
           </div>
+          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
+            TECNOLOGIAS QUE DOMINAMOS
+          </h2>
+          <p className="text-secondary fw-medium" style={{ maxWidth: '600px', fontSize: '1.1rem' }}>
+            Utilizamos as ferramentas mais modernas e confiáveis do mercado para criar soluções robustas e escaláveis.
+          </p>
         </motion.div>
 
-        <div className="tech-matrix-grid">
+        <div className="row g-4">
           {groups.map((group, index) => (
-            <motion.article
+            <motion.div
               key={group.title}
-              className={`glass-card tech-matrix-card tech-matrix-card-${index + 1}`}
-              initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
-              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, amount: 0.22 }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              whileHover={{ y: -8 }}
+              className="col-lg-6"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="tech-matrix-header mb-4">
-                <div className="tech-matrix-icon">
-                  <i className={`bi ${group.icon}`} />
+              <article className="p-4 h-100" style={{ backgroundColor: '#050505', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="d-flex align-items-center gap-3 mb-4 pb-3" style={{ borderBottom: '1px dashed rgba(255,255,255,0.2)' }}>
+                  <i className={`bi ${group.icon}`} style={{ fontSize: '1.8rem', color: group.color }} />
+                  <h3 className="text-white text-uppercase fw-bold m-0" style={{ letterSpacing: '1px' }}>
+                    {group.title}
+                  </h3>
                 </div>
-                <h3 className="tech-matrix-title mb-0">{group.title}</h3>
-              </div>
 
-              <div className="tech-chip-list">
-                {group.items.map((tech) => (
-                  <span key={tech} className="tech-chip glass-card">{tech}</span>
-                ))}
-              </div>
-            </motion.article>
+                <div className="d-flex flex-wrap gap-2">
+                  {group.items.map((tech) => (
+                    <motion.span 
+                      key={tech} 
+                      className="px-3 py-2 text-uppercase fw-bold"
+                      style={{ fontSize: '0.85rem', color: '#000', backgroundColor: '#fff' }}
+                      whileHover={{ backgroundColor: group.color, scale: 1.05 }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </article>
+            </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

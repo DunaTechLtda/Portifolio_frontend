@@ -7,72 +7,141 @@ const testimonialsData = [
     name: "Dr. Marco Almeida",
     company: "SBCP-RN",
     text: '"A plataforma desenvolvida pela Dunatech superou nossas expectativas. Facilitou completamente o gerenciamento dos nossos eventos científicos."',
-    stars: 5
+    stars: 5,
+    color: '#00E676' // Verde Neon
   },
   {
     id: 2,
     name: "Dr. João Costa",
     company: "Clínica MARN",
     text: '"O MediSoft revolucionou nossa gestão clínica. O sistema é intuitivo, completo e trouxe uma organização que nunca tivemos."',
-    stars: 5
+    stars: 5,
+    color: '#4d98e2' // Azul Dunatech
   },
   {
     id: 3,
     name: "Dra. Ana Beatriz",
     company: "Vimont Odontologia",
     text: '"A Dunatech desenvolveu um site que realmente representa o profissionalismo da minha clínica. O resultado foi muito além do esperado."',
-    stars: 5
+    stars: 5,
+    color: '#FFEA00' // Amarelo Vibrante
   }
 ];
 
+const containerMotion = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const cardMotion = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
 export default function Testimonials() {
   return (
-    <section id="Testimonials" className="testimonials-fluid-section position-relative py-5">
+    <section id="Testimonials" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
       <div className="container py-5 position-relative z-1">
+        
+        {/* Cabeçalho Brutalista */}
         <motion.div
-          className="row justify-content-between align-items-end g-4 mb-4 mb-lg-5"
+          className="mb-5 d-flex flex-column align-items-center text-center"
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <div className="col-lg-7">
-            <span className="section-eyebrow">Depoimentos</span>
-            <h2 className="section-title mt-3 mb-3">Prova social com acabamento mais premium e estrutura editorial.</h2>
-            <p className="section-copy mb-0">Os relatos entram como cards com peso visual, reforçando confiança sem cair em uma grade genérica de colunas iguais.</p>
+          <div className="eyebrow-box mb-4 text-white">
+            <span>[05]</span>
+            <div className="eyebrow-divider"></div>
+            <span>FEEDBACK_CLIENTES</span>
           </div>
+          
+          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
+            O QUE DIZEM <br/> NOSSOS PARCEIROS
+          </h2>
+          
+          <p className="text-secondary fw-medium" style={{ maxWidth: '600px', fontSize: '1.1rem' }}>
+            Empresas e profissionais que confiaram na Dunatech para modernizar e escalar suas operações através de software robusto.
+          </p>
         </motion.div>
 
-        <div className="testimonials-grid">
+        {/* Grid de Depoimentos */}
+        <motion.div 
+          className="row g-4 justify-content-center mt-3"
+          variants={containerMotion}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {testimonialsData.map((item, index) => (
-            <motion.article
-              className="glass-card testimonial-card"
-              key={item.id}
-              initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
-              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, amount: 0.22 }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="testimonial-quote-mark">“</div>
-              <div className="text-warning mb-3">
-                {[...Array(item.stars)].map((_, starIndex) => (
-                  <i key={starIndex} className="bi bi-star-fill me-1"></i>
-                ))}
-              </div>
-              <p className="testimonial-text">{item.text}</p>
-              <div className="testimonial-footer">
-                <div className="testimonial-avatar">
-                  <i className="bi bi-person-fill" />
+            <motion.div key={item.id} className="col-lg-4 col-md-6" variants={cardMotion}>
+              <motion.article
+                className="h-100 p-4 position-relative d-flex flex-column"
+                style={{ 
+                  backgroundColor: '#050505', 
+                  border: `2px solid ${item.color}`, 
+                  color: '#ffffff',
+                  transition: 'color 0.2s ease, background-color 0.2s ease'
+                }}
+                whileHover={{ 
+                  backgroundColor: item.color, 
+                  color: '#000000',
+                  scale: 1.02,
+                  boxShadow: `10px 10px 0px rgba(255,255,255,0.1)` 
+                }}
+              >
+                {/* Aspas Gigantes Decorativas no Fundo */}
+                <div 
+                  className="position-absolute" 
+                  style={{ 
+                    top: '-10px', 
+                    right: '20px', 
+                    fontSize: '6rem', 
+                    fontFamily: 'Arial Black', 
+                    lineHeight: '1', 
+                    opacity: 0.15,
+                    pointerEvents: 'none'
+                  }}
+                >
+                  "
                 </div>
-                <div>
-                  <strong>{item.name}</strong>
-                  <small>{item.company}</small>
+
+                {/* Estrelas */}
+                <div className="mb-4 d-flex gap-1" style={{ fontSize: '1.1rem' }}>
+                  {[...Array(item.stars)].map((_, starIndex) => (
+                    <i key={starIndex} className="bi bi-star-fill"></i>
+                  ))}
                 </div>
-              </div>
-            </motion.article>
+                
+                {/* Texto do Depoimento */}
+                <p className="fw-medium mb-5 flex-grow-1" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
+                  {item.text}
+                </p>
+                
+                {/* Rodapé do Card: Cliente com Ícone de Pessoa */}
+                <div className="d-flex align-items-center gap-3 mt-auto pt-4" style={{ borderTop: '1px dashed currentColor' }}>
+                  
+                  <i className="bi bi-person-circle" style={{ fontSize: '2.8rem' }}></i>
+                  
+                  <div>
+                    <strong className="d-block text-uppercase" style={{ letterSpacing: '1px', fontSize: '1.1rem' }}>
+                      {item.name}
+                    </strong>
+                    <small className="text-uppercase fw-bold" style={{ opacity: 0.7, letterSpacing: '1px' }}>
+                      {item.company}
+                    </small>
+                  </div>
+
+                </div>
+              </motion.article>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

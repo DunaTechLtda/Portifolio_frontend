@@ -21,24 +21,25 @@ export default function Stats() {
   const [satisfaction, setSatisfaction] = useState(0);
   const sectionRef = useRef(null);
 
+  // Array de métricas com as cores vivas atreladas
   const stats = [
     {
       value: `+${users}`,
-      label: 'Usuários impactados',
+      label: 'USUÁRIOS IMPACTADOS',
       icon: 'bi-people-fill',
-      accent: 'stats-accent-blue',
+      color: '#00E676', // Verde Neon
     },
     {
       value: `${satisfaction}%`,
-      label: 'Taxa de satisfação',
+      label: 'TAXA DE SATISFAÇÃO',
       icon: 'bi-award-fill',
-      accent: 'stats-accent-violet',
+      color: '#4d98e2', // Azul Dunatech
     },
     {
       value: '24/7',
-      label: 'Suporte contínuo',
+      label: 'SUPORTE CONTÍNUO',
       icon: 'bi-clock-fill',
-      accent: 'stats-accent-soft',
+      color: '#FFEA00', // Amarelo Vibrante
     },
   ];
 
@@ -63,50 +64,73 @@ export default function Stats() {
   }, []);
 
   return (
-    <section id="Stats" className="stats-fluid-section position-relative py-5" ref={sectionRef}>
+    <section id="Stats" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }} ref={sectionRef}>
       <div className="container py-5 position-relative z-1">
+        
+        {/* Cabeçalho Brutalista da Seção */}
         <motion.div
-          className="row justify-content-between align-items-end g-4 mb-4"
+          className="mb-5 d-flex flex-column align-items-center text-center"
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <div className="col-lg-7">
-            <span className="section-eyebrow">Métricas</span>
-            <h2 className="section-title mt-3 mb-3">Prova social com leitura rápida e presença visual mais forte.</h2>
-            <p className="section-copy mb-0">
-              Em vez de números soltos, as métricas aparecem como blocos de informação com profundidade, reforçando consistência e credibilidade.
-            </p>
+          <div className="eyebrow-box mb-4 text-white">
+            <span>[04]</span>
+            <div className="eyebrow-divider"></div>
+            <span>MÉTRICAS_DE_IMPACTO</span>
           </div>
-          <div className="col-lg-4">
-            <div className="glass-card stats-note p-4">
-              <div className="stats-note-label">Performance</div>
-              <div className="stats-note-value">Animação contínua + leitura editorial</div>
-            </div>
-          </div>
+          
+          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
+            RESULTADOS COMPROVADOS
+          </h2>
+          
+          <p className="text-secondary fw-medium" style={{ maxWidth: '600px', fontSize: '1.1rem' }}>
+            Não entregamos apenas código. Entregamos plataformas que escalam operações, retêm clientes e funcionam ininterruptamente.
+          </p>
         </motion.div>
 
-        <div className="stats-grid">
+        {/* Grid de Cartões Animados */}
+        <div className="row g-4 justify-content-center mt-3">
           {stats.map((item, index) => (
-            <motion.article
+            <motion.div
               key={item.label}
-              className="glass-card stats-card"
-              initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
-              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.55, delay: index * 0.08 }}
-              whileHover={{ y: -8 }}
+              className="col-lg-4 col-md-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <span className={`stats-card-glow ${item.accent}`} />
-              <div className="stats-card-icon">
-                <i className={`bi ${item.icon}`} />
-              </div>
-              <div className="stats-card-value">{item.value}</div>
-              <div className="stats-card-label">{item.label}</div>
-            </motion.article>
+              <motion.article
+                className="p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center"
+                style={{
+                  backgroundColor: '#050505',
+                  border: `2px solid ${item.color}`,
+                  color: '#ffffff',
+                  transition: 'color 0.2s ease'
+                }}
+                whileHover={{
+                  backgroundColor: item.color,
+                  color: '#000000',
+                  scale: 1.05,
+                  boxShadow: `10px 10px 0px rgba(255,255,255,0.1)`
+                }}
+              >
+                <i className={`bi ${item.icon} mb-3`} style={{ fontSize: '2.5rem' }} />
+                
+                {/* O Contador com Tipografia Gigante */}
+                <div className="fw-black mb-2 text-huge" style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', lineHeight: '1', letterSpacing: '-2px' }}>
+                  {item.value}
+                </div>
+                
+                <div className="fw-bold text-uppercase" style={{ letterSpacing: '1.5px', opacity: 0.9 }}>
+                  {item.label}
+                </div>
+              </motion.article>
+            </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
