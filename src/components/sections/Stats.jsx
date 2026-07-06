@@ -76,7 +76,7 @@ export default function Stats() {
           transition={{ duration: 0.55 }}
         >
           <div className="eyebrow-box mb-4 text-white">
-            <span>[04]</span>
+            <span>[01]</span>
             <div className="eyebrow-divider"></div>
             <span>MÉTRICAS_DE_IMPACTO</span>
           </div>

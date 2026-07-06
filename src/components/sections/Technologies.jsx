@@ -40,7 +40,7 @@ export default function Technologies() {
           viewport={{ once: true }}
         >
           <div className="eyebrow-box mb-4 text-white">
-            <span>[02]</span>
+            <span>[03]</span>
             <div className="eyebrow-divider"></div>
             <span>TECH_STACK</span>
           </div>

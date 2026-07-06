@@ -48,7 +48,7 @@ export default function Services() {
         
         <div className="mb-5 text-center">
           <div className="eyebrow-box mb-4 text-white">
-            <span>[01]</span>
+            <span>[02]</span>
             <div className="eyebrow-divider"></div>
             <span>EXPERTISE_TÉCNICA</span>
           </div>

@@ -65,7 +65,7 @@ export default function Contact({ theme, toggleTheme }) {
           >
             <div className="col-lg-8">
               <div className="eyebrow-box mb-4 text-white">
-                <span>[07]</span>
+                <span>[08]</span>
                 <div className="eyebrow-divider"></div>
                 <span>INICIAR_PROJETO</span>
               </div>

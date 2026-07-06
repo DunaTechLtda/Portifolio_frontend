@@ -21,7 +21,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <div className="eyebrow-box mb-4 text-white">
-              <span>[03]</span>
+              <span>[04]</span>
               <div className="eyebrow-divider"></div>
               <span>SOBRE_NÓS</span>
             </div>
