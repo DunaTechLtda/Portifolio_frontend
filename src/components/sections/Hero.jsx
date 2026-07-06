@@ -91,7 +91,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
-              AGENDAR_DIAGNÓSTICO
+              AGENDAR DIAGNÓSTICO
             </motion.a>
             <motion.a
               href="#Servicos"
@@ -100,7 +100,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.1)' }}
               whileTap={{ scale: 0.95 }}
             >
-              CONHECER_SOLUÇÕES
+              CONHECER SOLUÇÕES
             </motion.a>
           </div>
 

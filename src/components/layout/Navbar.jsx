@@ -53,7 +53,7 @@ export default function Navbar() {
               whileHover={{ backgroundColor: '#4d98e2', color: '#fff', scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
-              INICIAR_PROJETO
+              INICIAR PROJETO
             </motion.a>
           </div>
         </header>

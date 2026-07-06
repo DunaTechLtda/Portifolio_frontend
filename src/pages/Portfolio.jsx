@@ -9,91 +9,142 @@ const projects = [
     title: "SBCP-RN",
     desc: "Plataforma web institucional desenvolvida para a Sociedade Brasileira de Cirurgia Plástica do Rio Grande do Norte, otimizando o processo de gestão e inscrições.",
     img: "/images/assets/sbcp.png",
-    tags: ["React", "MUI", "NodeJS"],
-    client: "SBCP-RN"
+    tags: ["REACT", "MUI", "NODEJS"],
+    client: "SBCP-RN",
+    color: "#00E676" // Verde Neon
   },
   {
     id: 2,
     title: "MediSoft",
     desc: "Sistema de gestão hospitalar integrado, oferecendo soluções completas para administração médica e agendamento inteligente.",
-    img: "/images/assets/Medisoft.jpeg",
-    tags: ["React", "PostgreSQL", "Express"],
-    client: "Clínicas Parceiras"
+    img: "/images/assets/Medisoft_novo.png",
+    tags: ["REACT", "POSTGRESQL", "EXPRESS"],
+    client: "CLÍNICAS PARCEIRAS",
+    color: "#4d98e2" // Azul Dunatech
   },
   {
     id: 3,
-    title: "beatrizmontenegro.com.br",
+    title: "BEATRIZMONTENEGRO.COM.BR",
     desc: "Website corporativo desenvolvido para clínica odontológica especializada, focado em conversão digital e expansão da base de pacientes.",
     img: "/images/assets/beatrizm.png",
-    tags: ["HTML5", "CSS3", "JavaScript"],
-    client: "Dra. Ana Beatriz"
+    tags: ["HTML5", "CSS3", "JS"],
+    client: "DRA. ANA BEATRIZ",
+    color: "#FFEA00" // Amarelo Vibrante
+  },
+
+  {
+    id: 4,
+    title: "MEDIDOCS",
+    desc: "Aplicação mobile com IA integrada para análise e resumo inteligente de documentos clínicos, otimizando o fluxo de trabalho de profissionais da saúde.",
+    img: "/images/assets/MediDocs.jpeg",
+    tags: ["REACT NATIVE", "IA", "EXPO"],
+    client: "DUNATECH_LABS",
+    color: "#B388FF" // Roxo Brilhante
+  },
+  {
+    id: 5,
+    title: "MEDISOFT APP",
+    desc: "Versão mobile do sistema de gestão hospitalar, garantindo acesso rápido e seguro a informações clínicas de qualquer lugar, com interface nativa e fluida.",
+    img: "/images/assets/Medisoft_App.jpeg",
+    tags: ["REACT NATIVE", "NODEJS", "FIREBASE"],
+    client: "CLÍNICAS PARCEIRAS",
+    color: "#4d98e2" // Azul Dunatech
+  },
+  {
+    id: 6,
+    title: "VONK'S BARBEARIA",
+    desc: "Identidade digital e plataforma de agendamento online desenvolvida para elevar a experiência do cliente, focada em conversão e estilo visual marcante.",
+    img: "/images/assets/vonksbarbearia.png",
+    tags: ["HTML5", "CSS3", "JS", "UI/UX"],
+    client: "VONK'S BARBEARIA",
+    color: "#00E676" // Verde Neon
   }
 ];
 
-export default function Portfolio({ theme, toggleTheme }) {
-  return (
-    <main className="site-shell min-vh-100">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+// ... (seu código de importação e const projects permanece igual)
 
-      <section className="portfolio-fluid-section position-relative py-5">
-        <div className="container py-5 position-relative z-1">
-          <motion.div
-            className="row align-items-end justify-content-between g-4 mb-4 mb-lg-5"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="col-lg-7">
-              <span className="section-eyebrow">Portfólio</span>
-              <h1 className="section-title mt-3 mb-3">Casos que parecem produto e não apenas página entregue.</h1>
-              <p className="section-copy mb-0">
-                Cada projeto foi apresentado como uma vitrine com profundidade, contraste e leitura rápida para reforçar valor visual e técnico.
-              </p>
+export default function Portfolio() {
+  return (
+    <main className="tech-grid-bg min-vh-100">
+      <Navbar />
+
+      <section className="position-relative py-5" style={{ paddingTop: '140px' }}>
+        <div className="container py-5">
+          
+          <motion.div className="mb-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <div className="eyebrow-box mb-4 text-white">
+              <span>[06]</span>
+              <div className="eyebrow-divider"></div>
+              <span>PORTFÓLIO_TÉCNICO</span>
             </div>
-            <div className="col-lg-4">
-              <div className="glass-card portfolio-note p-4">
-                <div className="portfolio-note-label">Foco</div>
-                <div className="portfolio-note-value">Interface forte, narrativa clara e acabamento premium</div>
-              </div>
-            </div>
+            <h1 className="text-huge text-white mb-4">CASOS DE SUCESSO</h1>
+            <p className="text-secondary fw-medium" style={{ fontSize: '1.2rem', maxWidth: '600px' }}>
+              Projetos que entregam performance, escalabilidade e design funcional.
+            </p>
           </motion.div>
 
-          <div className="portfolio-bento-grid">
+          <div className="row g-4">
             {projects.map((project, index) => (
               <motion.article
-                className={`glass-card portfolio-bento-card ${index === 0 ? 'portfolio-bento-featured' : ''}`}
                 key={project.id}
-                initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
-                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                viewport={{ once: true, amount: 0.22 }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
-                whileHover={{ y: -8 }}
+                className="col-12"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                style={{ perspective: 1000 }} // Mantém a perspectiva 3D
               >
-                <div className="portfolio-bento-media">
-                  <img src={project.img} alt={project.title} className="portfolio-bento-image" />
-                  <div className="portfolio-bento-overlay" />
-                </div>
-
-                <div className="portfolio-bento-body">
-                  <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
-                    <span className="portfolio-bento-client">{project.client}</span>
-                    <span className="portfolio-bento-index">0{index + 1}</span>
+                {/* Efeito 3D ao passar o mouse */}
+                <motion.div 
+                  className="p-4 d-flex flex-column flex-lg-row align-items-center gap-5"
+                  style={{ 
+                    backgroundColor: '#050505', 
+                    border: `2px solid ${project.color || '#ffffff'}`,
+                    color: '#ffffff',
+                    transformStyle: 'preserve-3d'
+                  }}
+                  whileHover={{ 
+                    rotateX: 2, 
+                    rotateY: -2, 
+                    scale: 1.01,
+                    boxShadow: `10px 10px 0px ${project.color}33` 
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  {/* Imagem: Adicionamos condicional para diminuir apps (id 4 e 5) */}
+                  <div className="flex-shrink-0" style={{ width: '100%', maxWidth: (project.id === 4 || project.id === 5) ? '220px' : '400px' }}>
+                    <img 
+                      src={project.img} 
+                      alt={project.title} 
+                      className="w-100 img-fluid" 
+                      style={{ border: '2px solid #ffffff', objectFit: 'contain' }} 
+                    />
                   </div>
 
-                  <h2 className="portfolio-bento-title mb-3">{project.title}</h2>
-                  <p className="portfolio-bento-desc mb-4">{project.desc}</p>
+                  {/* Conteúdo */}
+                  <div className="flex-grow-1">
+                    <span className="d-block fw-bold mb-2" style={{ color: project.color, letterSpacing: '2px' }}>
+                      {project.client}
+                    </span>
+                    <h2 className="text-white text-uppercase fw-black mb-3" style={{ fontSize: '2rem' }}>
+                      {project.title}
+                    </h2>
+                    <p className="text-white mb-4" style={{ fontSize: '1.1rem', opacity: 0.8 }}>
+                      {project.desc}
+                    </p>
+                    
+                    <div className="d-flex flex-wrap gap-2 mb-4">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="px-3 py-1 fw-bold text-dark bg-white" style={{ fontSize: '0.75rem' }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
 
-                  <div className="portfolio-bento-tags mb-4">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="portfolio-chip glass-card">{tag}</span>
-                    ))}
+                    <a href="/contato" className="fw-bold text-white text-decoration-none d-flex align-items-center gap-2">
+                      SOLICITAR ORÇAMENTO <i className="bi bi-arrow-right" style={{ color: project.color }}></i>
+                    </a>
                   </div>
-
-                  <a href="/contato" className="portfolio-bento-link d-inline-flex align-items-center gap-2">
-                    Quero algo assim <i className="bi bi-arrow-right" />
-                  </a>
-                </div>
+                </motion.div>
               </motion.article>
             ))}
           </div>
