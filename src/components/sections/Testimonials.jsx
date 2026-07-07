@@ -43,7 +43,7 @@ const cardMotion = {
 
 export default function Testimonials() {
   return (
-    <section id="Testimonials" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+    <section id="Testimonials" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
       <div className="container py-5 position-relative z-1">
         
         {/* Cabeçalho Brutalista */}
@@ -79,19 +79,17 @@ export default function Testimonials() {
         >
           {testimonialsData.map((item, index) => (
             <motion.div key={item.id} className="col-lg-4 col-md-6" variants={cardMotion}>
+              
+              {/* Adicionamos a classe brutal-card-hover e as variáveis CSS */}
               <motion.article
-                className="h-100 p-4 position-relative d-flex flex-column"
+                className="brutal-card-hover h-100 p-4 position-relative d-flex flex-column"
                 style={{ 
-                  backgroundColor: '#050505', 
+                  '--hover-color': item.color,
                   border: `2px solid ${item.color}`, 
-                  color: '#ffffff',
-                  transition: 'color 0.2s ease, background-color 0.2s ease'
                 }}
                 whileHover={{ 
-                  backgroundColor: item.color, 
-                  color: '#000000',
                   scale: 1.02,
-                  boxShadow: `10px 10px 0px rgba(255,255,255,0.1)` 
+                  boxShadow: `10px 10px 0px rgba(0,0,0,0.1)` 
                 }}
               >
                 {/* Aspas Gigantes Decorativas no Fundo */}
@@ -111,7 +109,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Estrelas */}
-                <div className="mb-4 d-flex gap-1" style={{ fontSize: '1.1rem' }}>
+                <div className="mb-4 d-flex gap-1" style={{ fontSize: '1.1rem', color: 'inherit' }}>
                   {[...Array(item.stars)].map((_, starIndex) => (
                     <i key={starIndex} className="bi bi-star-fill"></i>
                   ))}
@@ -138,6 +136,7 @@ export default function Testimonials() {
 
                 </div>
               </motion.article>
+
             </motion.div>
           ))}
         </motion.div>

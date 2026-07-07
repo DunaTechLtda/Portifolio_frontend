@@ -87,7 +87,8 @@ export default function FAQ({ theme, toggleTheme }) {
             </div>
 
             <div className="col-lg-4">
-              <div className="p-4" style={{ border: '1px dashed rgba(255,255,255,0.2)', backgroundColor: '#050505' }}>
+              {/* Ajuste de background e borda adaptáveis */}
+              <div className="p-4" style={{ border: '1px dashed var(--brutal-border)', backgroundColor: 'var(--brutal-bg)' }}>
                 <div className="text-uppercase fw-bold mb-2" style={{ color: '#B388FF', letterSpacing: '2px', fontSize: '0.8rem' }}>
                   // SUPORTE RÁPIDO
                 </div>
@@ -111,7 +112,8 @@ export default function FAQ({ theme, toggleTheme }) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                    style={{ backgroundColor: '#050505', border: '1px solid rgba(255,255,255,0.15)' }}
+                    /* Fundo e borda adaptáveis */
+                    style={{ backgroundColor: 'var(--brutal-bg)', border: '1px solid var(--brutal-border)' }}
                   >
                     <div className="accordion-item bg-transparent border-0">
                       <h2 className="accordion-header m-0">
@@ -121,7 +123,8 @@ export default function FAQ({ theme, toggleTheme }) {
                           data-bs-toggle="collapse"
                           data-bs-target={`#collapse${faq.id}`}
                           aria-expanded={index === 0 ? 'true' : 'false'}
-                          style={{ color: '#fff' }}
+                          /* Cor do texto adaptável */
+                          style={{ color: 'var(--brutal-text)' }}
                         >
                           {/* Número em destaque */}
                           <span className="fw-black fs-5" style={{ color: '#4d98e2' }}>
@@ -137,7 +140,8 @@ export default function FAQ({ theme, toggleTheme }) {
                         className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`}
                         data-bs-parent="#faqAccordion"
                       >
-                        <div className="accordion-body p-4 pt-0 text-secondary fw-medium fs-6" style={{ borderTop: '1px dashed rgba(255,255,255,0.1)' }}>
+                        {/* Linha divisória adaptável */}
+                        <div className="accordion-body p-4 pt-0 text-secondary fw-medium fs-6" style={{ borderTop: '1px dashed var(--brutal-border)' }}>
                           <div className="pt-3">
                             {faq.answer}
                           </div>
@@ -158,7 +162,8 @@ export default function FAQ({ theme, toggleTheme }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <div className="p-4 p-lg-5" style={{ backgroundColor: '#050505', border: '2px solid #FFEA00' }}>
+                {/* Ajuste de background adaptável */}
+                <div className="p-4 p-lg-5" style={{ backgroundColor: 'var(--brutal-bg)', border: '2px solid #FFEA00' }}>
                   <span className="text-uppercase fw-bold d-block mb-3" style={{ color: '#FFEA00', letterSpacing: '2px', fontSize: '0.85rem' }}>
                     [!] Ainda em dúvida?
                   </span>

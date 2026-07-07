@@ -43,7 +43,7 @@ const cardMotion = {
 
 export default function Services() {
   return (
-    <section id="Servicos" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+    <section id="Servicos" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
       <div className="container py-5">
         
         <div className="mb-5 text-center">
@@ -66,23 +66,21 @@ export default function Services() {
         >
           {services.map((service, index) => (
             <motion.div key={index} className="col-lg-4 col-md-6" variants={cardMotion}>
+              
+              {/* Adicionamos a classe brutal-card-hover e injetamos a variável CSS no style */}
               <motion.article
-                className="h-100 p-4 d-flex flex-column"
+                className="brutal-card-hover h-100 p-4 d-flex flex-column"
                 style={{ 
-                  backgroundColor: '#050505', 
+                  '--hover-color': service.color, 
                   border: `2px solid ${service.color}`, 
-                  color: '#ffffff',
-                  transition: 'color 0.2s ease'
                 }}
                 whileHover={{ 
-                  backgroundColor: service.color, 
-                  color: '#000000',
                   scale: 1.02,
-                  boxShadow: `10px 10px 0px rgba(255,255,255,0.1)` 
+                  boxShadow: `10px 10px 0px rgba(0,0,0,0.1)` 
                 }}
               >
                 <div className="d-flex justify-content-between align-items-start mb-4">
-                  <i className={`bi ${service.icon}`} style={{ fontSize: '2.5rem' }} />
+                  <i className={`bi ${service.icon}`} style={{ fontSize: '2.5rem', color: 'inherit' }} />
                   <span className="fw-bold fs-5">0{index + 1}</span>
                 </div>
 
@@ -98,6 +96,7 @@ export default function Services() {
                   {service.cta} <i className="bi bi-arrow-right" />
                 </a>
               </motion.article>
+
             </motion.div>
           ))}
         </motion.div>

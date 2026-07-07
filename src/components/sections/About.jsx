@@ -10,7 +10,7 @@ const features = [
 
 export default function About() {
   return (
-    <section id="About" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+    <section id="About" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
       <div className="container py-5">
         <div className="row align-items-center g-5">
           
@@ -21,7 +21,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <div className="eyebrow-box mb-4 text-white">
-              <span>[04]</span>
+              <span>[03]</span>
               <div className="eyebrow-divider"></div>
               <span>SOBRE_NÓS</span>
             </div>
@@ -39,8 +39,8 @@ export default function About() {
 
             <motion.a
               href="/contato"
-              className="btn brutalist-btn px-5 py-3 d-inline-flex align-items-center gap-2 text-dark border-0"
-              style={{ background: '#FFEA00' }}
+              className="btn brutalist-btn px-5 py-3 d-inline-flex align-items-center gap-2 border-0"
+              style={{ background: '#FFEA00', color: '#000' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -59,7 +59,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="p-4 h-100" style={{ border: '1px solid rgba(255,255,255,0.2)', backgroundColor: '#050505' }}>
+                  <div className="p-4 h-100" style={{ border: '1px solid var(--brutal-border)', backgroundColor: 'var(--brutal-bg)' }}>
                     <div className="d-flex align-items-center gap-2 mb-3">
                       <div style={{ width: '12px', height: '12px', backgroundColor: '#4d98e2' }}></div>
                       <strong className="text-white text-uppercase" style={{ letterSpacing: '1px' }}>{item.title}</strong>

@@ -31,7 +31,6 @@ const projects = [
     client: "DRA. ANA BEATRIZ",
     color: "#FFEA00" // Amarelo Vibrante
   },
-
   {
     id: 4,
     title: "MEDIDOCS",
@@ -61,12 +60,11 @@ const projects = [
   }
 ];
 
-// ... (seu código de importação e const projects permanece igual)
-
-export default function Portfolio() {
+// Adicionado theme e toggleTheme para a Navbar funcionar
+export default function Portfolio({ theme, toggleTheme }) {
   return (
     <main className="tech-grid-bg min-vh-100">
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <section className="position-relative py-5" style={{ paddingTop: '140px' }}>
         <div className="container py-5">
@@ -93,13 +91,14 @@ export default function Portfolio() {
                 viewport={{ once: true }}
                 style={{ perspective: 1000 }} // Mantém a perspectiva 3D
               >
-                {/* Efeito 3D ao passar o mouse */}
+                {/* 
+                  Aplicada a classe brutal-card-hover e injetado var(--brutal-bg) no background
+                */}
                 <motion.div 
-                  className="p-4 d-flex flex-column flex-lg-row align-items-center gap-5"
+                  className="brutal-card-hover p-4 d-flex flex-column flex-lg-row align-items-center gap-5"
                   style={{ 
-                    backgroundColor: '#050505', 
-                    border: `2px solid ${project.color || '#ffffff'}`,
-                    color: '#ffffff',
+                    '--hover-color': project.color,
+                    border: `2px solid ${project.color || 'var(--brutal-border)'}`,
                     transformStyle: 'preserve-3d'
                   }}
                   whileHover={{ 
@@ -110,13 +109,13 @@ export default function Portfolio() {
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  {/* Imagem: Adicionamos condicional para diminuir apps (id 4 e 5) */}
+                  {/* Imagem */}
                   <div className="flex-shrink-0" style={{ width: '100%', maxWidth: (project.id === 4 || project.id === 5) ? '220px' : '400px' }}>
                     <img 
                       src={project.img} 
                       alt={project.title} 
                       className="w-100 img-fluid" 
-                      style={{ border: '2px solid #ffffff', objectFit: 'contain' }} 
+                      style={{ border: '2px solid var(--brutal-text)', objectFit: 'contain' }} 
                     />
                   </div>
 
@@ -125,10 +124,11 @@ export default function Portfolio() {
                     <span className="d-block fw-bold mb-2" style={{ color: project.color, letterSpacing: '2px' }}>
                       {project.client}
                     </span>
-                    <h2 className="text-white text-uppercase fw-black mb-3" style={{ fontSize: '2rem' }}>
+                    {/* Classes text-white fixas removidas, agora os textos herdam a cor do modo (claro/escuro) */}
+                    <h2 className="text-uppercase fw-black mb-3" style={{ fontSize: '2rem' }}>
                       {project.title}
                     </h2>
-                    <p className="text-white mb-4" style={{ fontSize: '1.1rem', opacity: 0.8 }}>
+                    <p className="mb-4" style={{ fontSize: '1.1rem', opacity: 0.8 }}>
                       {project.desc}
                     </p>
                     
@@ -140,7 +140,7 @@ export default function Portfolio() {
                       ))}
                     </div>
 
-                    <a href="/contato" className="fw-bold text-white text-decoration-none d-flex align-items-center gap-2">
+                    <a href="/contato" className="fw-bold text-decoration-none d-flex align-items-center gap-2" style={{ color: 'inherit' }}>
                       SOLICITAR ORÇAMENTO <i className="bi bi-arrow-right" style={{ color: project.color }}></i>
                     </a>
                   </div>

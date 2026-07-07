@@ -62,8 +62,8 @@ export default function Technologies() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <article className="p-4 h-100" style={{ backgroundColor: '#050505', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="d-flex align-items-center gap-3 mb-4 pb-3" style={{ borderBottom: '1px dashed rgba(255,255,255,0.2)' }}>
+              <article className="p-4 h-100" style={{ backgroundColor: 'var(--brutal-bg)', border: '1px solid var(--brutal-border)' }}>
+                <div className="d-flex align-items-center gap-3 mb-4 pb-3" style={{ borderBottom: '1px dashed var(--brutal-border)' }}>
                   <i className={`bi ${group.icon}`} style={{ fontSize: '1.8rem', color: group.color }} />
                   <h3 className="text-white text-uppercase fw-bold m-0" style={{ letterSpacing: '1px' }}>
                     {group.title}

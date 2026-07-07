@@ -10,7 +10,17 @@ const dynamicWords = [
   { text: "INOVADORAS", color: "#ff8888" }// Vermelho Neon
 ];
 
-const marqueeItems = ['REACT', 'NODE.JS', 'PYTHON', 'UI/UX', 'MOBILE', 'CLOUD', 'IA', 'DATA'];
+// Array atualizado com os ícones do Devicon
+const marqueeItems = [
+  { text: 'REACT', icon1: 'devicon-react-original colored' },
+  { text: 'NODE.JS', icon1: 'devicon-nodejs-plain-wordmark colored' },
+  { text: 'PYTHON', icon1: 'devicon-python-plain colored' },
+  { text: 'UI/UX', icon1: 'devicon-figma-plain colored' },
+  { text: 'MOBILE', icon1: 'devicon-android-plain colored', icon2: 'devicon-apple-original' }, // Mobile leva 2 ícones
+  { text: 'CLOUD', icon1: 'devicon-amazonwebservices-plain-wordmark colored' },
+  { text: 'IA', icon1: 'devicon-tensorflow-original colored' }, // Usando TensorFlow para representar IA
+  { text: 'DATA', icon1: 'devicon-postgresql-plain colored' }
+];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -107,7 +117,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Marquee acompanhando a cor da palavra atual */}
+      {/* Marquee com separador via CSS */}
       <div className="hero-marquee-shell position-relative z-1 mt-5 border-top border-bottom" style={{ borderColor: `${dynamicWords[index].color} !important`, transition: 'border-color 0.3s ease' }}>
         <motion.div
           className="hero-marquee-track d-flex align-items-center gap-5 py-3"
@@ -115,10 +125,11 @@ export default function Hero() {
           transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
         >
           {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-            <React.Fragment key={i}>
-              <span className="fs-4 fw-bold" style={{ letterSpacing: '2px' }}>{item}</span>
-              <span style={{ color: dynamicWords[index].color, fontWeight: '900', transition: 'color 0.3s ease' }}>///</span>
-            </React.Fragment>
+            <span key={i} className="d-flex align-items-center gap-3 fs-4 fw-bold marquee-separator" style={{ letterSpacing: '2px', color: 'var(--brutal-text)' }}>
+              <i className={item.icon1} style={{ fontSize: '1.8rem' }}></i>
+              {item.icon2 && <i className={item.icon2} style={{ fontSize: '1.8rem' }}></i>}
+              {item.text}
+            </span>
           ))}
         </motion.div>
       </div>

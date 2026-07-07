@@ -78,7 +78,8 @@ export default function Contact({ theme, toggleTheme }) {
             </div>
 
             <div className="col-lg-4">
-              <div className="p-4" style={{ border: '2px dashed #00E676', backgroundColor: '#050505' }}>
+              {/* Adaptação de Fundo */}
+              <div className="p-4" style={{ border: '2px dashed #00E676', backgroundColor: 'var(--brutal-bg)' }}>
                 <div className="text-uppercase fw-bold mb-2" style={{ color: '#00E676', letterSpacing: '2px', fontSize: '0.8rem' }}>
                   Tempo de Resposta
                 </div>
@@ -99,24 +100,26 @@ export default function Contact({ theme, toggleTheme }) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                /* Adaptação de Fundo e Borda */
                 style={{ 
-                  backgroundColor: '#050505', 
+                  backgroundColor: 'var(--brutal-bg)', 
                   border: '2px solid #4d98e2' 
                 }}
               >
                 <form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
                   
+                  {/* Estilos dos inputs adaptados para usar variáveis e inherit */}
                   <div className="row g-4">
                     <div className="col-md-6">
                       <label htmlFor="inputFirstName" className="form-label text-uppercase fw-bold text-secondary" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Nome *</label>
                       <input type="text" className="form-control" id="inputFirstName" value={formData.inputFirstName} onChange={handleChange} required 
-                        style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '0', color: '#fff', padding: '12px' }} 
+                        style={{ backgroundColor: 'transparent', border: '1px solid var(--brutal-border)', borderRadius: '0', color: 'var(--brutal-text)', padding: '12px' }} 
                       />
                     </div>
                     <div className="col-md-6">
                       <label htmlFor="inputLastName" className="form-label text-uppercase fw-bold text-secondary" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Sobrenome</label>
                       <input type="text" className="form-control" id="inputLastName" value={formData.inputLastName} onChange={handleChange} 
-                        style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '0', color: '#fff', padding: '12px' }} 
+                        style={{ backgroundColor: 'transparent', border: '1px solid var(--brutal-border)', borderRadius: '0', color: 'var(--brutal-text)', padding: '12px' }} 
                       />
                     </div>
                   </div>
@@ -124,30 +127,31 @@ export default function Contact({ theme, toggleTheme }) {
                   <div>
                     <label htmlFor="inputEmail" className="form-label text-uppercase fw-bold text-secondary" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Email *</label>
                     <input type="email" className="form-control" id="inputEmail" value={formData.inputEmail} onChange={handleChange} required 
-                      style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '0', color: '#fff', padding: '12px' }} 
+                      style={{ backgroundColor: 'transparent', border: '1px solid var(--brutal-border)', borderRadius: '0', color: 'var(--brutal-text)', padding: '12px' }} 
                     />
                   </div>
 
                   <div>
                     <label htmlFor="inputPhone" className="form-label text-uppercase fw-bold text-secondary" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Telefone</label>
                     <input type="tel" className="form-control" id="inputPhone" placeholder="(84) 99999-9999" value={formData.inputPhone} onChange={handleChange} 
-                      style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '0', color: '#fff', padding: '12px' }} 
+                      style={{ backgroundColor: 'transparent', border: '1px solid var(--brutal-border)', borderRadius: '0', color: 'var(--brutal-text)', padding: '12px' }} 
                     />
                   </div>
 
                   <div>
                     <label htmlFor="inputMessage" className="form-label text-uppercase fw-bold text-secondary" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Mensagem *</label>
                     <textarea className="form-control" id="inputMessage" rows="6" value={formData.inputMessage} onChange={handleChange} required 
-                      style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '0', color: '#fff', padding: '12px', resize: 'vertical' }}
+                      style={{ backgroundColor: 'transparent', border: '1px solid var(--brutal-border)', borderRadius: '0', color: 'var(--brutal-text)', padding: '12px', resize: 'vertical' }}
                     ></textarea>
                   </div>
 
+                  {/* Hover do Botão Corrigido */}
                   <motion.button
                     type="submit"
                     className="btn brutalist-btn w-100 py-3 mt-3 fw-black text-dark text-uppercase fs-5"
                     disabled={isSubmitting}
                     style={{ backgroundColor: '#4d98e2', border: 'none' }} 
-                    whileHover={{ scale: 1.02, backgroundColor: '#ffffff' }}
+                    whileHover={{ scale: 1.02, backgroundColor: 'var(--brutal-text)', color: 'var(--brutal-bg)' }}
                     whileTap={{ scale: 0.98 }}
                   >
                     {isSubmitting ? 'ENVIANDO_DADOS...' : 'ENVIAR_MENSAGEM'}
@@ -165,8 +169,8 @@ export default function Contact({ theme, toggleTheme }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                {/* Bloco Principal de Passos */}
-                <div className="p-4 p-md-5" style={{ backgroundColor: '#050505', border: '1px solid rgba(255,255,255,0.1)' }}>
+                {/* Bloco Principal de Passos: Adaptação Fundo/Borda */}
+                <div className="p-4 p-md-5" style={{ backgroundColor: 'var(--brutal-bg)', border: '1px solid var(--brutal-border)' }}>
                   <span className="text-uppercase fw-bold" style={{ color: '#B388FF', letterSpacing: '2px', fontSize: '0.85rem' }}>// Próximos passos</span>
                   <h2 className="text-white text-uppercase fw-black mt-3 mb-4" style={{ fontSize: '2rem' }}>BRIEFING E ALINHAMENTO TÉCNICO.</h2>
                   <p className="text-secondary fw-medium mb-0">
@@ -179,7 +183,7 @@ export default function Contact({ theme, toggleTheme }) {
                   
                   {/* Bloco Email */}
                   <div className="col-12">
-                    <div className="p-4 h-100" style={{ backgroundColor: '#050505', border: '1px dashed rgba(255,255,255,0.2)' }}>
+                    <div className="p-4 h-100" style={{ backgroundColor: 'var(--brutal-bg)', border: '1px dashed var(--brutal-border)' }}>
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-envelope"></i> EMAIL DIRETO
                       </span>
@@ -189,7 +193,7 @@ export default function Contact({ theme, toggleTheme }) {
 
                   {/* Bloco Telefone/WhatsApp */}
                   <div className="col-sm-6">
-                    <div className="p-4 h-100" style={{ backgroundColor: '#050505', border: '1px dashed rgba(255,255,255,0.2)' }}>
+                    <div className="p-4 h-100" style={{ backgroundColor: 'var(--brutal-bg)', border: '1px dashed var(--brutal-border)' }}>
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-whatsapp"></i> WHATSAPP
                       </span>
@@ -199,11 +203,11 @@ export default function Contact({ theme, toggleTheme }) {
 
                   {/* Bloco Instagram */}
                   <div className="col-sm-6">
-                    <div className="p-4 h-100" style={{ backgroundColor: '#050505', border: '1px dashed rgba(255,255,255,0.2)' }}>
+                    <div className="p-4 h-100" style={{ backgroundColor: 'var(--brutal-bg)', border: '1px dashed var(--brutal-border)' }}>
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-instagram"></i> INSTAGRAM
                       </span>
-                      <a href="https://instagram.com/dunatech" target="_blank" rel="noopener noreferrer" className="text-white fw-bold fs-6 text-decoration-none">
+                      <a href="https://instagram.com/dunatech" target="_blank" rel="noopener noreferrer" className="text-white fw-bold fs-6 text-decoration-none" style={{ color: 'var(--brutal-text)' }}>
                         @dunatech
                       </a>
                     </div>
@@ -211,7 +215,7 @@ export default function Contact({ theme, toggleTheme }) {
 
                   {/* Bloco Endereço */}
                   <div className="col-12">
-                    <div className="p-4 h-100" style={{ backgroundColor: '#050505', border: '1px dashed rgba(255,255,255,0.2)' }}>
+                    <div className="p-4 h-100" style={{ backgroundColor: 'var(--brutal-bg)', border: '1px dashed var(--brutal-border)' }}>
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-geo-alt"></i> ENDEREÇO
                       </span>

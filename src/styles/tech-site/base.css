@@ -352,3 +352,76 @@ body[data-theme='light'] .contact-side-title {
   border-color: rgba(77, 152, 226, 0.18);
 }
 
+/* --- SISTEMA DE TEMA BRUTALISTA --- */
+:root {
+  --brutal-bg: #050505;
+  --brutal-text: #ffffff;
+  --brutal-text-secondary: rgba(255, 255, 255, 0.7);
+  --brutal-border: rgba(255, 255, 255, 0.15);
+}
+
+/* Quando o botão de tema for ativado e mudar o data-theme para light */
+body[data-theme='light'] {
+  --brutal-bg: #f4f5f6; /* Fundo claro técnico (off-white) */
+  --brutal-text: #050505; /* Textos viram preto puro */
+  --brutal-text-secondary: rgba(0, 0, 0, 0.65);
+  --brutal-border: rgba(0, 0, 0, 0.15); /* Bordas ficam escuras */
+}
+
+/* Inversão Automática das Classes Utilitárias */
+body[data-theme='light'] .text-white {
+  color: var(--brutal-text) !important;
+}
+
+body[data-theme='light'] .text-secondary {
+  color: var(--brutal-text-secondary) !important;
+}
+
+body[data-theme='light'] .bg-white {
+  background-color: var(--brutal-text) !important;
+  color: var(--brutal-bg) !important;
+}
+
+/* --- CORREÇÕES DO MODO CLARO --- */
+
+/* Inverte a logo do Footer de branco para preto e mantém a cor original do ícone */
+body[data-theme='light'] .adaptive-logo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Suaviza o hover dos cards interativos no modo claro (Barra o Framer Motion) */
+body[data-theme='light'] .brutal-hover:hover {
+  background-color: #ffffff !important;
+  color: #050505 !important;
+}
+
+body[data-theme='light'] .brutal-hover:hover * {
+  color: #050505 !important;
+}
+
+/* --- CORREÇÃO DEFINITIVA DO HOVER (CARD STATS) --- */
+.brutal-card-hover {
+  background-color: var(--brutal-bg) !important;
+  color: var(--brutal-text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Hover no Modo Escuro: Usa a variável de cor que passamos no React */
+body:not([data-theme='light']) .brutal-card-hover:hover {
+  background-color: var(--hover-color) !important;
+  color: #000000 !important;
+}
+
+/* Hover no Modo Claro: Fica branco puro */
+body[data-theme='light'] .brutal-card-hover:hover {
+  background-color: #ffffff !important;
+  color: #050505 !important;
+}
+
+/* Adiciona o ponto entre os itens do Marquee */
+.marquee-separator:not(:last-child)::after {
+  content: "•";
+  margin-left: 2rem; /* Espaço entre o texto e o ponto */
+  color: var(--brutal-text);
+  opacity: 0.5;
+}
