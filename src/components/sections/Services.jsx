@@ -47,11 +47,11 @@ export default function Services() {
       <div className="container py-5">
         
         <div className="mb-5 text-center">
-          <div className="eyebrow-box mb-4 text-white">
+          {/* <div className="eyebrow-box mb-4 text-white">
             <span>[02]</span>
             <div className="eyebrow-divider"></div>
             <span>EXPERTISE_TÉCNICA</span>
-          </div>
+          </div> */}
           <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}>
             NOSSOS SERVIÇOS
           </h2>

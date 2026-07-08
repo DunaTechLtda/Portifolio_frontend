@@ -37,11 +37,11 @@ export default function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="eyebrow-box mb-4 text-white">
+          {/* <div className="eyebrow-box mb-4 text-white">
             <span>[01]</span>
             <div className="eyebrow-divider"></div>
             <span>MÉTRICAS_DE_IMPACTO</span>
-          </div>
+          </div> */}
           <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
             RESULTADOS COMPROVADOS
           </h2>

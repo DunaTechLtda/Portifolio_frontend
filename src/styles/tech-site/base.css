@@ -356,7 +356,9 @@ body[data-theme='light'] .contact-side-title {
 :root {
   --brutal-bg: #050505;
   --brutal-text: #ffffff;
-  --brutal-text-secondary: rgba(255, 255, 255, 0.7);
+
+  --brutal-text-secondary: rgba(255, 255, 255, 0.65); 
+  
   --brutal-border: rgba(255, 255, 255, 0.15);
 }
 
@@ -373,8 +375,8 @@ body[data-theme='light'] .text-white {
   color: var(--brutal-text) !important;
 }
 
-body[data-theme='light'] .text-secondary {
-  color: var(--brutal-text-secondary) !important;
+body[data-theme='light'] .text-white {
+  color: var(--brutal-text) !important;
 }
 
 body[data-theme='light'] .bg-white {
@@ -382,7 +384,9 @@ body[data-theme='light'] .bg-white {
   color: var(--brutal-bg) !important;
 }
 
-/* --- CORREÇÕES DO MODO CLARO --- */
+.text-secondary {
+  color: var(--brutal-text-secondary) !important;
+}
 
 /* Inverte a logo do Footer de branco para preto e mantém a cor original do ícone */
 body[data-theme='light'] .adaptive-logo {
@@ -424,4 +428,23 @@ body[data-theme='light'] .brutal-card-hover:hover {
   margin-left: 2rem; /* Espaço entre o texto e o ponto */
   color: var(--brutal-text);
   opacity: 0.5;
+}
+
+/* Força os ícones a ficarem pretos (ou na cor do texto) durante o hover do card */
+.brutal-card-hover:hover i {
+  color: currentColor !important;
+}
+
+/* --- BOTÕES ANGULARES DA DUNATECH --- */
+.btn-dunatech {
+  transform: skewX(-15deg); /* Cria a inclinação baseada na logo */
+  border-radius: 0 !important; /* Tira o formato quadradão/arredondado */
+}
+
+/* Como inclinamos o botão, precisamos "desinclinar" o texto de dentro */
+.btn-dunatech-text {
+  transform: skewX(15deg);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }

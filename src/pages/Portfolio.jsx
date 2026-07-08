@@ -71,9 +71,7 @@ export default function Portfolio({ theme, toggleTheme }) {
           
           <motion.div className="mb-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div className="eyebrow-box mb-4 text-white">
-              <span>[06]</span>
-              <div className="eyebrow-divider"></div>
-              <span>PORTFÓLIO_TÉCNICO</span>
+
             </div>
             <h1 className="text-huge text-white mb-4">CASOS DE SUCESSO</h1>
             <p className="text-secondary fw-medium" style={{ fontSize: '1.2rem', maxWidth: '600px' }}>

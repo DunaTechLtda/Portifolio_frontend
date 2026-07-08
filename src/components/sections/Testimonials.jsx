@@ -54,11 +54,11 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          <div className="eyebrow-box mb-4 text-white">
+          {/* <div className="eyebrow-box mb-4 text-white">
             <span>[05]</span>
             <div className="eyebrow-divider"></div>
             <span>FEEDBACK_CLIENTES</span>
-          </div>
+          </div> */}
           
           <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
             O QUE DIZEM <br/> NOSSOS PARCEIROS

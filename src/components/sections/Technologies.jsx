@@ -39,11 +39,11 @@ export default function Technologies() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="eyebrow-box mb-4 text-white">
+          {/* <div className="eyebrow-box mb-4 text-white">
             <span>[03]</span>
             <div className="eyebrow-divider"></div>
             <span>TECH_STACK</span>
-          </div>
+          </div> */}
           <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
             TECNOLOGIAS QUE DOMINAMOS
           </h2>

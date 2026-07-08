@@ -59,7 +59,7 @@ export default function Hero() {
             <span className="position-relative d-inline-flex align-items-center justify-content-center mx-auto">
               
               {/* A palavra que centraliza de verdade */}
-              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease' }}>
+              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '4px', paddingTop: '15px' }}>
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={dynamicWords[index].text}
