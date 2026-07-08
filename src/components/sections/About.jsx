@@ -66,7 +66,7 @@ export default function About() {
               whileHover={{ scale: 1.03, backgroundColor: '#ffffff' }}
               whileTap={{ scale: 0.95 }}
             >
-              FALE_CONOSCO <i className="bi bi-chat-dots-fill"></i>
+              FALE CONOSCO <i className="bi bi-chat-dots-fill"></i>
             </motion.a>
           </motion.div>
 

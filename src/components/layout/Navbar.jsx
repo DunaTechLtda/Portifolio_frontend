@@ -73,9 +73,10 @@ export default function Navbar({ theme, toggleTheme }) {
               <i className={`bi fs-5 ${theme === 'light' ? 'bi-moon-stars-fill' : 'bi-sun-fill'}`}></i>
             </button>
 
+            {/* BOTÃO "INICIAR PROJETO" ATUALIZADO COM O FORMATO < > */}
             <motion.a
               href="/contato"
-              className="btn brutalist-btn px-4 py-2 border-0 fw-bold"
+              className="btn btn-logo-both brutalist-btn py-2 border-0 fw-bold d-flex align-items-center justify-content-center"
               style={{
                 backgroundColor: 'var(--brutal-text)', /* Botão branco no escuro, preto no claro */
                 color: 'var(--brutal-bg)'

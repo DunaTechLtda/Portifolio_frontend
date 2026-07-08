@@ -65,12 +65,14 @@ export default function Contact({ theme, toggleTheme }) {
           >
             <div className="col-lg-8">
               <div className="eyebrow-box mb-4 text-white">
-                <span>[08]</span>
+                {/* <span>[08]</span>
                 <div className="eyebrow-divider"></div>
-                <span>INICIAR PROJETO</span>
+                <span>INICIAR PROJETO</span> */}
               </div>
-              <h1 className="text-huge text-white mb-4" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}>
-                VAMOS CRIAR JUNTOS<span className="blinking-cursor" style={{ color: '#FFEA00' }}>_</span>
+              
+              {/* Título com quebra de linha e espaçamento ajustado para igualar a imagem */}
+              <h1 className="text-huge text-white mb-4" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: '1.1' }}>
+                VAMOS CRIAR <br /> JUNTOS
               </h1>
               <p className="text-secondary fw-medium" style={{ fontSize: '1.2rem', maxWidth: '650px' }}>
                 Conte o contexto, a urgência e o tipo de entrega que você procura. A resposta já volta com direção clara e escopo técnico.
@@ -145,12 +147,12 @@ export default function Contact({ theme, toggleTheme }) {
                     ></textarea>
                   </div>
 
-                  {/* Hover do Botão Corrigido */}
+                  {/* BOTÃO ATUALIZADO COM FORMATO < > */}
                   <motion.button
                     type="submit"
-                    className="btn brutalist-btn w-100 py-3 mt-3 fw-black text-dark text-uppercase fs-5"
+                    className="btn btn-logo-both brutalist-btn w-100 py-3 mt-3 fw-black text-dark text-uppercase fs-5 border-0"
                     disabled={isSubmitting}
-                    style={{ backgroundColor: '#4d98e2', border: 'none' }} 
+                    style={{ backgroundColor: '#4d98e2' }} 
                     whileHover={{ scale: 1.02, backgroundColor: 'var(--brutal-text)', color: 'var(--brutal-bg)' }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -169,7 +171,7 @@ export default function Contact({ theme, toggleTheme }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                {/* Bloco Principal de Passos: Adaptação Fundo/Borda */}
+                {/* Bloco Principal de Passos */}
                 <div className="p-4 p-md-5" style={{ backgroundColor: 'var(--brutal-bg)', border: '1px solid var(--brutal-border)' }}>
                   <span className="text-uppercase fw-bold" style={{ color: '#B388FF', letterSpacing: '2px', fontSize: '0.85rem' }}>// Próximos passos</span>
                   <h2 className="text-white text-uppercase fw-black mt-3 mb-4" style={{ fontSize: '2rem' }}>BRIEFING E ALINHAMENTO TÉCNICO.</h2>
@@ -178,7 +180,7 @@ export default function Contact({ theme, toggleTheme }) {
                   </p>
                 </div>
 
-                {/* Grid de Informações de Contato (Email, Telefone, Insta, Endereço) */}
+                {/* Grid de Informações de Contato */}
                 <div className="row g-3">
                   
                   {/* Bloco Email */}

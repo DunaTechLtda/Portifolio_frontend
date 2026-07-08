@@ -188,7 +188,8 @@ export default function FAQ({ theme, toggleTheme }) {
                     </div>
                   </div>
 
-                  <a href="/contato" className="btn brutalist-btn w-100 py-3 fw-black text-dark text-uppercase fs-6 d-flex align-items-center justify-content-center gap-2" style={{ backgroundColor: '#FFEA00', border: 'none' }}>
+                  {/* BOTÃO ATUALIZADO COM A CLASSE btn-logo-both */}
+                  <a href="/contato" className="btn btn-logo-both brutalist-btn w-100 py-3 fw-black text-dark text-uppercase fs-6 d-flex align-items-center justify-content-center gap-2 border-0" style={{ backgroundColor: '#FFEA00' }}>
                     INICIAR CONTATO <i className="bi bi-arrow-right"></i>
                   </a>
                 </div>

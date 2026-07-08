@@ -19,7 +19,8 @@ export default function Footer() {
         <div className="container-fluid px-4 px-lg-5">
           <div className="row g-4 align-items-center">
             
-            <div className="col-lg-4">
+            {/* Coluna da Logo (Reduzida para col-lg-3) */}
+            <div className="col-lg-3">
               <motion.a 
                 href="#Inicio" 
                 className="d-inline-flex align-items-center gap-3 text-decoration-none text-white" 
@@ -27,31 +28,27 @@ export default function Footer() {
               >
                 <img src="/images/assets/Simbolo_Dunatech.png" width="54" alt="Logo Dunatech" className="adaptive-logo" />
                 <div>
-                  <strong className="d-block text-uppercase fs-5" style={{ letterSpacing: '1px' }}>DUNATECH</strong>
+                  <strong className="d-block text-uppercase fs-5" style={{ letterSpacing: '1px', color: 'var(--brutal-text)' }}>DUNATECH</strong>
                   <span className="text-secondary fw-bold" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>SOFTWARE_HOUSE</span>
                 </div>
               </motion.a>
             </div>
 
-            <div className="col-lg-4 d-flex justify-content-lg-center">
-              <div className="d-flex flex-wrap gap-2 justify-content-center">
+            {/* Coluna dos Links (Expandida para col-lg-6 para caberem todos na mesma linha) */}
+            <div className="col-lg-6 d-flex justify-content-lg-center">
+              <div className="d-flex flex-wrap flex-xl-nowrap gap-2 justify-content-center w-100">
                 {navItems.map((item) => (
                   <motion.a 
                     key={item.label}
                     href={item.href} 
-                    className="text-white text-decoration-none fw-bold px-3 py-2 text-uppercase"
+                    className="btn btn-logo-both btn-logo-outline brutalist-btn py-2 fw-bold text-uppercase d-flex align-items-center justify-content-center"
                     style={{ 
-                      border: '1px solid var(--brutal-border)', 
-                      fontSize: '0.8rem', 
+                      color: 'var(--brutal-text)',
+                      fontSize: '0.75rem', 
                       letterSpacing: '1px',
-                      transition: 'color 0.2s ease, background-color 0.2s ease'
+                      flex: '1 1 auto' /* Ajuda os botões a se distribuírem melhor */
                     }}
-                    whileHover={{ 
-                      backgroundColor: '#4d98e2',
-                      borderColor: '#4d98e2',
-                      color: '#ffffff',
-                      scale: 1.05
-                    }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {item.label}
@@ -60,9 +57,10 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="col-lg-4 text-lg-end">
+            {/* Coluna dos Direitos (Reduzida para col-lg-3) */}
+            <div className="col-lg-3 text-lg-end">
               <p className="text-secondary fw-bold mb-1 text-uppercase" style={{ fontSize: '0.85rem', letterSpacing: '1px' }}>
-                © {currentYear} DUNATECH. <span className="text-white">TODOS OS DIREITOS RESERVADOS.</span>
+                © {currentYear} DUNATECH. <span style={{ color: 'var(--brutal-text)' }}>TODOS OS DIREITOS RESERVADOS.</span>
               </p>
               <p className="mb-0 text-uppercase fw-bold text-secondary" style={{ fontSize: '0.7rem', letterSpacing: '1px' }}>
                 SISTEMAS SOB MEDIDA, APPS E AUTOMAÇÕES.

@@ -81,22 +81,29 @@ export default function Hero() {
           {/* === AQUI ESTÃO OS DOIS BOTÕES COM O FORMATO < > === */}
           <div className="d-flex flex-wrap justify-content-center gap-4">
             
-            {/* Botão Principal: Agendar Diagnóstico */}
+            {/* Botão Principal */}
             <motion.a
               href="/contato"
-              className="btn btn-logo-both brutalist-btn btn-lg fw-bold py-3 border-0 text-dark"
-              style={{ background: dynamicWords[index].color, transition: 'background 0.3s ease' }}
+              className="btn btn-logo-both brutalist-btn btn-lg fw-bold border-0 text-dark d-flex align-items-center justify-content-center"
+              style={{ 
+                background: dynamicWords[index].color, 
+                transition: 'background 0.3s ease',
+                height: '64px' /* ALTURA CRAVADA */
+              }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
               AGENDAR DIAGNÓSTICO
             </motion.a>
             
-            {/* Botão Secundário: Conhecer Soluções (Com a borda outline) */}
+            {/* Botão Secundário (Outline) */}
             <motion.a
               href="#Servicos"
-              className="btn btn-logo-both btn-logo-outline brutalist-btn btn-lg fw-bold py-3"
-              style={{ color: 'var(--brutal-text)' }}
+              className="btn btn-logo-both btn-logo-outline brutalist-btn btn-lg fw-bold border-0 d-flex align-items-center justify-content-center"
+              style={{ 
+                color: 'var(--brutal-text)',
+                height: '64px' /* ALTURA CRAVADA EXATAMENTE IGUAL */
+              }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
