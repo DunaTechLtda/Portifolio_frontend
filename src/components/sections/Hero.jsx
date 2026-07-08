@@ -35,7 +35,7 @@ export default function Hero() {
   return (
     <section id="Inicio" className="hero-fluid-section overflow-hidden d-flex flex-column justify-content-center" style={{ minHeight: '100vh', paddingTop: '140px' }}>
       
-      {/* Mantém as luzes e o grid do seu tech-site/nav-hero.css */}
+      {/* Luzes e Grid */}
       <div className="hero-glow hero-glow-blue"></div>
       <div className="hero-glow hero-glow-violet"></div>
       <div className="hero-grid-mask"></div>
@@ -55,11 +55,8 @@ export default function Hero() {
             <span>SOLUÇÕES</span>
             <span>DIGITAIS</span>
             
-            {/* Adicionamos position-relative e mx-auto aqui */}
             <span className="position-relative d-inline-flex align-items-center justify-content-center mx-auto">
-              
-              {/* A palavra que centraliza de verdade */}
-              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '4px', paddingTop: '15px' }}>
+              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '8px', paddingTop: '15px' }}>
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={dynamicWords[index].text}
@@ -73,19 +70,7 @@ export default function Hero() {
                   </motion.span>
                 </AnimatePresence>
               </span>
-
-              {/* O cursor flutuando do lado de fora sem ocupar espaço na centralização */}
-              <span 
-                className="blinking-cursor position-absolute" 
-                style={{ 
-                  left: '100%', /* Prende o cursor exatamente no final da palavra */
-                  color: dynamicWords[index].color, 
-                  transition: 'color 0.3s' 
-                }}
-              >
-                _
-              </span>
-
+              <span className="blinking-cursor position-absolute" style={{ left: '100%', color: dynamicWords[index].color, transition: 'color 0.3s' }}>_</span>
             </span>
           </h1>
 
@@ -93,31 +78,37 @@ export default function Hero() {
             Transformamos problemas complexos em softwares, aplicativos e automações. Uma infraestrutura de ponta para empresas que exigem excelência tecnológica.
           </p>
 
-          <div className="d-flex flex-wrap justify-content-center gap-3">
+          {/* === AQUI ESTÃO OS DOIS BOTÕES COM O FORMATO < > === */}
+          <div className="d-flex flex-wrap justify-content-center gap-4">
+            
+            {/* Botão Principal: Agendar Diagnóstico */}
             <motion.a
               href="/contato"
-              className="btn brutalist-btn btn-lg fw-bold px-5 py-3 border-0 text-dark"
+              className="btn btn-logo-both brutalist-btn btn-lg fw-bold py-3 border-0 text-dark"
               style={{ background: dynamicWords[index].color, transition: 'background 0.3s ease' }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
               AGENDAR DIAGNÓSTICO
             </motion.a>
+            
+            {/* Botão Secundário: Conhecer Soluções (Com a borda outline) */}
             <motion.a
               href="#Servicos"
-              className="btn brutalist-btn btn-outline-light btn-lg fw-bold px-5 py-3"
-              style={{ borderWidth: '2px' }}
-              whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.1)' }}
+              className="btn btn-logo-both btn-logo-outline brutalist-btn btn-lg fw-bold py-3"
+              style={{ color: 'var(--brutal-text)' }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
               CONHECER SOLUÇÕES
             </motion.a>
+
           </div>
 
         </motion.div>
       </div>
 
-      {/* Marquee com separador via CSS */}
+      {/* Letreiro Deslizante */}
       <div className="hero-marquee-shell position-relative z-1 mt-5 border-top border-bottom" style={{ borderColor: `${dynamicWords[index].color} !important`, transition: 'border-color 0.3s ease' }}>
         <motion.div
           className="hero-marquee-track d-flex align-items-center gap-5 py-3"

@@ -67,7 +67,7 @@ export default function Contact({ theme, toggleTheme }) {
               <div className="eyebrow-box mb-4 text-white">
                 <span>[08]</span>
                 <div className="eyebrow-divider"></div>
-                <span>INICIAR_PROJETO</span>
+                <span>INICIAR PROJETO</span>
               </div>
               <h1 className="text-huge text-white mb-4" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}>
                 VAMOS CRIAR JUNTOS<span className="blinking-cursor" style={{ color: '#FFEA00' }}>_</span>
@@ -154,7 +154,7 @@ export default function Contact({ theme, toggleTheme }) {
                     whileHover={{ scale: 1.02, backgroundColor: 'var(--brutal-text)', color: 'var(--brutal-bg)' }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {isSubmitting ? 'ENVIANDO_DADOS...' : 'ENVIAR_MENSAGEM'}
+                    {isSubmitting ? 'ENVIANDO DADOS...' : 'ENVIAR MENSAGEM'}
                   </motion.button>
                 </form>
               </motion.div>

@@ -1,5 +1,6 @@
-/* NOVO SITE */
-
+/* =========================================
+   NOVO SITE DUNATECH - BASE E VARIÁVEIS
+========================================= */
 :root {
   --space-2xs: 4px;
   --space-xs: 8px;
@@ -10,16 +11,19 @@
   --space-2xl: 32px;
   --space-3xl: 40px;
   --space-4xl: 48px;
+  
   --radius-lg: 26px;
   --radius-xl: 28px;
   --radius-2xl: 30px;
   --radius-pill: 999px;
+  
   --color-text-primary: #ffffff;
   --color-text-strong: rgba(255, 255, 255, 0.86);
   --color-text-muted: rgba(255, 255, 255, 0.72);
   --color-text-soft: rgba(255, 255, 255, 0.52);
   --color-surface-soft: rgba(255, 255, 255, 0.05);
   --color-border-soft: rgba(255, 255, 255, 0.06);
+  
   --color-accent-blue: #4d98e2;
   --color-accent-indigo: #052af2;
   --color-accent-blue-soft: rgba(77, 152, 226, 0.08);
@@ -27,14 +31,70 @@
   --gradient-accent-soft: linear-gradient(135deg, rgba(77, 152, 226, 0.18), rgba(5, 42, 242, 0.18));
 }
 
-/* Fundo super escuro para destacar o azul da Dunatech */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fundo principal com radial gradient sutil */
 body {
-  background-color: #050505;
-  color: #ffffff;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(77, 152, 226, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(5, 42, 242, 0.16), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(77, 152, 226, 0.08), transparent 40%),
+    #050505;
+  background-color: #050505; /* Fallback de segurança */
+  color: #f4f7fb;
   overflow-x: hidden;
 }
 
-/* Efeito de luz difusa no fundo (o 'Glow' que tem no vídeo) */
+.site-shell {
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* =========================================
+   SISTEMA DE TEMA BRUTALISTA (CLARO / ESCURO)
+========================================= */
+:root {
+  --brutal-bg: #050505;
+  --brutal-text: #ffffff;
+  --brutal-text-secondary: rgba(255, 255, 255, 0.65); 
+  --brutal-border: rgba(255, 255, 255, 0.15);
+}
+
+body[data-theme='light'] {
+  --brutal-bg: #f4f5f6; /* Fundo claro técnico */
+  --brutal-text: #050505; /* Textos viram preto puro */
+  --brutal-text-secondary: rgba(0, 0, 0, 0.65);
+  --brutal-border: rgba(0, 0, 0, 0.15); /* Bordas escuras */
+  
+  background:
+    radial-gradient(circle at 15% 15%, rgba(77, 152, 226, 0.14), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(5, 42, 242, 0.1), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(77, 152, 226, 0.08), transparent 40%),
+    #f5f7fb;
+  color: #111827;
+}
+
+/* Inversão Automática das Classes Utilitárias no Modo Claro */
+body[data-theme='light'] .text-white { color: var(--brutal-text) !important; }
+body[data-theme='light'] .bg-white { background-color: var(--brutal-text) !important; color: var(--brutal-bg) !important; }
+
+/* Regra Global para textos secundários */
+.text-secondary {
+  color: var(--brutal-text-secondary) !important;
+}
+
+/* Inverte a logo do Footer de branco para preto */
+body[data-theme='light'] .adaptive-logo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* =========================================
+   COMPONENTES GERAIS E EFEITOS
+========================================= */
+
+/* Efeito de luz difusa no fundo */
 .ambient-glow {
   position: absolute;
   width: 600px;
@@ -46,20 +106,50 @@ body {
   pointer-events: none;
 }
 
-/* Cartões modernos com efeito de vidro e borda sutil */
+/* Cartões modernos com efeito de vidro (Unificado) */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 12, 18, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.28);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.05);
   border-color: rgba(77, 152, 226, 0.3);
   box-shadow: 0 20px 40px rgba(5, 42, 242, 0.2);
+}
+
+/* Modificações do Glass Card no modo claro */
+body[data-theme='light'] .glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
+}
+
+/* Efeito Hover interativo (Usado nos Cards de Stats/Sobre) */
+.brutal-card-hover {
+  background-color: var(--brutal-bg) !important;
+  color: var(--brutal-text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+body:not([data-theme='light']) .brutal-card-hover:hover {
+  background-color: var(--hover-color) !important;
+  color: #000000 !important;
+}
+
+body[data-theme='light'] .brutal-card-hover:hover {
+  background-color: #ffffff !important;
+  color: #050505 !important;
+}
+
+/* Força os ícones a ganharem contraste no hover do card */
+.brutal-card-hover:hover i {
+  color: currentColor !important;
 }
 
 /* Animação do gradiente de texto */
@@ -78,41 +168,82 @@ body {
   background-clip: text;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Adiciona o ponto entre os itens do Marquee */
+.marquee-separator:not(:last-child)::after {
+  content: "•";
+  margin-left: 2rem;
+  color: var(--brutal-text);
+  opacity: 0.5;
 }
 
-body {
-  background:
-    radial-gradient(circle at 15% 15%, rgba(77, 152, 226, 0.16), transparent 28%),
-    radial-gradient(circle at 85% 18%, rgba(5, 42, 242, 0.16), transparent 30%),
-    radial-gradient(circle at 50% 100%, rgba(77, 152, 226, 0.08), transparent 40%),
-    #050505;
-  color: #f4f7fb;
-  overflow-x: hidden;
+/* Margem de segurança para links âncora */
+#Inicio,
+#Servicos {
+  scroll-margin-top: 120px;
 }
 
-body[data-theme='light'] {
-  background:
-    radial-gradient(circle at 15% 15%, rgba(77, 152, 226, 0.14), transparent 28%),
-    radial-gradient(circle at 82% 18%, rgba(5, 42, 242, 0.1), transparent 30%),
-    radial-gradient(circle at 50% 100%, rgba(77, 152, 226, 0.08), transparent 40%),
-    #f5f7fb;
-  color: #111827;
+/* =========================================
+   BOTÕES E TAGS IDENTIDADE DUNATECH (< >)
+========================================= */
+
+/* Botões base: Recorte hexagonal formando < > */
+.btn-logo-both {
+  clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0 50%);
+  border-radius: 0 !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
-.site-shell {
-  min-height: 100vh;
-  background: transparent;
+/* Botão Secundário (Outline) acompanhando o corte hexagonal */
+.btn-logo-outline {
+  position: relative;
+  border: none !important;
+  background: transparent !important;
+  z-index: 1;
 }
 
-body[data-theme='light'] .glass-card {
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(15, 23, 42, 0.08);
-  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
+.btn-logo-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--brutal-border);
+  clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0 50%);
+  z-index: -2;
+  transition: background 0.3s ease;
 }
 
-body[data-theme='light'] .text-white,
+.btn-logo-outline::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--brutal-bg);
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.btn-logo-outline:hover::before,
+.btn-logo-outline:hover::after {
+  background: var(--brutal-text);
+}
+
+.btn-logo-outline:hover {
+  color: var(--brutal-bg) !important;
+}
+
+/* Tags de Tecnologia (Versão menor do formato < >) */
+.tech-tag-logo {
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%);
+  border-radius: 0 !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  display: inline-block;
+}
+
+/* =========================================
+   ESTILOS DE MODO CLARO (LEGADOS E ESPECÍFICOS)
+========================================= */
+
 body[data-theme='light'] .hero-title-word,
 body[data-theme='light'] .section-title,
 body[data-theme='light'] .bento-title,
@@ -202,30 +333,24 @@ body[data-theme='light'] .contact-side-copy,
 body[data-theme='light'] .footer-brand span,
 body[data-theme='light'] .footer-links a,
 body[data-theme='light'] .hero-meta-label,
-body[data-theme='light'] .stats-card-label,
 body[data-theme='light'] .stats-note-value {
   color: rgba(15, 23, 42, 0.72) !important;
 }
 
 body[data-theme='light'] .tech-nav-link,
-body[data-theme='light'] .tech-navbar-tag,
-body[data-theme='light'] .tech-theme-toggle-label,
-body[data-theme='light'] .hero-kicker,
-body[data-theme='light'] .hero-chip,
-body[data-theme='light'] .hero-marquee-pill,
-body[data-theme='light'] .contact-label,
-body[data-theme='light'] .faq-question-index,
-body[data-theme='light'] .portfolio-bento-client,
-body[data-theme='light'] .portfolio-bento-index,
-body[data-theme='light'] .contact-note-label,
-body[data-theme='light'] .contact-side-eyebrow,
-body[data-theme='light'] .contact-mini-label,
-body[data-theme='light'] .section-eyebrow,
-body[data-theme='light'] .services-stats-label,
-body[data-theme='light'] .stats-note-label,
-body[data-theme='light'] .faq-note-label,
-body[data-theme='light'] .faq-side-eyebrow {
-  color: rgba(15, 23, 42, 0.65) !important;
+body[data-theme='light'] .contact-submit,
+body[data-theme='light'] .tech-cta-primary {
+  color: #ffffff !important;
+}
+
+body[data-theme='light'] .tech-nav-link:hover {
+  background: rgba(15, 23, 42, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+body[data-theme='light'] .tech-cta-secondary {
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.14);
 }
 
 body[data-theme='light'] .bg-dark {
@@ -252,26 +377,6 @@ body[data-theme='light'] .tech-navbar {
   background: rgba(255, 255, 255, 0.78);
   border-color: rgba(15, 23, 42, 0.08);
   box-shadow: 0 18px 55px rgba(15, 23, 42, 0.12);
-}
-
-body[data-theme='light'] .tech-nav-link:hover {
-  background: rgba(15, 23, 42, 0.05);
-  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
-}
-
-body[data-theme='light'] .tech-nav-link {
-  color: rgba(15, 23, 42, 0.82);
-}
-
-body[data-theme='light'] .tech-nav-cta,
-body[data-theme='light'] .tech-cta-primary,
-body[data-theme='light'] .contact-submit {
-  color: #ffffff !important;
-}
-
-body[data-theme='light'] .tech-cta-secondary {
-  color: #0f172a !important;
-  border-color: rgba(15, 23, 42, 0.14);
 }
 
 body[data-theme='light'] .hero-marquee-edge-left {
@@ -314,137 +419,9 @@ body[data-theme='light'] .tech-theme-toggle-thumb.is-dark {
   background: linear-gradient(135deg, #111827, #475569);
 }
 
-body[data-theme='light'] .hero-kicker,
-body[data-theme='light'] .hero-chip,
-body[data-theme='light'] .hero-marquee-pill,
-body[data-theme='light'] .contact-mini-card,
-body[data-theme='light'] .portfolio-chip,
-body[data-theme='light'] .tech-chip,
-body[data-theme='light'] .faq-side-points span,
-body[data-theme='light'] .footer-links a {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(15, 23, 42, 0.08);
-}
-
-body[data-theme='light'] .section-title,
-body[data-theme='light'] .hero-title-word,
-body[data-theme='light'] .bento-title,
-body[data-theme='light'] .portfolio-bento-title,
-body[data-theme='light'] .faq-side-title,
-body[data-theme='light'] .contact-side-title {
-  text-shadow: none;
-}
-
-#Inicio,
-#Servicos {
-  scroll-margin-top: 120px;
-}
-
-.glass-card {
-  background: rgba(10, 12, 18, 0.55);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.28);
-}
-
-.glass-card:hover {
-  border-color: rgba(77, 152, 226, 0.18);
-}
-
-/* --- SISTEMA DE TEMA BRUTALISTA --- */
-:root {
-  --brutal-bg: #050505;
-  --brutal-text: #ffffff;
-
-  --brutal-text-secondary: rgba(255, 255, 255, 0.65); 
-  
-  --brutal-border: rgba(255, 255, 255, 0.15);
-}
-
-/* Quando o botão de tema for ativado e mudar o data-theme para light */
-body[data-theme='light'] {
-  --brutal-bg: #f4f5f6; /* Fundo claro técnico (off-white) */
-  --brutal-text: #050505; /* Textos viram preto puro */
-  --brutal-text-secondary: rgba(0, 0, 0, 0.65);
-  --brutal-border: rgba(0, 0, 0, 0.15); /* Bordas ficam escuras */
-}
-
-/* Inversão Automática das Classes Utilitárias */
-body[data-theme='light'] .text-white {
-  color: var(--brutal-text) !important;
-}
-
-body[data-theme='light'] .text-white {
-  color: var(--brutal-text) !important;
-}
-
-body[data-theme='light'] .bg-white {
-  background-color: var(--brutal-text) !important;
-  color: var(--brutal-bg) !important;
-}
-
-.text-secondary {
-  color: var(--brutal-text-secondary) !important;
-}
-
-/* Inverte a logo do Footer de branco para preto e mantém a cor original do ícone */
-body[data-theme='light'] .adaptive-logo {
-  filter: invert(1) hue-rotate(180deg);
-}
-
-/* Suaviza o hover dos cards interativos no modo claro (Barra o Framer Motion) */
-body[data-theme='light'] .brutal-hover:hover {
-  background-color: #ffffff !important;
-  color: #050505 !important;
-}
-
+/* Impede o hover do framer motion nas áreas que não devem animar cores no modo claro */
+body[data-theme='light'] .brutal-hover:hover,
 body[data-theme='light'] .brutal-hover:hover * {
-  color: #050505 !important;
-}
-
-/* --- CORREÇÃO DEFINITIVA DO HOVER (CARD STATS) --- */
-.brutal-card-hover {
-  background-color: var(--brutal-bg) !important;
-  color: var(--brutal-text) !important;
-  transition: background-color 0.3s ease, color 0.3s ease !important;
-}
-
-/* Hover no Modo Escuro: Usa a variável de cor que passamos no React */
-body:not([data-theme='light']) .brutal-card-hover:hover {
-  background-color: var(--hover-color) !important;
-  color: #000000 !important;
-}
-
-/* Hover no Modo Claro: Fica branco puro */
-body[data-theme='light'] .brutal-card-hover:hover {
   background-color: #ffffff !important;
   color: #050505 !important;
-}
-
-/* Adiciona o ponto entre os itens do Marquee */
-.marquee-separator:not(:last-child)::after {
-  content: "•";
-  margin-left: 2rem; /* Espaço entre o texto e o ponto */
-  color: var(--brutal-text);
-  opacity: 0.5;
-}
-
-/* Força os ícones a ficarem pretos (ou na cor do texto) durante o hover do card */
-.brutal-card-hover:hover i {
-  color: currentColor !important;
-}
-
-/* --- BOTÕES ANGULARES DA DUNATECH --- */
-.btn-dunatech {
-  transform: skewX(-15deg); /* Cria a inclinação baseada na logo */
-  border-radius: 0 !important; /* Tira o formato quadradão/arredondado */
-}
-
-/* Como inclinamos o botão, precisamos "desinclinar" o texto de dentro */
-.btn-dunatech-text {
-  transform: skewX(15deg);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
 }

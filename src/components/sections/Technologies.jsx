@@ -30,7 +30,7 @@ const groups = [
 
 export default function Technologies() {
   return (
-    <section id="Technologies" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+    <section id="Technologies" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
       <div className="container py-5">
         
         <motion.div
@@ -39,11 +39,6 @@ export default function Technologies() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {/* <div className="eyebrow-box mb-4 text-white">
-            <span>[03]</span>
-            <div className="eyebrow-divider"></div>
-            <span>TECH_STACK</span>
-          </div> */}
           <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
             TECNOLOGIAS QUE DOMINAMOS
           </h2>
@@ -74,8 +69,12 @@ export default function Technologies() {
                   {group.items.map((tech) => (
                     <motion.span 
                       key={tech} 
-                      className="px-3 py-2 text-uppercase fw-bold"
-                      style={{ fontSize: '0.85rem', color: '#000', backgroundColor: '#fff' }}
+                      className="tech-tag-logo py-2 text-uppercase fw-bold"
+                      style={{ 
+                        fontSize: '0.85rem', 
+                        color: 'var(--brutal-bg)', 
+                        backgroundColor: 'var(--brutal-text)' 
+                      }}
                       whileHover={{ backgroundColor: group.color, scale: 1.05 }}
                     >
                       {tech}

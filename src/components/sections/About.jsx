@@ -61,12 +61,12 @@ export default function About() {
 
             <motion.a
               href="/contato"
-              className="btn brutalist-btn px-5 py-3 d-inline-flex align-items-center gap-2 border-0"
+              className="btn btn-logo-both brutalist-btn py-3 d-inline-flex align-items-center justify-content-center gap-2 border-0 fw-bold"
               style={{ background: '#FFEA00', color: '#000' }}
-              whileHover={{ scale: 1.05, backgroundColor: '#ffffff' }}
+              whileHover={{ scale: 1.03, backgroundColor: '#ffffff' }}
               whileTap={{ scale: 0.95 }}
             >
-              FALE CONOSCO <i className="bi bi-chat-dots-fill"></i>
+              FALE_CONOSCO <i className="bi bi-chat-dots-fill"></i>
             </motion.a>
           </motion.div>
 

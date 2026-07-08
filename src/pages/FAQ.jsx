@@ -74,9 +74,9 @@ export default function FAQ({ theme, toggleTheme }) {
           >
             <div className="col-lg-8">
               <div className="eyebrow-box mb-4 text-white">
-                <span>[07]</span>
+                {/* <span>[07]</span>
                 <div className="eyebrow-divider"></div>
-                <span>BASE_DE_CONHECIMENTO</span>
+                <span>BASE DE CONHECIMENTO</span> */}
               </div>
               <h1 className="text-huge text-white mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
                 PERGUNTAS FREQUENTES<span className="blinking-cursor" style={{ color: '#4d98e2' }}>_</span>
