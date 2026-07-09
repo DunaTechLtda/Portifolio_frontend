@@ -21,19 +21,19 @@ export default function Navbar({ theme, toggleTheme }) {
         borderBottom: '1px solid var(--brutal-border)' 
       }}
     >
-      <div className="container-fluid px-4 px-lg-5">
+      <div className="container-fluid px-3 px-lg-5">
         <header className="d-flex align-items-center justify-content-between py-3 mx-auto">
           
           <a href="/" className="d-flex align-items-center text-decoration-none">
-            {/* Filtro inteligente: inverte a logo branca para preta no tema claro */}
             <img 
               src="/images/assets/Logo_Dunatech.png" 
-              width="160" 
               alt="Logo Dunatech" 
-              style={{ filter: theme === 'light' ? 'invert(1) hue-rotate(180deg)' : 'none', transition: 'filter 0.3s ease' }}
+              className="img-fluid"
+              style={{ maxWidth: '140px', filter: theme === 'light' ? 'invert(1) hue-rotate(180deg)' : 'none', transition: 'filter 0.3s ease' }}
             /> 
           </a>
 
+          {/* MENU DESKTOP (Escondido no mobile) */}
           <nav className="d-none d-md-flex gap-4">
             {navItems.map((item) => (
               <a
@@ -41,7 +41,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 href={item.href}
                 className="text-decoration-none fw-bold"
                 style={{ 
-                  color: 'var(--brutal-text)', /* Usa a variável dinâmica */
+                  color: 'var(--brutal-text)',
                   fontSize: '0.85rem', 
                   letterSpacing: '2px', 
                   transition: 'color 0.2s ease' 
@@ -54,9 +54,9 @@ export default function Navbar({ theme, toggleTheme }) {
             ))}
           </nav>
 
-          <div className="d-flex align-items-center gap-3">
+          <div className="d-flex align-items-center gap-2 gap-md-3">
             
-            {/* O BOTÃO DE TEMA */}
+            {/* BOTÃO TEMA */}
             <button 
               onClick={toggleTheme}
               className="btn d-flex align-items-center justify-content-center"
@@ -64,7 +64,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 background: 'transparent',
                 border: '1px solid var(--brutal-border)',
                 color: 'var(--brutal-text)',
-                borderRadius: '0', /* Mantendo o estilo brutalista quadrado */
+                borderRadius: '0', 
                 width: '45px',
                 height: '45px'
               }}
@@ -73,12 +73,12 @@ export default function Navbar({ theme, toggleTheme }) {
               <i className={`bi fs-5 ${theme === 'light' ? 'bi-moon-stars-fill' : 'bi-sun-fill'}`}></i>
             </button>
 
-            {/* BOTÃO "INICIAR PROJETO" ATUALIZADO COM O FORMATO < > */}
+            {/* BOTÃO INICIAR PROJETO (PC) */}
             <motion.a
               href="/contato"
-              className="btn btn-logo-both brutalist-btn py-2 border-0 fw-bold d-flex align-items-center justify-content-center"
+              className="btn btn-logo-both brutalist-btn py-2 border-0 fw-bold d-none d-md-flex align-items-center justify-content-center"
               style={{
-                backgroundColor: 'var(--brutal-text)', /* Botão branco no escuro, preto no claro */
+                backgroundColor: 'var(--brutal-text)',
                 color: 'var(--brutal-bg)'
               }}
               whileHover={{ backgroundColor: '#4d98e2', color: '#fff', scale: 1.02 }}
@@ -86,8 +86,74 @@ export default function Navbar({ theme, toggleTheme }) {
             >
               INICIAR PROJETO
             </motion.a>
+
+            {/* BOTÃO HAMBURGUER (Aparece só no Mobile) */}
+            <button 
+              className="btn d-md-none d-flex align-items-center justify-content-center" 
+              type="button" 
+              data-bs-toggle="offcanvas" 
+              data-bs-target="#mobileMenu" 
+              aria-controls="mobileMenu"
+              style={{
+                background: 'var(--brutal-text)',
+                border: 'none',
+                color: 'var(--brutal-bg)',
+                borderRadius: '0', 
+                width: '45px',
+                height: '45px'
+              }}
+            >
+              <i className="bi bi-list fs-3"></i>
+            </button>
+
           </div>
         </header>
+      </div>
+
+      {/* MENU LATERAL DESLIZANTE (OFFCANVAS) PARA CELULAR */}
+      <div className="offcanvas offcanvas-end" tabIndex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel" style={{ backgroundColor: 'var(--brutal-bg)', borderLeft: '1px solid var(--brutal-border)' }}>
+        
+        <div className="offcanvas-header border-bottom py-4" style={{ borderColor: 'var(--brutal-border) !important' }}>
+          <h5 className="offcanvas-title fw-black text-uppercase" id="mobileMenuLabel" style={{ color: 'var(--brutal-text)', letterSpacing: '2px' }}>
+            MENU
+          </h5>
+          <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style={{ filter: theme === 'light' ? 'none' : 'invert(1)' }}></button>
+        </div>
+        
+        <div className="offcanvas-body d-flex flex-column mt-4 px-4">
+          <nav className="d-flex flex-column gap-4 mb-5">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-decoration-none fw-bold text-uppercase fs-4"
+                style={{ 
+                  color: 'var(--brutal-text)',
+                  letterSpacing: '2px',
+                }}
+                data-bs-dismiss="offcanvas" // Faz o menu fechar sozinho ao clicar no link
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          
+          {/* Botão "Iniciar Projeto" escondido dentro do menu no celular */}
+          <div className="mt-auto mb-4">
+            <a
+              href="/contato"
+              className="btn btn-logo-both brutalist-btn py-3 border-0 fw-bold d-flex align-items-center justify-content-center w-100 text-uppercase"
+              style={{
+                backgroundColor: 'var(--brutal-text)',
+                color: 'var(--brutal-bg)',
+                letterSpacing: '1px'
+              }}
+            >
+              INICIAR PROJETO
+            </a>
+          </div>
+        </div>
+
       </div>
     </motion.section>
   );

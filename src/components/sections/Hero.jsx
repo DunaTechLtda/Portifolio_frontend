@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// As cores vivas injetadas no layout brutalista
 const dynamicWords = [
-  { text: "ROBUSTAS", color: "#4d98e2" }, // Azul Claro Dunatech
-  { text: "OTIMIZADAS", color: "#00E676" },    // Verde Neon
-  { text: "CRIATIVAS", color: "#FFEA00" },// Amarelo Vibrante
-  { text: "ESCALÁVEIS", color: "#B388FF" },// Roxo Brilhante
-  { text: "INOVADORAS", color: "#ff8888" }// Vermelho Neon
+  { text: "ROBUSTAS", color: "#4d98e2" }, 
+  { text: "OTIMIZADAS", color: "#00E676" },    
+  { text: "CRIATIVAS", color: "#FFEA00" },
+  { text: "ESCALÁVEIS", color: "#B388FF" },
+  { text: "INOVADORAS", color: "#ff8888" }
 ];
 
-// Array atualizado com os ícones do Devicon
 const marqueeItems = [
   { text: 'REACT', icon1: 'devicon-react-original colored' },
   { text: 'NODE.JS', icon1: 'devicon-nodejs-plain-wordmark colored' },
   { text: 'PYTHON', icon1: 'devicon-python-plain colored' },
   { text: 'UI/UX', icon1: 'devicon-figma-plain colored' },
-  { text: 'MOBILE', icon1: 'devicon-android-plain colored', icon2: 'devicon-apple-original' }, // Mobile leva 2 ícones
+  { text: 'MOBILE', icon1: 'devicon-android-plain colored', icon2: 'devicon-apple-original' }, 
   { text: 'CLOUD', icon1: 'devicon-amazonwebservices-plain-wordmark colored' },
-  { text: 'IA', icon1: 'devicon-tensorflow-original colored' }, // Usando TensorFlow para representar IA
+  { text: 'IA', icon1: 'devicon-tensorflow-original colored' }, 
   { text: 'DATA', icon1: 'devicon-postgresql-plain colored' }
 ];
 
@@ -33,30 +31,31 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="Inicio" className="hero-fluid-section overflow-hidden d-flex flex-column justify-content-center" style={{ minHeight: '100vh', paddingTop: '140px' }}>
+    <section id="Inicio" className="hero-fluid-section overflow-hidden d-flex flex-column justify-content-center" style={{ minHeight: '100vh', paddingTop: '120px' }}>
       
-      {/* Luzes e Grid */}
       <div className="hero-glow hero-glow-blue"></div>
       <div className="hero-glow hero-glow-violet"></div>
       <div className="hero-grid-mask"></div>
       <div className="hero-grid-perspective"></div>
 
-      <div className="container position-relative z-1 flex-grow-1 d-flex flex-column align-items-center justify-content-center text-center">
+      <div className="container position-relative z-1 flex-grow-1 d-flex flex-column align-items-center justify-content-center text-center px-3">
         
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="w-100">
           
-          <div className="hero-kicker glass-card d-inline-flex align-items-center gap-3 px-4 py-2 mb-4 fw-bold" style={{ letterSpacing: '2px', border: `1px solid ${dynamicWords[index].color}`, transition: 'border-color 0.3s' }}>
+          <div className="hero-kicker glass-card d-inline-flex align-items-center gap-2 px-3 py-1 py-md-2 mb-3 mb-md-4 fw-bold" style={{ letterSpacing: '1px', border: `1px solid ${dynamicWords[index].color}`, transition: 'border-color 0.3s', fontSize: 'clamp(0.6rem, 2vw, 0.8rem)' }}>
             <span>DUNATECH</span>
             <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: dynamicWords[index].color, transition: 'background 0.3s' }}></span>
             <span>SOFTWARE_HOUSE</span>
           </div>
 
-          <h1 className="text-titan mb-4">
-            <span>SOLUÇÕES</span>
-            <span>DIGITAIS</span>
+          {/* TÍTULO RESTAURADO: Comportamento inline no PC, empilhado no mobile */}
+          <h1 className="text-titan mb-4 lh-1 text-uppercase" style={{ fontSize: 'clamp(1.5rem, 8vw, 4.5rem)' }}>
+            <span className="d-block d-md-inline">SOLUÇÕES</span>{' '}
+            <span className="d-block d-md-inline">DIGITAIS</span>
+            <br className="d-md-none" />
             
-            <span className="position-relative d-inline-flex align-items-center justify-content-center mx-auto">
-              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '8px', paddingTop: '15px' }}>
+            <span className="d-inline-flex align-items-center justify-content-center mx-auto mt-1 mt-md-0">
+              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '12px' }}>
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={dynamicWords[index].text}
@@ -64,31 +63,32 @@ export default function Hero() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -50, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="d-inline-block pb-2"
+                    className="d-inline-block pb-1"
                   >
                     {dynamicWords[index].text}
                   </motion.span>
                 </AnimatePresence>
               </span>
-              <span className="blinking-cursor position-absolute" style={{ left: '100%', color: dynamicWords[index].color, transition: 'color 0.3s' }}>_</span>
+              <span className="blinking-cursor" style={{ color: dynamicWords[index].color, transition: 'color 0.3s' }}>_</span>
             </span>
           </h1>
 
-          <p className="hero-copy mx-auto mb-5 fw-medium" style={{ maxWidth: '800px', fontSize: '1.25rem' }}>
+          <p className="hero-copy mx-auto mb-4 mb-md-5 fw-medium px-2" style={{ maxWidth: '800px', fontSize: 'clamp(0.85rem, 3vw, 1.25rem)' }}>
             Transformamos problemas complexos em softwares, aplicativos e automações. Uma infraestrutura de ponta para empresas que exigem excelência tecnológica.
           </p>
 
-          {/* === AQUI ESTÃO OS DOIS BOTÕES COM O FORMATO < > === */}
-          <div className="d-flex flex-wrap justify-content-center gap-4">
+          {/* Botões: tamanho fixo de 64px no PC, cai para 46px no celular */}
+          <div className="d-grid d-md-flex justify-content-md-center gap-3 gap-md-4 mx-auto w-100 px-3 px-md-0" style={{ maxWidth: '800px' }}>
             
-            {/* Botão Principal */}
             <motion.a
               href="/contato"
-              className="btn btn-logo-both brutalist-btn btn-lg fw-bold border-0 text-dark d-flex align-items-center justify-content-center"
+              className="btn btn-logo-both brutalist-btn fw-bold border-0 text-dark d-flex align-items-center justify-content-center w-100"
               style={{ 
                 background: dynamicWords[index].color, 
                 transition: 'background 0.3s ease',
-                height: '64px' /* ALTURA CRAVADA */
+                height: 'clamp(46px, 10vw, 64px)', 
+                fontSize: 'clamp(0.75rem, 3vw, 1rem)', 
+                letterSpacing: '1px'
               }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
@@ -96,13 +96,14 @@ export default function Hero() {
               AGENDAR DIAGNÓSTICO
             </motion.a>
             
-            {/* Botão Secundário (Outline) */}
             <motion.a
               href="#Servicos"
-              className="btn btn-logo-both btn-logo-outline brutalist-btn btn-lg fw-bold border-0 d-flex align-items-center justify-content-center"
+              className="btn btn-logo-both btn-logo-outline brutalist-btn fw-bold border-0 d-flex align-items-center justify-content-center w-100"
               style={{ 
                 color: 'var(--brutal-text)',
-                height: '64px' /* ALTURA CRAVADA EXATAMENTE IGUAL */
+                height: 'clamp(46px, 10vw, 64px)',
+                fontSize: 'clamp(0.75rem, 3vw, 1rem)',
+                letterSpacing: '1px'
               }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
@@ -115,17 +116,16 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Letreiro Deslizante */}
-      <div className="hero-marquee-shell position-relative z-1 mt-5 border-top border-bottom" style={{ borderColor: `${dynamicWords[index].color} !important`, transition: 'border-color 0.3s ease' }}>
+      <div className="hero-marquee-shell position-relative z-1 mt-4 mt-md-5 border-top border-bottom" style={{ borderColor: `${dynamicWords[index].color} !important`, transition: 'border-color 0.3s ease' }}>
         <motion.div
-          className="hero-marquee-track d-flex align-items-center gap-5 py-3"
+          className="hero-marquee-track d-flex align-items-center gap-4 gap-md-5 py-2 py-md-3"
           animate={{ x: ['0%', '-50%'] }}
           transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
         >
           {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="d-flex align-items-center gap-3 fs-4 fw-bold marquee-separator" style={{ letterSpacing: '2px', color: 'var(--brutal-text)' }}>
-              <i className={item.icon1} style={{ fontSize: '1.8rem' }}></i>
-              {item.icon2 && <i className={item.icon2} style={{ fontSize: '1.8rem' }}></i>}
+            <span key={i} className="d-flex align-items-center gap-2 gap-md-3 fs-6 fs-md-4 fw-bold marquee-separator" style={{ letterSpacing: '1px', color: 'var(--brutal-text)' }}>
+              <i className={item.icon1} style={{ fontSize: '1.2rem' }}></i>
+              {item.icon2 && <i className={item.icon2} style={{ fontSize: '1.2rem' }}></i>}
               {item.text}
             </span>
           ))}

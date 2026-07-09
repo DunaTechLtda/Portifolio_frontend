@@ -60,7 +60,6 @@ const projects = [
   }
 ];
 
-// Adicionado theme e toggleTheme para a Navbar funcionar
 export default function Portfolio({ theme, toggleTheme }) {
   return (
     <main className="tech-grid-bg min-vh-100">
@@ -73,7 +72,8 @@ export default function Portfolio({ theme, toggleTheme }) {
             <div className="eyebrow-box mb-4 text-white">
 
             </div>
-            <h1 className="text-huge text-white mb-4">CASOS DE SUCESSO</h1>
+            {/* Título responsivo usando clamp */}
+            <h1 className="text-huge text-white mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>CASOS DE SUCESSO</h1>
             <p className="text-secondary fw-medium" style={{ fontSize: '1.2rem', maxWidth: '600px' }}>
               Projetos que entregam performance, escalabilidade e design funcional.
             </p>
@@ -87,13 +87,11 @@ export default function Portfolio({ theme, toggleTheme }) {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                style={{ perspective: 1000 }} // Mantém a perspectiva 3D
+                style={{ perspective: 1000 }} 
               >
-                {/* 
-                  Aplicada a classe brutal-card-hover e injetado var(--brutal-bg) no background
-                */}
+                {/* Reduzi levemente o padding no celular (p-3 p-lg-4) e o gap para caber melhor */}
                 <motion.div 
-                  className="brutal-card-hover p-4 d-flex flex-column flex-lg-row align-items-center gap-5"
+                  className="brutal-card-hover p-3 p-lg-4 d-flex flex-column flex-lg-row align-items-center gap-4 gap-lg-5"
                   style={{ 
                     '--hover-color': project.color,
                     border: `2px solid ${project.color || 'var(--brutal-border)'}`,
@@ -117,30 +115,42 @@ export default function Portfolio({ theme, toggleTheme }) {
                     />
                   </div>
 
-                  {/* Conteúdo */}
-                  <div className="flex-grow-1">
-                    <span className="d-block fw-bold mb-2" style={{ color: project.color, letterSpacing: '2px' }}>
+                  {/* Conteúdo: w-100 garante que ele não vaze das laterais */}
+                  <div className="flex-grow-1 w-100">
+                    <span className="d-block fw-bold mb-2" style={{ color: project.color, letterSpacing: '2px', fontSize: 'clamp(0.7rem, 2vw, 0.9rem)' }}>
                       {project.client}
                     </span>
-                    {/* Classes text-white fixas removidas, agora os textos herdam a cor do modo (claro/escuro) */}
-                    <h2 className="text-uppercase fw-black mb-3" style={{ fontSize: '2rem' }}>
+                    
+                    {/* text-break impede palavras gigantes (como BEATRIZMONTENEGRO) de estourarem a div */}
+                    <h2 className="text-uppercase fw-black mb-3 text-break" style={{ fontSize: 'clamp(1.5rem, 6vw, 2rem)' }}>
                       {project.title}
                     </h2>
-                    <p className="mb-4" style={{ fontSize: '1.1rem', opacity: 0.8 }}>
+                    
+                    <p className="mb-4" style={{ fontSize: 'clamp(0.9rem, 3vw, 1.1rem)', opacity: 0.8 }}>
                       {project.desc}
                     </p>
                     
                     <div className="d-flex flex-wrap gap-2 mb-4">
                       {project.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 fw-bold text-dark bg-white" style={{ fontSize: '0.75rem' }}>
+                        <span key={tag} className="px-3 py-1 fw-bold text-dark bg-white" style={{ fontSize: '0.7rem' }}>
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <a href="/contato" className="fw-bold text-decoration-none d-flex align-items-center gap-2" style={{ color: 'inherit' }}>
-                      SOLICITAR ORÇAMENTO <i className="bi bi-arrow-right" style={{ color: project.color }}></i>
-                    </a>
+                    <motion.a
+                      href="/contato"
+                      className="btn btn-logo-both btn-logo-outline brutalist-btn px-4 py-2 fw-bold d-inline-flex align-items-center justify-content-center gap-2 border-0"
+                      style={{
+                        color: 'var(--brutal-text)',
+                        fontSize: 'clamp(0.75rem, 3vw, 0.85rem)',
+                        letterSpacing: '1px'
+                      }}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      SOLICITAR ORÇAMENTO <i className="bi bi-arrow-right" style={{ color: project.color, fontSize: '1.1rem' }}></i>
+                    </motion.a>
                   </div>
                 </motion.div>
               </motion.article>
