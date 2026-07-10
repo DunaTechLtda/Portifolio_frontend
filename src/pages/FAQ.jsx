@@ -74,12 +74,9 @@ export default function FAQ({ theme, toggleTheme }) {
           >
             <div className="col-lg-8">
               <div className="eyebrow-box mb-4 text-white">
-                {/* <span>[07]</span>
-                <div className="eyebrow-divider"></div>
-                <span>BASE DE CONHECIMENTO</span> */}
               </div>
               <h1 className="text-huge text-white mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-                PERGUNTAS FREQUENTES<span className="blinking-cursor" style={{ color: '#4d98e2' }}>_</span>
+                PERGUNTAS FREQUENTES<span className="blinking-cursor" style={{ color: '#4d98e2' }}> </span>
               </h1>
               <p className="text-secondary fw-medium" style={{ fontSize: '1.2rem', maxWidth: '650px' }}>
                 Respostas diretas e técnicas sobre nossos processos, prazos e tecnologias. Sem jargões desnecessários, direto ao ponto.

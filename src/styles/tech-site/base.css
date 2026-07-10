@@ -425,3 +425,35 @@ body[data-theme='light'] .brutal-hover:hover * {
   background-color: #ffffff !important;
   color: #050505 !important;
 }
+
+/* =========================================
+   RESET OBRIGATÓRIO (CORRIGE O ALINHAMENTO DO REACT/VITE)
+========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important; /* Mata qualquer rolagem ou espaço vazando na direita */
+}
+
+/* O Vite cria esse #root com margens e paddings que quebram o layout. Vamos zerar isso! */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important; /* Remove o display: flex padrão do Vite que amassa as coisas */
+  text-align: left !important;
+}
+
+/* Garante que as linhas do Bootstrap não quebrem o limite da tela */
+.row {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}

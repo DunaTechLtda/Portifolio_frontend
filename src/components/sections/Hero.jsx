@@ -42,20 +42,23 @@ export default function Hero() {
         
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="w-100">
           
-          <div className="hero-kicker glass-card d-inline-flex align-items-center gap-2 px-3 py-1 py-md-2 mb-3 mb-md-4 fw-bold" style={{ letterSpacing: '1px', border: `1px solid ${dynamicWords[index].color}`, transition: 'border-color 0.3s', fontSize: 'clamp(0.6rem, 2vw, 0.8rem)' }}>
+          <div className="hero-kicker glass-card d-inline-flex align-items-center gap-2 px-3 py-1 py-md-2 mb-3 mb-md-4 fw-bold" style={{ letterSpacing: '1px', border: `1px solid ${dynamicWords[index].color}`, transition: 'border-color 0.3s', fontSize: 'clamp(0.6rem, 2vw, 0.75rem)' }}>
             <span>DUNATECH</span>
             <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: dynamicWords[index].color, transition: 'background 0.3s' }}></span>
             <span>SOFTWARE_HOUSE</span>
           </div>
 
-          {/* TÍTULO RESTAURADO: Comportamento inline no PC, empilhado no mobile */}
-          <h1 className="text-titan mb-4 lh-1 text-uppercase" style={{ fontSize: 'clamp(1.5rem, 8vw, 4.5rem)' }}>
+          {/* 
+            TÍTULO DESKTOP RESTAURADO (4.5rem e lineHeight 1.2)
+            Isso garante que nenhum acento de SOLUÇÕES seja cortado.
+          */}
+          <h1 className="text-titan mb-4 text-uppercase" style={{ fontSize: 'clamp(1.3rem, 7vw, 4.5rem)', lineHeight: '1.2' }}>
             <span className="d-block d-md-inline">SOLUÇÕES</span>{' '}
             <span className="d-block d-md-inline">DIGITAIS</span>
             <br className="d-md-none" />
             
-            <span className="d-inline-flex align-items-center justify-content-center mx-auto mt-1 mt-md-0">
-              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '12px' }}>
+            <span className="d-inline-flex align-items-center justify-content-center mx-auto mt-1 mt-md-0" style={{ maxWidth: '100%' }}>
+              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '15px', paddingTop: '20px', paddingBottom: '20px' }}>
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={dynamicWords[index].text}
@@ -63,7 +66,9 @@ export default function Hero() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -50, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="d-inline-block pb-1"
+                    className="d-inline-block"
+                    /* A MÁGICA PARA O CELULAR: impede o S de cair pra linha invisível de baixo */
+                    style={{ whiteSpace: 'nowrap' }} 
                   >
                     {dynamicWords[index].text}
                   </motion.span>
@@ -73,11 +78,10 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="hero-copy mx-auto mb-4 mb-md-5 fw-medium px-2" style={{ maxWidth: '800px', fontSize: 'clamp(0.85rem, 3vw, 1.25rem)' }}>
+          <p className="hero-copy mx-auto mb-4 mb-md-5 fw-medium px-2" style={{ maxWidth: '800px', fontSize: 'clamp(0.85rem, 3.5vw, 1.25rem)' }}>
             Transformamos problemas complexos em softwares, aplicativos e automações. Uma infraestrutura de ponta para empresas que exigem excelência tecnológica.
           </p>
 
-          {/* Botões: tamanho fixo de 64px no PC, cai para 46px no celular */}
           <div className="d-grid d-md-flex justify-content-md-center gap-3 gap-md-4 mx-auto w-100 px-3 px-md-0" style={{ maxWidth: '800px' }}>
             
             <motion.a
