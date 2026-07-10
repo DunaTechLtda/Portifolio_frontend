@@ -43,35 +43,27 @@ const cardMotion = {
 
 export default function Testimonials() {
   return (
-    <section id="Testimonials" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
-      <div className="container py-5 position-relative z-1">
+    <section id="Testimonials" className="tech-grid-bg pt-4 pt-md-5 pb-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
+      <div className="container pt-1 pt-md-4 pb-5 position-relative z-1">
         
-        {/* Cabeçalho Brutalista */}
         <motion.div
-          className="mb-5 d-flex flex-column align-items-center text-center"
+          className="mb-4 mb-md-5 d-flex flex-column align-items-center text-center"
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
         >
-          {/* <div className="eyebrow-box mb-4 text-white">
-            <span>[05]</span>
-            <div className="eyebrow-divider"></div>
-            <span>FEEDBACK_CLIENTES</span>
-          </div> */}
-          
-          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
-            O QUE DIZEM <br/> NOSSOS PARCEIROS
+          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)' }}>
+            O QUE DIZEM <br className="d-none d-md-block" /> NOSSOS PARCEIROS
           </h2>
           
-          <p className="text-secondary fw-medium" style={{ maxWidth: '600px', fontSize: '1.1rem' }}>
+          <p className="text-secondary fw-medium px-2" style={{ maxWidth: '600px', fontSize: 'clamp(0.85rem, 3vw, 1.1rem)' }}>
             Empresas e profissionais que confiaram na Dunatech para modernizar e escalar suas operações através de software robusto.
           </p>
         </motion.div>
 
-        {/* Grid de Depoimentos */}
         <motion.div 
-          className="row g-4 justify-content-center mt-3"
+          className="row g-3 g-md-4 justify-content-center mt-2 mt-md-3"
           variants={containerMotion}
           initial="hidden"
           whileInView="visible"
@@ -80,9 +72,9 @@ export default function Testimonials() {
           {testimonialsData.map((item, index) => (
             <motion.div key={item.id} className="col-lg-4 col-md-6" variants={cardMotion}>
               
-              {/* Adicionamos a classe brutal-card-hover e as variáveis CSS */}
               <motion.article
-                className="brutal-card-hover h-100 p-4 position-relative d-flex flex-column"
+                /* px-3 py-3 deixa o celular bem espremido, p-md-4 devolve o respiro no PC */
+                className="brutal-card-hover h-100 px-3 py-3 p-md-4 position-relative d-flex flex-column"
                 style={{ 
                   '--hover-color': item.color,
                   border: `2px solid ${item.color}`, 
@@ -108,28 +100,29 @@ export default function Testimonials() {
                   "
                 </div>
 
-                {/* Estrelas */}
-                <div className="mb-4 d-flex gap-1" style={{ fontSize: '1.1rem', color: 'inherit' }}>
+                {/* Margem inferior das estrelas bem reduzida no celular (mb-2) */}
+                <div className="mb-2 mb-md-4 d-flex gap-1" style={{ fontSize: 'clamp(0.8rem, 3vw, 1.1rem)', color: 'inherit' }}>
                   {[...Array(item.stars)].map((_, starIndex) => (
                     <i key={starIndex} className="bi bi-star-fill"></i>
                   ))}
                 </div>
                 
-                {/* Texto do Depoimento */}
-                <p className="fw-medium mb-5 flex-grow-1" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
+                {/* Margem do texto (mb-3) e espaçamento de linha (1.4) apertados no celular */}
+                <p className="fw-medium mb-3 mb-md-5 flex-grow-1" style={{ fontSize: 'clamp(0.8rem, 3vw, 1.05rem)', lineHeight: '1.4' }}>
                   {item.text}
                 </p>
                 
-                {/* Rodapé do Card: Cliente com Ícone de Pessoa */}
-                <div className="d-flex align-items-center gap-3 mt-auto pt-4" style={{ borderTop: '1px dashed currentColor' }}>
+                {/* Preenchimento superior do rodapé reduzido (pt-2) */}
+                <div className="d-flex align-items-center gap-2 gap-md-3 mt-auto pt-2 pt-md-4" style={{ borderTop: '1px dashed currentColor' }}>
                   
-                  <i className="bi bi-person-circle" style={{ fontSize: '2.8rem' }}></i>
+                  {/* Ícone cai para 1.5rem no celular */}
+                  <i className="bi bi-person-circle" style={{ fontSize: 'clamp(1.5rem, 5vw, 2.8rem)' }}></i>
                   
                   <div>
-                    <strong className="d-block text-uppercase" style={{ letterSpacing: '1px', fontSize: '1.1rem' }}>
+                    <strong className="d-block text-uppercase" style={{ letterSpacing: '1px', fontSize: 'clamp(0.8rem, 3vw, 1.1rem)' }}>
                       {item.name}
                     </strong>
-                    <small className="text-uppercase fw-bold" style={{ opacity: 0.7, letterSpacing: '1px' }}>
+                    <small className="text-uppercase fw-bold" style={{ opacity: 0.7, letterSpacing: '1px', fontSize: 'clamp(0.65rem, 2vw, 0.85rem)' }}>
                       {item.company}
                     </small>
                   </div>

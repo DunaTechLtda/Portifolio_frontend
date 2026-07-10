@@ -65,21 +65,20 @@ export default function Portfolio({ theme, toggleTheme }) {
     <main className="tech-grid-bg min-vh-100">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
-      <section className="position-relative py-5" style={{ paddingTop: '140px' }}>
-        <div className="container py-5">
+      <section className="position-relative pb-5" style={{ paddingTop: 'clamp(90px, 15vw, 140px)' }}>
+        <div className="container pt-2 pt-md-4 pb-5">
           
-          <motion.div className="mb-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <div className="eyebrow-box mb-4 text-white">
+          <motion.div className="mb-4 mb-md-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <div className="eyebrow-box mb-3 mb-md-4 text-white">
 
             </div>
-            {/* Título responsivo usando clamp */}
-            <h1 className="text-huge text-white mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>CASOS DE SUCESSO</h1>
-            <p className="text-secondary fw-medium" style={{ fontSize: '1.2rem', maxWidth: '600px' }}>
+            <h1 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>CASOS DE SUCESSO</h1>
+            <p className="text-secondary fw-medium px-2 px-md-0" style={{ fontSize: 'clamp(0.9rem, 3vw, 1.2rem)', maxWidth: '600px' }}>
               Projetos que entregam performance, escalabilidade e design funcional.
             </p>
           </motion.div>
 
-          <div className="row g-4">
+          <div className="row g-3 g-md-4">
             {projects.map((project, index) => (
               <motion.article
                 key={project.id}
@@ -89,9 +88,8 @@ export default function Portfolio({ theme, toggleTheme }) {
                 viewport={{ once: true }}
                 style={{ perspective: 1000 }} 
               >
-                {/* Reduzi levemente o padding no celular (p-3 p-lg-4) e o gap para caber melhor */}
                 <motion.div 
-                  className="brutal-card-hover p-3 p-lg-4 d-flex flex-column flex-lg-row align-items-center gap-4 gap-lg-5"
+                  className="brutal-card-hover px-3 py-3 p-lg-4 d-flex flex-column flex-lg-row align-items-center gap-3 gap-lg-5"
                   style={{ 
                     '--hover-color': project.color,
                     border: `2px solid ${project.color || 'var(--brutal-border)'}`,
@@ -105,8 +103,14 @@ export default function Portfolio({ theme, toggleTheme }) {
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  {/* Imagem */}
-                  <div className="flex-shrink-0" style={{ width: '100%', maxWidth: (project.id === 4 || project.id === 5) ? '220px' : '400px' }}>
+                  {/* IMAGEM: O clamp(130px, 40vw, 220px) faz os apps ficarem menores no celular e voltarem a 220px no PC */}
+                  <div 
+                    className="flex-shrink-0" 
+                    style={{ 
+                      width: '100%', 
+                      maxWidth: (project.id === 4 || project.id === 5) ? 'clamp(130px, 40vw, 220px)' : '400px' 
+                    }}
+                  >
                     <img 
                       src={project.img} 
                       alt={project.title} 
@@ -115,24 +119,22 @@ export default function Portfolio({ theme, toggleTheme }) {
                     />
                   </div>
 
-                  {/* Conteúdo: w-100 garante que ele não vaze das laterais */}
-                  <div className="flex-grow-1 w-100">
-                    <span className="d-block fw-bold mb-2" style={{ color: project.color, letterSpacing: '2px', fontSize: 'clamp(0.7rem, 2vw, 0.9rem)' }}>
+                  <div className="flex-grow-1 w-100 mt-2 mt-lg-0">
+                    <span className="d-block fw-bold mb-1 mb-md-2" style={{ color: project.color, letterSpacing: '2px', fontSize: 'clamp(0.7rem, 2.5vw, 0.9rem)' }}>
                       {project.client}
                     </span>
                     
-                    {/* text-break impede palavras gigantes (como BEATRIZMONTENEGRO) de estourarem a div */}
-                    <h2 className="text-uppercase fw-black mb-3 text-break" style={{ fontSize: 'clamp(1.5rem, 6vw, 2rem)' }}>
+                    <h2 className="text-uppercase fw-black mb-2 mb-md-3 text-break" style={{ fontSize: 'clamp(1.3rem, 5vw, 2rem)' }}>
                       {project.title}
                     </h2>
                     
-                    <p className="mb-4" style={{ fontSize: 'clamp(0.9rem, 3vw, 1.1rem)', opacity: 0.8 }}>
+                    <p className="mb-3 mb-md-4" style={{ fontSize: 'clamp(0.85rem, 3vw, 1.1rem)', opacity: 0.8, lineHeight: '1.4' }}>
                       {project.desc}
                     </p>
                     
-                    <div className="d-flex flex-wrap gap-2 mb-4">
+                    <div className="d-flex flex-wrap gap-1 gap-md-2 mb-3 mb-md-4">
                       {project.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 fw-bold text-dark bg-white" style={{ fontSize: '0.7rem' }}>
+                        <span key={tag} className="px-2 py-1 px-md-3 fw-bold text-dark bg-white" style={{ fontSize: 'clamp(0.65rem, 2vw, 0.75rem)' }}>
                           {tag}
                         </span>
                       ))}
@@ -140,7 +142,7 @@ export default function Portfolio({ theme, toggleTheme }) {
 
                     <motion.a
                       href="/contato"
-                      className="btn btn-logo-both btn-logo-outline brutalist-btn px-4 py-2 fw-bold d-inline-flex align-items-center justify-content-center gap-2 border-0"
+                      className="btn btn-logo-both btn-logo-outline brutalist-btn px-3 py-2 px-md-4 fw-bold d-inline-flex align-items-center justify-content-center gap-2 border-0"
                       style={{
                         color: 'var(--brutal-text)',
                         fontSize: 'clamp(0.75rem, 3vw, 0.85rem)',

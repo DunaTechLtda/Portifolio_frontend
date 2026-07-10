@@ -43,22 +43,18 @@ const cardMotion = {
 
 export default function Services() {
   return (
-    <section id="Servicos" className="tech-grid-bg py-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
-      <div className="container py-5">
+    <section id="Servicos" className="tech-grid-bg pt-4 pt-md-5 pb-5 border-top" style={{ borderColor: 'var(--brutal-border)' }}>
+      
+      <div className="container pt-1 pt-md-4 pb-5">
         
-        <div className="mb-5 text-center">
-          {/* <div className="eyebrow-box mb-4 text-white">
-            <span>[02]</span>
-            <div className="eyebrow-divider"></div>
-            <span>EXPERTISE_TÉCNICA</span>
-          </div> */}
-          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}>
+        <div className="mb-4 mb-md-5 text-center">
+          <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2rem, 6vw, 5rem)' }}>
             NOSSOS SERVIÇOS
           </h2>
         </div>
 
         <motion.div 
-          className="row g-4 justify-content-center"
+          className="row g-3 g-md-4 justify-content-center"
           variants={containerMotion}
           initial="hidden"
           whileInView="visible"
@@ -67,9 +63,8 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div key={index} className="col-lg-4 col-md-6" variants={cardMotion}>
               
-              {/* Adicionamos a classe brutal-card-hover e injetamos a variável CSS no style */}
               <motion.article
-                className="brutal-card-hover h-100 p-4 d-flex flex-column"
+                className="brutal-card-hover h-100 p-3 p-md-4 d-flex flex-column"
                 style={{ 
                   '--hover-color': service.color, 
                   border: `2px solid ${service.color}`, 
@@ -79,20 +74,20 @@ export default function Services() {
                   boxShadow: `10px 10px 0px rgba(0,0,0,0.1)` 
                 }}
               >
-                <div className="d-flex justify-content-between align-items-start mb-4">
-                  <i className={`bi ${service.icon}`} style={{ fontSize: '2.5rem', color: 'inherit' }} />
-                  <span className="fw-bold fs-5">0{index + 1}</span>
+                <div className="d-flex justify-content-between align-items-start mb-2 mb-md-4">
+                  <i className={`bi ${service.icon}`} style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'inherit' }} />
+                  <span className="fw-bold fs-6 fs-md-5">0{index + 1}</span>
                 </div>
 
-                <h3 className="fw-black text-uppercase mb-3" style={{ fontSize: '1.5rem', letterSpacing: '-1px' }}>
+                <h3 className="fw-black text-uppercase mb-2 mb-md-3" style={{ fontSize: 'clamp(1rem, 3.5vw, 1.5rem)', letterSpacing: '-1px' }}>
                   {service.title}
                 </h3>
                 
-                <p className="fw-medium mb-4 flex-grow-1" style={{ opacity: 0.9 }}>
+                <p className="fw-medium mb-3 mb-md-4 flex-grow-1" style={{ opacity: 0.9, fontSize: 'clamp(0.75rem, 2.5vw, 1rem)' }}>
                   {service.description}
                 </p>
 
-                <a href={service.href} className="fw-bold text-uppercase text-decoration-none d-flex align-items-center gap-2 mt-auto" style={{ color: 'inherit', letterSpacing: '1px' }}>
+                <a href={service.href} className="fw-bold text-uppercase text-decoration-none d-flex align-items-center gap-2 mt-auto" style={{ color: 'inherit', letterSpacing: '1px', fontSize: 'clamp(0.75rem, 2.5vw, 1rem)' }}>
                   {service.cta} <i className="bi bi-arrow-right" />
                 </a>
               </motion.article>

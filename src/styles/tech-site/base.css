@@ -457,3 +457,28 @@ html, body {
   margin-left: 0;
   margin-right: 0;
 }
+
+@media (max-width: 768px) {
+  /* 1. AQUI É ONDE VOCÊ MUDA O TAMANHO DA FONTE NO MOBILE */
+  .text-titan {
+    font-size: 10vw !important; 
+    line-height: 1.1 !important;
+  }
+  
+  /* 2. Isso cria uma margem de segurança para o "overflow-hidden" não guilhotinar a letra S e o _ */
+  .text-titan .overflow-hidden {
+    padding-right: 15px !important; 
+  }
+}
+
+@media (max-width: 768px) {
+  .text-titan {
+    font-size: 10vw !important; /* MUDE AQUI PARA O CELULAR (Tente 9vw, 8vw...) */
+    line-height: 1.1 !important;
+  }
+  
+  /* Proteção para a animação não cortar a última letra no mobile */
+  .text-titan .overflow-hidden {
+    padding-right: 15px !important; 
+  }
+}
