@@ -473,7 +473,7 @@ html, body {
 
 @media (max-width: 768px) {
   .text-titan {
-    font-size: 10vw !important; /* MUDE AQUI PARA O CELULAR (Tente 9vw, 8vw...) */
+    font-size: 10vw !important;
     line-height: 1.1 !important;
   }
   

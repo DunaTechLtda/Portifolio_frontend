@@ -47,11 +47,7 @@ export default function Hero() {
             <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: dynamicWords[index].color, transition: 'background 0.3s' }}></span>
             <span>SOFTWARE_HOUSE</span>
           </div>
-
-          {/* 
-            TÍTULO DESKTOP RESTAURADO (4.5rem e lineHeight 1.2)
-            Isso garante que nenhum acento de SOLUÇÕES seja cortado.
-          */}
+          
           <h1 className="text-titan mb-4 text-uppercase" style={{ fontSize: 'clamp(1.3rem, 7vw, 4.5rem)', lineHeight: '1.2' }}>
             <span className="d-block d-md-inline">SOLUÇÕES</span>{' '}
             <span className="d-block d-md-inline">DIGITAIS</span>
