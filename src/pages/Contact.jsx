@@ -189,7 +189,7 @@ export default function Contact({ theme, toggleTheme }) {
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-envelope"></i> EMAIL DIRETO
                       </span>
-                      <strong className="text-white fs-5">contato@dunatech.com</strong>
+                      <strong className="text-white fs-5">dunatechltda@gmail.com</strong>
                     </div>
                   </div>
 
@@ -199,7 +199,7 @@ export default function Contact({ theme, toggleTheme }) {
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-whatsapp"></i> WHATSAPP
                       </span>
-                      <strong className="text-white fs-6">(84) 99999-9999</strong>
+                      <strong className="text-white fs-6">(84) 99818-5053</strong>
                     </div>
                   </div>
 
@@ -209,7 +209,7 @@ export default function Contact({ theme, toggleTheme }) {
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-instagram"></i> INSTAGRAM
                       </span>
-                      <a href="https://instagram.com/dunatech" target="_blank" rel="noopener noreferrer" className="text-white fw-bold fs-6 text-decoration-none" style={{ color: 'var(--brutal-text)' }}>
+                      <a href="https://instagram.com/dunatechbr" target="_blank" rel="noopener noreferrer" className="text-white fw-bold fs-6 text-decoration-none" style={{ color: 'var(--brutal-text)' }}>
                         @dunatech
                       </a>
                     </div>
@@ -221,7 +221,7 @@ export default function Contact({ theme, toggleTheme }) {
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-geo-alt"></i> ENDEREÇO
                       </span>
-                      <strong className="text-white fs-6">Natal, RN - Brasil (Atendimento Remoto e Presencial)</strong>
+                      <strong className="text-white fs-6">Natal, RN - Brasil (Atendimento Remoto)</strong>
                     </div>
                   </div>
 

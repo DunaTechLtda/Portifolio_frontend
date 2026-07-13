@@ -33,6 +33,15 @@ export default function Hero() {
   return (
     <section id="Inicio" className="hero-fluid-section overflow-hidden d-flex flex-column justify-content-center" style={{ minHeight: '100vh', paddingTop: '120px' }}>
       
+      <style>{`
+        @media (max-width: 768px) {
+          .text-titan {
+            font-size: clamp(1.6rem, 11vw, 3.5rem) !important;
+            line-height: 1.1 !important;
+          }
+        }
+      `}</style>
+
       <div className="hero-glow hero-glow-blue"></div>
       <div className="hero-glow hero-glow-violet"></div>
       <div className="hero-grid-mask"></div>
@@ -48,13 +57,22 @@ export default function Hero() {
             <span>SOFTWARE_HOUSE</span>
           </div>
           
-          <h1 className="text-titan mb-4 text-uppercase" style={{ fontSize: 'clamp(1.3rem, 7vw, 4.5rem)', lineHeight: '1.2' }}>
+          <h1 className="text-titan mb-4 text-uppercase">
             <span className="d-block d-md-inline">SOLUÇÕES</span>{' '}
             <span className="d-block d-md-inline">DIGITAIS</span>
-            <br className="d-md-none" />
             
-            <span className="d-inline-flex align-items-center justify-content-center mx-auto mt-1 mt-md-0" style={{ maxWidth: '100%' }}>
-              <span className="overflow-hidden" style={{ color: dynamicWords[index].color, transition: 'color 0.3s ease', paddingRight: '15px', paddingTop: '20px', paddingBottom: '20px' }}>
+            {/* O <br> assassino foi removido daqui! */}
+            
+            <span className="d-inline-flex align-items-center justify-content-center mx-auto mt-0" style={{ maxWidth: '100%' }}>
+              <span className="overflow-hidden" style={{ 
+                color: dynamicWords[index].color, 
+                transition: 'color 0.3s ease', 
+                /* O PULO DO GATO AQUI: paddingLeft exatamente igual ao paddingRight! */
+                paddingLeft: 'clamp(15px, 3vw, 35px)',
+                paddingRight: 'clamp(15px, 3vw, 35px)', 
+                paddingTop: 'clamp(15px, 5vw, 50px)', 
+                paddingBottom: 'clamp(10px, 3vw, 30px)'
+              }}>
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={dynamicWords[index].text}
@@ -63,7 +81,6 @@ export default function Hero() {
                     exit={{ y: -50, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                     className="d-inline-block"
-                    /* A MÁGICA PARA O CELULAR: impede o S de cair pra linha invisível de baixo */
                     style={{ whiteSpace: 'nowrap' }} 
                   >
                     {dynamicWords[index].text}

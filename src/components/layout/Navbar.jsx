@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 export default function Navbar({ theme, toggleTheme }) {
   const navItems = [
-    { label: 'INÍCIO', href: '#Inicio' },
-    { label: 'SERVIÇOS', href: '#Servicos' },
+    { label: 'INÍCIO', href: '/#Inicio' },
+    { label: 'SERVIÇOS', href: '/#Servicos' },
     { label: 'PORTFÓLIO', href: '/portfolio' },
     { label: 'FAQS', href: '/faqs' },
   ];
@@ -25,15 +25,17 @@ export default function Navbar({ theme, toggleTheme }) {
         <header className="d-flex align-items-center justify-content-between py-3 mx-auto">
           
           <a href="/" className="d-flex align-items-center text-decoration-none">
+            {/* A MÁGICA AQUI: O React troca o arquivo da imagem automaticamente!
+              Se for light, puxa a logo preta. Se for dark, puxa a logo branca.
+            */}
             <img 
-              src="/images/assets/Logo_Dunatech.png" 
+              src={theme === 'light' ? "images/assets/dunatechPRETO.png" : "images/assets/Logo_Dunatech.png"} 
               alt="Logo Dunatech" 
               className="img-fluid"
-              style={{ maxWidth: '140px', filter: theme === 'light' ? 'invert(1) hue-rotate(180deg)' : 'none', transition: 'filter 0.3s ease' }}
+              style={{ maxWidth: '140px', transition: 'opacity 0.3s ease' }}
             /> 
           </a>
 
-          {/* MENU DESKTOP (Escondido no mobile) */}
           <nav className="d-none d-md-flex gap-4">
             {navItems.map((item) => (
               <a
@@ -56,7 +58,6 @@ export default function Navbar({ theme, toggleTheme }) {
 
           <div className="d-flex align-items-center gap-2 gap-md-3">
             
-            {/* BOTÃO TEMA */}
             <button 
               onClick={toggleTheme}
               className="btn d-flex align-items-center justify-content-center"
@@ -73,7 +74,6 @@ export default function Navbar({ theme, toggleTheme }) {
               <i className={`bi fs-5 ${theme === 'light' ? 'bi-moon-stars-fill' : 'bi-sun-fill'}`}></i>
             </button>
 
-            {/* BOTÃO INICIAR PROJETO (PC) */}
             <motion.a
               href="/contato"
               className="btn btn-logo-both brutalist-btn py-2 border-0 fw-bold d-none d-md-flex align-items-center justify-content-center"
@@ -87,7 +87,6 @@ export default function Navbar({ theme, toggleTheme }) {
               INICIAR PROJETO
             </motion.a>
 
-            {/* BOTÃO HAMBURGUER (Aparece só no Mobile) */}
             <button 
               className="btn d-md-none d-flex align-items-center justify-content-center" 
               type="button" 
@@ -110,7 +109,6 @@ export default function Navbar({ theme, toggleTheme }) {
         </header>
       </div>
 
-      {/* MENU LATERAL DESLIZANTE (OFFCANVAS) PARA CELULAR */}
       <div className="offcanvas offcanvas-end" tabIndex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel" style={{ backgroundColor: 'var(--brutal-bg)', borderLeft: '1px solid var(--brutal-border)' }}>
         
         <div className="offcanvas-header border-bottom py-4" style={{ borderColor: 'var(--brutal-border) !important' }}>
@@ -131,14 +129,13 @@ export default function Navbar({ theme, toggleTheme }) {
                   color: 'var(--brutal-text)',
                   letterSpacing: '2px',
                 }}
-                data-bs-dismiss="offcanvas" // Faz o menu fechar sozinho ao clicar no link
+                data-bs-dismiss="offcanvas" 
               >
                 {item.label}
               </a>
             ))}
           </nav>
           
-          {/* Botão "Iniciar Projeto" escondido dentro do menu no celular */}
           <div className="mt-auto mb-4">
             <a
               href="/contato"
