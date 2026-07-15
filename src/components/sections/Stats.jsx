@@ -35,7 +35,7 @@ export default function Stats() {
           className="mb-4 mb-md-5 d-flex flex-column align-items-center text-center"
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
         >
           <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)' }}>
             RESULTADOS COMPROVADOS
@@ -53,7 +53,7 @@ export default function Stats() {
               className="col-lg-4 col-md-6" 
               initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
+              viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }} 
               transition={{ delay: index * 0.1 }}
             >
               <motion.article

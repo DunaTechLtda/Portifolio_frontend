@@ -60,7 +60,7 @@ export default function Contact({ theme, toggleTheme }) {
             className="row align-items-end justify-content-between g-4 mb-5"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
             transition={{ duration: 0.6 }}
           >
             <div className="col-lg-8">
@@ -100,7 +100,7 @@ export default function Contact({ theme, toggleTheme }) {
                 className="p-4 p-md-5"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
                 transition={{ duration: 0.6 }}
                 /* Adaptação de Fundo e Borda */
                 style={{ 
@@ -168,7 +168,7 @@ export default function Contact({ theme, toggleTheme }) {
                 className="d-flex flex-column gap-3"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 {/* Bloco Principal de Passos */}

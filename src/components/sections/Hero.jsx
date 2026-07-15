@@ -35,6 +35,9 @@ export default function Hero() {
       
       <style>{`
         @media (max-width: 768px) {
+          .hero-fluid-section {
+            padding-top: 65px !important; 
+          }
           .text-titan {
             font-size: clamp(1.6rem, 11vw, 3.5rem) !important;
             line-height: 1.1 !important;
@@ -51,27 +54,26 @@ export default function Hero() {
         
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="w-100">
           
-          <div className="hero-kicker glass-card d-inline-flex align-items-center gap-2 px-3 py-1 py-md-2 mb-3 mb-md-4 fw-bold" style={{ letterSpacing: '1px', border: `1px solid ${dynamicWords[index].color}`, transition: 'border-color 0.3s', fontSize: 'clamp(0.6rem, 2vw, 0.75rem)' }}>
+          {/* mb-4 no mobile, travado em mb-md-4 no PC */}
+          <div className="hero-kicker glass-card d-inline-flex align-items-center gap-2 px-3 py-1 py-md-2 mb-4 mb-md-4 fw-bold" style={{ letterSpacing: '1px', border: `1px solid ${dynamicWords[index].color}`, transition: 'border-color 0.3s', fontSize: 'clamp(0.6rem, 2vw, 0.75rem)' }}>
             <span>DUNATECH</span>
             <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: dynamicWords[index].color, transition: 'background 0.3s' }}></span>
             <span>SOFTWARE_HOUSE</span>
           </div>
           
-          <h1 className="text-titan mb-4 text-uppercase">
+          {/* mb-5 para dar um respiro grande abaixo do título no celular, travado em mb-md-4 no PC */}
+          <h1 className="text-titan mb-5 mb-md-4 text-uppercase">
             <span className="d-block d-md-inline">SOLUÇÕES</span>{' '}
             <span className="d-block d-md-inline">DIGITAIS</span>
-            
-            {/* O <br> assassino foi removido daqui! */}
             
             <span className="d-inline-flex align-items-center justify-content-center mx-auto mt-0" style={{ maxWidth: '100%' }}>
               <span className="overflow-hidden" style={{ 
                 color: dynamicWords[index].color, 
                 transition: 'color 0.3s ease', 
-                /* O PULO DO GATO AQUI: paddingLeft exatamente igual ao paddingRight! */
                 paddingLeft: 'clamp(15px, 3vw, 35px)',
                 paddingRight: 'clamp(15px, 3vw, 35px)', 
                 paddingTop: 'clamp(15px, 5vw, 50px)', 
-                paddingBottom: 'clamp(10px, 3vw, 30px)'
+                paddingBottom: 'clamp(10px, 3vw, 30px)' 
               }}>
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -91,11 +93,13 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="hero-copy mx-auto mb-4 mb-md-5 fw-medium px-2" style={{ maxWidth: '800px', fontSize: 'clamp(0.85rem, 3.5vw, 1.25rem)' }}>
+          {/* mb-5 no celular, travado em mb-md-5 no PC */}
+          <p className="hero-copy mx-auto mb-5 mb-md-5 fw-medium px-2" style={{ maxWidth: '800px', fontSize: 'clamp(0.85rem, 3.5vw, 1.25rem)' }}>
             Transformamos problemas complexos em softwares, aplicativos e automações. Uma infraestrutura de ponta para empresas que exigem excelência tecnológica.
           </p>
 
-          <div className="d-grid d-md-flex justify-content-md-center gap-3 gap-md-4 mx-auto w-100 px-3 px-md-0" style={{ maxWidth: '800px' }}>
+          {/* gap-4 no celular para distanciar os botões, travado em gap-md-4 no PC */}
+          <div className="d-grid d-md-flex justify-content-md-center gap-4 gap-md-4 mx-auto w-100 px-3 px-md-0" style={{ maxWidth: '800px' }}>
             
             <motion.a
               href="/contato"

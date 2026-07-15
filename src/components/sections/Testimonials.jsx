@@ -50,7 +50,7 @@ export default function Testimonials() {
           className="mb-4 mb-md-5 d-flex flex-column align-items-center text-center"
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
           transition={{ duration: 0.55 }}
         >
           <h2 className="text-huge text-white mb-3" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)' }}>

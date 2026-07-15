@@ -85,7 +85,7 @@ export default function Portfolio({ theme, toggleTheme }) {
                 className="col-12"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
                 style={{ perspective: 1000 }} 
               >
                 <motion.div 

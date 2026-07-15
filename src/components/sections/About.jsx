@@ -39,7 +39,7 @@ export default function About() {
             className="col-lg-6"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
           >
             {/* <div className="eyebrow-box mb-4 text-white">
               <span>[03]</span>
@@ -78,7 +78,7 @@ export default function About() {
                   className="col-sm-6"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
                   transition={{ delay: index * 0.1 }}
                 >
                   {/* Card com hover interativo mantido */}
