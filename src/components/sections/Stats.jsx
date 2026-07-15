@@ -57,7 +57,6 @@ export default function Stats() {
               transition={{ delay: index * 0.1 }}
             >
               <motion.article
-                // MUDANÇA AQUI: p-4 no celular (mais achatado), p-lg-5 no PC (tamanho original)
                 className="brutal-card-hover h-100 p-4 p-lg-5 d-flex flex-column align-items-center justify-content-center text-center"
                 style={{
                   '--hover-color': stat.color, 
