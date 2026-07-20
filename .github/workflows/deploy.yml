@@ -26,5 +26,9 @@ jobs:
             git fetch origin
             git reset --hard origin/master
             git clean -fd
+            
+            npm install
+            npm run build
+            
             chown -R www-data:www-data /var/www/dunatech
             chmod -R 755 /var/www/dunatech
