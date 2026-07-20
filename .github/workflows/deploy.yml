@@ -15,17 +15,26 @@ jobs:
 
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.0
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
+          envs: VITE_EMAILJS_SERVICE_ID,VITE_EMAILJS_TEMPLATE_ID,VITE_EMAILJS_PUBLIC_KEY
           script: |
             cd /var/www/dunatech
             git stash
             git fetch origin
             git reset --hard origin/master
             git clean -fd
+            
+            echo "VITE_EMAILJS_SERVICE_ID=$VITE_EMAILJS_SERVICE_ID" > .env
+            echo "VITE_EMAILJS_TEMPLATE_ID=$VITE_EMAILJS_TEMPLATE_ID" >> .env
+            echo "VITE_EMAILJS_PUBLIC_KEY=$VITE_EMAILJS_PUBLIC_KEY" >> .env
             
             npm install
             npm run build
