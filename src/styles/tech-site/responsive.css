@@ -1,0 +1,108 @@
+@media (max-width: 991.98px) {
+  .tech-navbar-shell {
+    padding-inline: 1rem;
+  }
+
+  .tech-navbar {
+    max-width: 100%;
+  }
+
+  .tech-navbar-brand {
+    min-height: 48px;
+  }
+
+  .hero-fluid-section {
+    padding-top: 8rem;
+  }
+
+  .hero-dashboard-stage {
+    min-height: 420px;
+  }
+
+  .hero-dashboard-card-lg {
+    left: 0;
+    width: 100%;
+  }
+
+  .hero-dashboard-card-sm {
+    right: 0;
+  }
+
+  .hero-dashboard-card-md {
+    right: 0;
+  }
+
+  .services-bento-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .bento-card,
+  .bento-card-xl,
+  .bento-card-md,
+  .bento-card-sm {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 220px;
+  }
+
+  .hero-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-navbar-nav {
+    flex: 0 0 auto;
+  }
+
+  .stats-card,
+  .tech-matrix-card,
+  .testimonial-card {
+    grid-column: span 12;
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-bento-card,
+  .portfolio-bento-featured,
+  .faq-side-panel {
+    grid-column: span 12;
+    position: static;
+  }
+
+  .portfolio-bento-media,
+  .portfolio-bento-featured .portfolio-bento-media {
+    height: 240px;
+  }
+
+  .contact-side-stack {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .tech-navbar {
+    border-radius: 22px;
+  }
+
+  .tech-navbar-shell {
+    padding-top: 0.75rem;
+  }
+
+  .tech-theme-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 16vw, 4rem);
+  }
+
+  .hero-marquee-edge {
+    width: 4rem;
+  }
+
+  .hero-dashboard-stage {
+    min-height: 360px;
+  }
+}

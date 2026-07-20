@@ -1,0 +1,36 @@
+/* --- IMPACTO GIGANTE E CORES VIVAS (HERO) --- */
+.text-titan {
+  font-size: clamp(4rem, 14vw, 11rem) !important;
+  font-weight: 900 !important;
+  line-height: 0.82 !important;
+  letter-spacing: -0.06em !important;
+  font-family: 'Arial Black', Impact, sans-serif !important;
+  margin: 0;
+}
+
+.text-titan span {
+  display: block;
+}
+
+/* O cursor que acompanha a cor dinâmica */
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Ajuste no modo claro nativo do seu base.css para o texto não sumir */
+body[data-theme='light'] .text-titan {
+  color: #0f172a !important;
+}
+
+/* Bordas Brutalistas para os botões do Hero */
+.brutalist-btn {
+  border-radius: 0 !important;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
