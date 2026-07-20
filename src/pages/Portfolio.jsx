@@ -8,7 +8,7 @@ const projects = [
     id: 1,
     title: "SBCP-RN",
     desc: "Plataforma web institucional desenvolvida para a Sociedade Brasileira de Cirurgia Plástica do Rio Grande do Norte, otimizando o processo de gestão e inscrições.",
-    img: "/public/assets/sbcp.png",
+    img: "/assets/sbcp.png",
     tags: ["REACT", "MUI", "NODEJS"],
     client: "SBCP-RN",
     color: "#00E676" // Verde Neon
@@ -17,7 +17,7 @@ const projects = [
     id: 2,
     title: "MediSoft",
     desc: "Sistema de gestão hospitalar integrado, oferecendo soluções completas para administração médica e agendamento inteligente.",
-    img: "/public/assets/Medisoft_novo.png",
+    img: "/assets/Medisoft_novo.png",
     tags: ["REACT", "POSTGRESQL", "EXPRESS"],
     client: "CLÍNICAS PARCEIRAS",
     color: "#4d98e2" // Azul Dunatech
@@ -26,7 +26,7 @@ const projects = [
     id: 3,
     title: "BEATRIZMONTENEGRO.COM.BR",
     desc: "Website corporativo desenvolvido para clínica odontológica especializada, focado em conversão digital e expansão da base de pacientes.",
-    img: "/public/assets/beatrizm.png",
+    img: "/assets/beatrizm.png",
     tags: ["HTML5", "CSS3", "JS"],
     client: "DRA. ANA BEATRIZ",
     color: "#FFEA00" // Amarelo Vibrante
@@ -35,7 +35,7 @@ const projects = [
     id: 4,
     title: "MEDIDOCS",
     desc: "Aplicação mobile com IA integrada para análise e resumo inteligente de documentos clínicos, otimizando o fluxo de trabalho de profissionais da saúde.",
-    img: "/public/assets/MediDocs.jpeg",
+    img: "/assets/MediDocs.jpeg",
     tags: ["REACT NATIVE", "IA", "EXPO"],
     client: "DUNATECH_LABS",
     color: "#B388FF" // Roxo Brilhante
@@ -44,7 +44,7 @@ const projects = [
     id: 5,
     title: "MEDISOFT APP",
     desc: "Versão mobile do sistema de gestão hospitalar, garantindo acesso rápido e seguro a informações clínicas de qualquer lugar, com interface nativa e fluida.",
-    img: "/public/assets/Medisoft_App.jpeg",
+    img: "/assets/Medisoft_App.jpeg",
     tags: ["REACT NATIVE", "NODEJS", "FIREBASE"],
     client: "CLÍNICAS PARCEIRAS",
     color: "#4d98e2" // Azul Dunatech
@@ -53,7 +53,7 @@ const projects = [
     id: 6,
     title: "VONK'S BARBEARIA",
     desc: "Identidade digital e plataforma de agendamento online desenvolvida para elevar a experiência do cliente, focada em conversão e estilo visual marcante.",
-    img: "/public/assets/vonksbarbearia.png",
+    img: "/assets/vonksbarbearia.png",
     tags: ["HTML5", "CSS3", "JS", "UI/UX"],
     client: "VONK'S BARBEARIA",
     color: "#00E676" // Verde Neon

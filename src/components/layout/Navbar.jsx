@@ -25,11 +25,9 @@ export default function Navbar({ theme, toggleTheme }) {
         <header className="d-flex align-items-center justify-content-between py-3 mx-auto">
           
           <a href="/" className="d-flex align-items-center text-decoration-none">
-            {/* A MÁGICA AQUI: O React troca o arquivo da imagem automaticamente!
-              Se for light, puxa a logo preta. Se for dark, puxa a logo branca.
-            */}
+
             <img 
-              src={theme === 'light' ? "public/assets/dunatechPRETO.png" : "public/assets/Logo_Dunatech.png"} 
+              src={theme === 'light' ? "/assets/dunatechPRETO.png" : "/assets/Logo_Dunatech.png"} 
               alt="Logo Dunatech" 
               className="img-fluid"
               style={{ maxWidth: '140px', transition: 'opacity 0.3s ease' }}
