@@ -29,7 +29,7 @@ export default function Navbar({ theme, toggleTheme }) {
               Se for light, puxa a logo preta. Se for dark, puxa a logo branca.
             */}
             <img 
-              src={theme === 'light' ? "images/assets/dunatechPRETO.png" : "images/assets/Logo_Dunatech.png"} 
+              src={theme === 'light' ? "public/assets/dunatechPRETO.png" : "public/assets/Logo_Dunatech.png"} 
               alt="Logo Dunatech" 
               className="img-fluid"
               style={{ maxWidth: '140px', transition: 'opacity 0.3s ease' }}
