@@ -31,8 +31,13 @@ export default function Contact({ theme, toggleTheme }) {
       current_date: new Date().toLocaleString('pt-BR')
     };
 
-    // Suas credenciais reais do EmailJS
-    emailjs.send("service_hqtg8gp", "template_81rl7np", emailData, "s11Bnx4qEbtNFvdXG")
+    // Pegando as chaves seguras do arquivo .env
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Disparando o email com as variáveis de ambiente
+    emailjs.send(serviceID, templateID, emailData, publicKey)
       .then(() => {
         alert("Mensagem enviada com sucesso! Entraremos em contato em breve.");
         setFormData({
