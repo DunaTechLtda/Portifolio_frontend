@@ -26,7 +26,7 @@ export default function Footer() {
                 className="d-inline-flex align-items-center gap-3 text-decoration-none text-white" 
                 whileHover={{ scale: 1.02 }}
               >
-                <img src="/images/assets/Simbolo_Dunatech.png" width="54" alt="Logo Dunatech" className="adaptive-logo" />
+                <img src="/public/assets/Simbolo_Dunatech.png" width="54" alt="Logo Dunatech" className="adaptive-logo" />
                 <div>
                   <strong className="d-block text-uppercase fs-5" style={{ letterSpacing: '1px', color: 'var(--brutal-text)' }}>DUNATECH</strong>
                   <span className="text-secondary fw-bold" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>SOFTWARE_HOUSE</span>
