@@ -20,8 +20,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Variáveis de Ambiente / Chaves Secretas (Segurança)
-.env
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -33,7 +31,6 @@ Thumbs.db
 desktop.ini
 
 # Configurações de IDEs (Opcional, mas bom ignorar)
-.vscode/
 !.vscode/extensions.json
 .idea/
 *.suo
@@ -41,3 +38,4 @@ desktop.ini
 *.njsproj
 *.sln
 *.sw?
+config.bat
