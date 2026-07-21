@@ -117,15 +117,15 @@ export default function Contact({ theme, toggleTheme }) {
                   
                   {/* Estilos dos inputs adaptados para usar variáveis e inherit */}
                   <div className="row g-4">
-                    <div className="col-md-6">
-                      <label htmlFor="inputFirstName" className="form-label text-uppercase fw-bold text-secondary" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Nome *</label>
-                      <input type="text" className="form-control" id="inputFirstName" value={formData.inputFirstName} onChange={handleChange} required 
+                    <div className="col-md-6 d-flex flex-column">
+                      <label htmlFor="inputFirstName" className="form-label text-uppercase fw-bold text-secondary mb-2" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Nome *</label>
+                      <input type="text" className="form-control mt-auto" id="inputFirstName" value={formData.inputFirstName} onChange={handleChange} required 
                         style={{ backgroundColor: 'transparent', border: '1px solid var(--brutal-border)', borderRadius: '0', color: 'var(--brutal-text)', padding: '12px' }} 
                       />
                     </div>
-                    <div className="col-md-6">
-                      <label htmlFor="inputLastName" className="form-label text-uppercase fw-bold text-secondary" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Sobrenome</label>
-                      <input type="text" className="form-control" id="inputLastName" value={formData.inputLastName} onChange={handleChange} 
+                    <div className="col-md-6 d-flex flex-column">
+                      <label htmlFor="inputLastName" className="form-label text-uppercase fw-bold text-secondary mb-2" style={{ letterSpacing: '1px', fontSize: '0.85rem' }}>Sobrenome</label>
+                      <input type="text" className="form-control mt-auto" id="inputLastName" value={formData.inputLastName} onChange={handleChange} 
                         style={{ backgroundColor: 'transparent', border: '1px solid var(--brutal-border)', borderRadius: '0', color: 'var(--brutal-text)', padding: '12px' }} 
                       />
                     </div>
