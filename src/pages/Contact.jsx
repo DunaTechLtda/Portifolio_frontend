@@ -4,6 +4,20 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/sections/Footer';
 
+const WHATSAPP_NUMERO = '5584998185053';
+
+function whatsappLink(dados) {
+  const nome = [dados.from_name, dados.from_lastname].filter(Boolean).join(' ');
+  const linhas = [
+    `Olá, Dunatech! Sou ${nome}.`,
+    `E-mail: ${dados.from_email}`,
+    dados.from_phone ? `Telefone: ${dados.from_phone}` : null,
+    '',
+    dados.message,
+  ].filter((l) => l !== null);
+  return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(linhas.join('\n'))}`;
+}
+
 export default function Contact({ theme, toggleTheme }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -36,6 +50,14 @@ export default function Contact({ theme, toggleTheme }) {
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    // Sem as chaves do EmailJS no build, a mensagem segue pelo WhatsApp para não se perder
+    const chaveValida = (v) => typeof v === 'string' && v.trim().length >= 6 && !v.includes('...');
+    if (![serviceID, templateID, publicKey].every(chaveValida)) {
+      window.open(whatsappLink(emailData), '_blank', 'noopener,noreferrer');
+      setIsSubmitting(false);
+      return;
+    }
+
     // Disparando o email com as variáveis de ambiente
     emailjs.send(serviceID, templateID, emailData, publicKey)
       .then(() => {
@@ -46,7 +68,9 @@ export default function Contact({ theme, toggleTheme }) {
       })
       .catch((err) => {
         console.error("FAILED...", err);
-        alert("Erro ao enviar mensagem. Tente novamente ou entre em contato por telefone.");
+        if (window.confirm("Não conseguimos enviar por e-mail agora. Quer mandar a mesma mensagem pelo WhatsApp?")) {
+          window.open(whatsappLink(emailData), '_blank', 'noopener,noreferrer');
+        }
       })
       .finally(() => {
         setIsSubmitting(false);
@@ -220,7 +244,7 @@ export default function Contact({ theme, toggleTheme }) {
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-envelope"></i> EMAIL DIRETO
                       </span>
-                      <strong className="text-white fs-5">dunatechltda@gmail.com</strong>
+                      <a href="mailto:dunatechltda@gmail.com" className="text-white fw-bold fs-5 text-decoration-none">dunatechltda@gmail.com</a>
                     </div>
                   </div>
 
@@ -230,7 +254,7 @@ export default function Contact({ theme, toggleTheme }) {
                       <span className="d-flex align-items-center gap-2 text-secondary text-uppercase fw-bold mb-2" style={{ fontSize: '0.75rem', letterSpacing: '2px' }}>
                         <i className="bi bi-whatsapp"></i> WHATSAPP
                       </span>
-                      <strong className="text-white fs-6">(84) 99818-5053</strong>
+                      <a href={`https://wa.me/${WHATSAPP_NUMERO}`} target="_blank" rel="noopener noreferrer" className="text-white fw-bold fs-6 text-decoration-none">(84) 99818-5053</a>
                     </div>
                   </div>
 

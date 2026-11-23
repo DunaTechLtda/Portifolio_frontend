@@ -5,6 +5,33 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
+    id: 7,
+    title: "CURSINHOEQUIPE.COM.BR",
+    desc: "Plataforma de cursos preparatórios para o IFRN, com aulas gravadas protegidas, listas de exercícios por aula, aulas grátis, correção de redação, ranking de notas e loja integrada com pagamento por Pix e cartão.",
+    img: "/assets/cursinhoequipe.jpg",
+    tags: ["NEXT.JS", "POSTGRESQL", "PRISMA", "DOCKER"],
+    client: "CURSINHO EQUIPE",
+    color: "#4d98e2" // Azul Dunatech
+  },
+  {
+    id: 8,
+    title: "JOYCECAROLINEBRAND.COM.BR",
+    desc: "E-commerce de moda feminina com loja online, venda no balcão pelo celular e painel da lojista num estoque único, com pagamento por Pix e cartão, reserva de peças e e-mails automáticos.",
+    img: "/assets/joycecaroline.jpg",
+    tags: ["NEXT.JS", "POSTGRESQL", "PRISMA", "DOCKER"],
+    client: "JC BY JOYCE CAROLINE",
+    color: "#FFEA00" // Amarelo Vibrante
+  },
+  {
+    id: 9,
+    title: ".YARUU",
+    desc: "Loja online de moda feminina com identidade visual marcante, guia de tamanhos, lookbook, frete calculado pelo CEP e painel da dona integrado ao balcão e ao estoque.",
+    img: "/assets/yaruu.jpg",
+    tags: ["NEXT.JS", "POSTGRESQL", "PRISMA", "UI/UX"],
+    client: "RUANNE GUEDES",
+    color: "#B388FF" // Roxo Brilhante
+  },
+  {
     id: 1,
     title: "SBCP-RN",
     desc: "Plataforma web institucional desenvolvida para a Sociedade Brasileira de Cirurgia Plástica do Rio Grande do Norte, otimizando o processo de gestão e inscrições.",
